@@ -35,7 +35,7 @@ menu:
   archives: /archives
   about: /about
   # schedule: /schedule
-  # commonweal: /404.html
+  commonweal: /404.html
 
 
 # Enable/Disable menu icons.
