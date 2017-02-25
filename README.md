@@ -1,6 +1,5 @@
 关于Hexo备份问题，该git只备份
 
-* themes
 * source
 * scaffolds
 * _config.yml
