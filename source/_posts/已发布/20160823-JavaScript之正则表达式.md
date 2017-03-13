@@ -1,10 +1,10 @@
 ---
-title: 常用正则表达式
+title: JavaScript之正则表达式
 toc: true
 comments: true
 categories: 技术博客
-tags: Default
-date: 2017-02-10 17:28:39
+tags: JavaScript
+date: 2016-08-23 17:28:39
 photos:
 description:
 ---

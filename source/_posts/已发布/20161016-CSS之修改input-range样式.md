@@ -30,7 +30,7 @@ description:
 
 纯 CSS 的做法，由于 `range` 是 `input` 的一种类型，我们无法用传统的 CSS 编辑方法来修改样式，这裡必须要使用到`-webkit-appearance`这个特殊属性，这是 `webkit` 特有的属性，代表使用系统预设的外观，可惜 `W3C` 到写这篇文章的时候，都还没有纳入规范 ( 不然 `webkit` 简直是神呀 )，只要我们将这个属性设为`none`，那麽原本 `range` 的样式就不会呈现了，这时我们只要加入自己的背景、阴影...等样式，就可以看到样式被换过来了。
 
-```css3
+```css
 input[type="range"]{
   -webkit-appearance: none;
   overflow:hidden;     /* 限定范围 */
@@ -46,7 +46,7 @@ input[type="range"]{
 
 上面的 CSS 只是针对 `range` 的本体，但还有一个拉把的按钮样式还没改，这时候我们要使用另外一个 webkit 的伪元素`::-webkit-slider-thumb`来修改。
 
-```css3
+```css
 input[type="range"]::-webkit-slider-thumb{
   -webkit-appearance: none;
   position: relative;    /* 设为相对位置，为了前后区块的绝对位置而设定 */
@@ -64,7 +64,7 @@ input[type="range"]::-webkit-slider-thumb{
 
 接下来要进行的步骤就是加上一些颜色和效果，主要让圆点左边的区域是红色，右边的区域是浅红色，这样看起来才像是不同的 `range`，为了达到这个目的，我们要使用`伪元素裡面的伪元素`，也就是在 webkit 的`::-webkit-slider-thumb`伪元素的前后，各再安插`:before`和`:after`的伪元素，并让这两个伪元素颜色不同，就可以做出前后颜色差异的效果。
 
-```css3
+```css
 input[type="range"]::-webkit-slider-thumb:before,
 input[type="range"]::-webkit-slider-thumb:after
 {
@@ -94,7 +94,7 @@ input[type="range"]::-webkit-slider-thumb:after {
 
 不过光是这样还不够，接着我们要来让点击的时候圆圈会变大，本来想做滑鼠移上去就会变大，但两层伪元素虽然会变大，但位置却无法控制，所以就只好用 `active` 来代替。
 
-```css3
+```css
 input[type="range"]:active::-webkit-slider-thumb:before,
 input[type="range"]:active::-webkit-slider-thumb:after
 {
@@ -118,7 +118,7 @@ input[type="range"]:active::-webkit-slider-thumb:after {
 
 不过如果是 `Firefox`，就必须要做一些修改，因为 `Firefox` 是认不得 `webkit` 的，要在 `Firefox` 跑的 CSS 就要写成下面这样，相较于 `webkit`，`Firefox` 就显得比较直觉，因为他裡面具有一个`::-moz-range-progress`的伪元素，利用这个伪元素，我们就不用在前后加个区块，他直接就可以呈现 range 的色彩囉！
 
-```css3
+```css
 input[type="range"]{
   width:200px;
   height:16px;
@@ -160,7 +160,7 @@ input[type="range"]::-moz-focus-outer{
 
 接着介绍一下如何用`CSS + jQuery`做出一样的效果，同样的，我们要先用`-webkit-appearance`把原始样式隐藏，先看到`input[type="range"]`的样式，这边我利用背景颜色渐层的方式，来完成左右颜色不同的效果 ( 虽然方便，但相对的就不能用纯 CSS 控制 )。
 
-```CSS3
+```css
 input[type="range"]{
   -webkit-appearance: none;
   border-radius:2px;
@@ -175,7 +175,7 @@ input[type="range"]{
  
 接着看到input[type="range"]::-webkit-slider-thumb的样式，并加上 hover 的效果：
 
-```css3
+```css
 input[type="range"]::-webkit-slider-thumb{
   -webkit-appearance: none;
   width:10px;

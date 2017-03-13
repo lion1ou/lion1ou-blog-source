@@ -17,7 +17,7 @@ description:
 
 除了在DOM中插入图片节点，其他凡是涉及到要展示一张新图片的操作，浏览器都得即时去请求图片。比如，为某个节点添加如下css类来增加背景图片：
 
-```css3
+```css
 .bg1{
     background: url(http://p2.qhimg.com/t01ed1438874f940dc0.jpg);
 }
