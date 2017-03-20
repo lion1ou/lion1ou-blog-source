@@ -4,7 +4,7 @@ toc: true
 comments: true
 categories: 技术博客
 tags: Default
-date: 2017-03-16 14:22:26
+date: 2017-03-14 14:22:26
 photos:
 description:
 ---
@@ -30,7 +30,8 @@ require(['clock'],function(clock){
   clock.start();
 });
 ```
-AMD虽然实现了异步加载，但是开始就把所有依赖写出来是不符合书写的逻辑顺序的，能不能像commonJS那样用的时候再require，而且还支持异步加载后再执行呢？
+AMD虽然实现了异步加载，但是开始就把所有依赖写出来是不符合书写的逻辑顺序的，能不能像commonJS那样
+用的时候再require，而且还支持异步加载后再执行呢？
 
 ### CMD
 
