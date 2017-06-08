@@ -44,8 +44,10 @@ HTML5里引入的新标记 `<audio>` 和 `<video>` 实现了HTML对视频播放�
 ### 获取对象
 
 ```js
-//audio可以直接通过new创建对象 var Media = newAudio("http://www.abc.com/test.mp3");
-//audio和video都可以通过标签获取对象 var Media = document.getElementById("media");
+//audio可以直接通过new创建对象 
+var Media = newAudio("http://www.abc.com/test.mp3");
+//audio和video都可以通过标签获取对象 
+var Media = document.getElementById("media");
 
 /*Media方法和属性： 
    HTMLVideoElement和 HTMLAudioElement均继承自 HTMLMediaElement*/

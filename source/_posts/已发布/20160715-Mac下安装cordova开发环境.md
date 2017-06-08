@@ -89,7 +89,28 @@ adb -version
  * 执行Cordova命令行，`cordova run android`
 
 ![](http://7xvowi.com1.z0.glb.clouddn.com/blog/firstRunCordova.png)
-即可真机调试程序，还是出现无法安装问题，拔出手机连接线，重新连接。
+即可真机调试程序，还是出现无法安装问题，拔出手机连接线，重新连接。（首次执行cordova命令需要较长时间，下载相关依赖文件）
+
+## 出现问题
+
+若出现如下问题：
+```bash
+cordova build android
+ANDROID_HOME=/Users/jkinfo/Library/Android/sdk
+JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home
+Error: Could not find gradle wrapper within Android SDK. Might need to update your Android SDK.
+Looked here: /Users/jkinfo/Library/Android/sdk/tools/templates/gradle/wrapper
+```
+
+解决办法：
+
+去[安卓开发平台](https://developer.android.com/studio/index.html#downloads)下载Android tools [tools_r25.2.3-macosx.zip](https://dl.google.com/android/repository/tools_r25.2.3-macosx.zip) 替换现tools文件的内容
+
+* 下载上述文件，解压
+* 将解压出来的文件，与`/Users/jkinfo/Library/Android/sdk/tools`目录下的文件替换
+* 然后就可以正常的运行cordova命令了。
+
+
 
 **转载请标注原文地址**                           
 (end)
