@@ -52,15 +52,17 @@ comments: true
     justify-content: space-around
 }
 
-.chuyun {
+#chuyun {
     text-align: center;
 }
 
-.chuyun p {
-    margin: 5px 0;
+#chuyun .chuyun_p {
+    margin: 5px 0 0 0;
 }
-
-.chuyun img {
+#chuyun .chuyun_p span {
+   color: #ff4081;
+}
+#chuyun img {
     height: 200px;
     width: 200px;
 }
@@ -73,16 +75,18 @@ comments: true
         <p class="motto">「做一个脚踏实地的前端学徒」</p>
     </div>
     <div class="info">
-        <p><i class="icon iconfont icon-person-info"> </i>个人信息：羅dz/男/1992.7/上海</p>
-        <p><i class="icon iconfont icon-edu"> </i>教育经历：本科/同济大学浙江学院/自动化/2015届</p>
-        <p><i class="icon iconfont icon-email"> </i>联系邮箱：a418120186@gmail.com</p>
+        <p><i class="icon iconfont icon-person-info"> </i>个人信息：羅dz/男/1992.7/杭州</p>
+        <p><i class="icon iconfont icon-email"> </i>联系邮箱：<a mailto="lion1ou@163.com">lion1ou@163.com</a></p>
         <p><i class="icon iconfont icon-blog"> </i>个人简历：<a href="http://lion1ou.win/resume/">http://lion1ou.win/resume/</a></p>
         <p><i class="icon iconfont icon-github"></i>Github：<a href="https://github.com/lion1ou">https://github.com/lion1ou</a></p>
         <p><i class="icon iconfont icon-wechat"> </i>wechat：dezhong007</p>
         <p><i class="icon iconfont icon-weibo"> </i>weibo：<a href="http://weibo.com/u/1923271877?refer_flag=1001030102_&amp;is_hot=1">羅dz-</a></p>
     </div>
 </section>
-<section class="chuyun">
-    <p>初韵茶苑：工作之余顺带安利一下福鼎白茶，有需要可以关注购买：</p>
+<section id="chuyun">
+    <p class="chuyun_p">初韵茶苑</p>
+    <p class="chuyun_p">自产自销的正宗福鼎白茶</p>
+    <p class="chuyun_p">购买时联系客服，发送"lion1ou.win"</p>
+    <p class="chuyun_p">享受<span>减免15元</span>优惠</p>
     <img src="http://ww2.sinaimg.cn/large/006tKfTcgw1f6vubv75g7j305k05k74m.jpg" alt="二维码">
 </section>
