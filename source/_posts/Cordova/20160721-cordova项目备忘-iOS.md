@@ -82,4 +82,4 @@ if (typeof(navigator.app) !== "undefined") {
 * [如何创建、配置、开发第一个ios应用](http://www.hangge.com/blog/cache/detail_1145.html )
 
 **转载请标注原文地址**                           
-(end)
+

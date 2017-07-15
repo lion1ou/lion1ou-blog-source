@@ -33,7 +33,7 @@ scheme: Paradox
 
 # UI & UX: slogan, color, effect
 uiux:
-    slogan: "「做一个脚踏实地的全栈学徒」"
+    slogan: "「做一个脚踏实地的前端学徒」"
     theme_color: "#404049"
     theme_sub_color: "#AOAOAF"
     hyperlink_color: "#AOAOAF"
