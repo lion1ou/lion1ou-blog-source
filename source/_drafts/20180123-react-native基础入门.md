@@ -35,6 +35,14 @@ react-native run-ios
 * 在iOS Emulator中按下⌘+R就可以刷新APP并看到你的最新修改！
 * 在 Android 上可以双击R，可以刷新APP并看到你的最新修改
 
+### 调试方法
+
+在模拟器上按快捷键 Command-D ，会弹出下面图示
+
+![](https://ws3.sinaimg.cn/large/006tKfTcgy1fo33qaqknaj30km14edgx.jpg)
+
+
+
 ### 问题记录
 
 ##### ReactNative iOS运行出错：No bundle URL present（整个页面红色）
@@ -48,4 +56,3 @@ react-native run-ios
 解决办法是：取消全局网络代理，改为自动模式即可。
 
 **转载请标注原文地址**
-

@@ -125,7 +125,7 @@ console.log(foo.getX.apply(obj));   //81
 * apply 、call 区别在于传递参数的类型，call按顺序传递可确定个数参数
 * bind 是返回对应函数，便于稍后调用；apply 、call 则是立即调用 。
 
-
+[详细参考链接：http://web.jobbole.com/83642/](http://web.jobbole.com/83642/)
 
 **转载请标注原文地址**
 
