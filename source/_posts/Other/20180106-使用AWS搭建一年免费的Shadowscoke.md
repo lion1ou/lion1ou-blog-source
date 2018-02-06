@@ -3,8 +3,8 @@ title: 使用AWS搭建一年免费的Shadowscoke
 toc: true
 comments: true
 date: 2018-01-06 10:25:09
-categories:
-tags:
+categories: Other
+tags: AWS
 photos:
 ---
 

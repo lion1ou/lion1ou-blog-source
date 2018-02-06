@@ -3,8 +3,8 @@ title: javaScript事件详解
 toc: true
 comments: true
 date: 2018-01-27 10:38:32
-categories:
-tags:
+categories: JavaScript
+tags: JavaScript
 photos:
 ---
 
