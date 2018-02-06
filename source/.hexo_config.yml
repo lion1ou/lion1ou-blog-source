@@ -7,7 +7,7 @@ title: lion1ou.win
 subtitle: 
 description: 「做一个脚踏实地的前端学徒」
 author: lion1ou
-language: zh-CN
+language: zh-Hans
 timezone:
 avatar: http://ww4.sinaimg.cn/large/72f96cbagw1f5r2v8ovbjj20ma0mawjr.jpg
 
@@ -58,13 +58,13 @@ time_format: HH:mm:ss
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 20
+per_page: 50
 pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-material
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -80,3 +80,10 @@ sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
+
+# 本地搜索配置
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000

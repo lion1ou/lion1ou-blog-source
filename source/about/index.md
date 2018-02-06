@@ -5,14 +5,14 @@ comments: true
 ---
 <style type="text/css">
 #bio {
+    /* background: #fbfbfb; */
+    /* border: 1px solid #f3f3f3; */
+    /* border-radius: 8px; */
+    /* border-width: 0 1px 1px; */
+    /* border-color: #fff #f3f3f3 #e8e8e8; */
+    line-height: 16px;
     width: 100%;
-    background: #fbfbfb;
     padding: 30px 20px;
-    border: 1px solid #f3f3f3;
-    border-radius: 8px;
-    border-width: 0 1px 1px;
-    border-color: #fff #f3f3f3 #e8e8e8;
-    line-height: 16px
 }
 
 #bio .avatar {
@@ -44,12 +44,11 @@ comments: true
 }
 
 .box-flex-row {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     display: -webkit-flex;
     flex-flow: row wrap;
-    justify-content: space-around
+    justify-content: space-around;
+    box-sizing: border-box;
 }
 
 #chuyun {
@@ -75,12 +74,12 @@ comments: true
         <p class="motto">「做一个脚踏实地的前端学徒」</p>
     </div>
     <div class="info">
-        <p><i class="icon iconfont icon-person-info"> </i>个人信息：羅dz/男/1992.7/杭州</p>
-        <p><i class="icon iconfont icon-email"> </i>联系邮箱：<a mailto="lion1ou@163.com">lion1ou@163.com</a></p>
-        <p><i class="icon iconfont icon-blog"> </i>个人简历：<a href="http://lion1ou.win/resume/">http://lion1ou.win/resume/</a></p>
-        <p><i class="icon iconfont icon-github"></i>Github：<a href="https://github.com/lion1ou">https://github.com/lion1ou</a></p>
-        <p><i class="icon iconfont icon-wechat"> </i>wechat：dezhong007</p>
-        <p><i class="icon iconfont icon-weibo"> </i>weibo：<a href="http://weibo.com/u/1923271877?refer_flag=1001030102_&amp;is_hot=1">羅dz-</a></p>
+        <p>个人信息：羅dz/男/1992.7/杭州</p>
+        <p>联系邮箱：<a mailto="lion1ou@163.com">lion1ou@163.com</a></p>
+        <p>个人简历：<a href="http://lion1ou.win/resume/">http://lion1ou.win/resume/</a></p>
+        <p>Github：<a href="https://github.com/lion1ou">https://github.com/lion1ou</a></p>
+        <p>wechat：dezhong007</p>
+        <p>weibo：<a href="http://weibo.com/u/1923271877?refer_flag=1001030102_&amp;is_hot=1">羅dz-</a></p>
     </div>
 </section>
 <section id="chuyun">
