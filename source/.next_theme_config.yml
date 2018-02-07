@@ -359,7 +359,7 @@ han: true
 baidu_analytics: 670319318804add6c99a71df6601f645
 
 # Duoshuo ShortName
-duoshuo_shortname: lionluo
+# duoshuo_shortname: ''
 
 # Disqus
 disqus:
@@ -408,7 +408,7 @@ gitment:
   mint: true # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway
   count: true # Show comments count in post meta area
   lazy: false # Comments lazy loading with a button
-  cleanly: false # Hide 'Powered by ...' on footer, and more
+  cleanly: true # Hide 'Powered by ...' on footer, and more
   language: # Force language, or auto switch by theme
   github_user: lion1ou # MUST HAVE, Your Github ID
   github_repo: gitment-comments # MUST HAVE, The repo you use to store Gitment comments
@@ -433,7 +433,7 @@ gitment:
 #add_this_id:
 
 # Share
-#duoshuo_share: true
+duoshuo_share: false
 
 # NeedMoreShare2
 # This plugin is a pure javascript sharing lib which is useful in China.
@@ -489,7 +489,7 @@ needmoreshare2:
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
 duoshuo_info:
-  ua_enable: true
+  ua_enable: false
   admin_enable: false
   user_id: 0
   #admin_nickname: Author
