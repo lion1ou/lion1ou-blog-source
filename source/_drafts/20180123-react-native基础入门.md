@@ -42,7 +42,6 @@ react-native run-ios
 ![](https://ws3.sinaimg.cn/large/006tKfTcgy1fo33qaqknaj30km14edgx.jpg)
 
 
-
 ### 问题记录
 
 ##### ReactNative iOS运行出错：No bundle URL present（整个页面红色）
@@ -54,5 +53,23 @@ react-native run-ios
 >导致了之前可以正常连接到本地的packager的server，由于全局网络代理，从而需要绕道国外服务器，再去连接本地，所以无法正常访问了
 
 解决办法是：取消全局网络代理，改为自动模式即可。
+
+
+#####  ReactNative iOS打开WebView 出现 `Error Domain=NSURLErrorDomain Code=-1022`
+
+原因是：iOS开发中依然使用http请求，而非https请求，或者https请求内带有http请求。
+
+解决方案： 修改RN项目中的ios文件夹下的项目文件内的`Info.plist`文件，如图添加下面代码
+
+![](https://ws2.sinaimg.cn/large/006tNc79gy1fo99gokjf9j30w40fa3z2.jpg)
+
+```
+<key>NSAllowsArbitraryLoads</key>
+<true/>
+```
+
+或者是在Xcode中，直接修改Info.plist文件
+
+![](https://ws2.sinaimg.cn/large/006tNc79gy1fo99jtjtixj31cg0o4gpm.jpg)
 
 **转载请标注原文地址**
