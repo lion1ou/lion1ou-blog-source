@@ -149,7 +149,7 @@ connection.onmessage = function(e) {
 </html>
 ```
 
-安装 pywebsocket
+## 安装 pywebsocket
 
 在执行以上程序前，我们需要创建一个支持 WebSocket 的服务。从 [pywebsocket](https://github.com/google/pywebsocket) 下载 mod_pywebsocket ,或者使用 git 命令下载：
 git clone https://github.com/google/pywebsocket.git
