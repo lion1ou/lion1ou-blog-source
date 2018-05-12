@@ -155,6 +155,7 @@ function cancelHandler(event){
 ```js
 // 获取父节点，并为它添加一个click事件
 document.getElementById("parent-list").addEventListener("click",function(e) {
+  // currentTarget属性
   // 检查事件源e.targe是否为Li
   if(e.target && e.target.nodeName.toUpperCase == "LI") {
     // 真正的处理过程在这里
