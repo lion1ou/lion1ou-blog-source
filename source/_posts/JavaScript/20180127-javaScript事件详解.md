@@ -105,9 +105,9 @@ window.event.cancelBubble = true;
 event.stopPropagation()
 
 // 通用方法
-function stopHandler(event)
+function stopHandler(event) {
     window.event ? window.event.cancelBubble = true : event.stopPropagation();
-}
+};
 ```
 
 ##### 事件传递后浏览器的默认处理
@@ -155,7 +155,7 @@ function cancelHandler(event){
 ```js
 // 获取父节点，并为它添加一个click事件
 document.getElementById("parent-list").addEventListener("click",function(e) {
-  // currentTarget属性
+  // currentTarget属性，事件绑定的对象
   // 检查事件源e.targe是否为Li
   if(e.target && e.target.nodeName.toUpperCase == "LI") {
     // 真正的处理过程在这里
