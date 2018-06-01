@@ -73,11 +73,24 @@ react-native run-ios
 
 此处，React Native iOS中，iOS模拟器运行又出现了：`No bundle URL present`
 
+* 方法一
+
 是由于：（shadowsocks的）网络代理设置为了全局代理（去翻墙）
 
 >导致了之前可以正常连接到本地的packager的server，由于全局网络代理，从而需要绕道国外服务器，再去连接本地，所以无法正常访问了
 
 解决办法是：取消全局网络代理，改为自动模式即可。
+
+* 方法二
+
+怀疑是因为环境被破坏了，重新安装依赖，启动环境
+
+在iOS模拟器运行的情况下，在命令行内输入：
+
+```bash
+npm i
+react-native run-ios
+```
 
 
 #####  ReactNative iOS打开WebView 出现 `Error Domain=NSURLErrorDomain Code=-1022`
