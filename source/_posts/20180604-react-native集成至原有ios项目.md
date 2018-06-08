@@ -56,5 +56,37 @@ sudo gem install cocoapods
 
 
 
+
+
+### 坑
+
+1. 运行时发生以下错误:`library not found for -lDoubleConversion`
+
+![](https://ws1.sinaimg.cn/large/006tKfTcgy1fs3jx9sortj31ae0iygve.jpg)
+
+![](https://ws1.sinaimg.cn/large/006tKfTcgy1fs3jx9sortj31ae0iygve.jpg)
+
+现在会报这个错误，但是我这边文件已经引入了，而且文件是存在的
+
+解决方法： 
+
+1.  rm -rf Pods.
+2.  rm Podfile.lock.
+3.  pod install
+4.  react-native link
+5.  不要忘了需要先关闭Xcode 在执行`pod install`，然后再打开`.xcworkspace`
+
+
+2. 运行时产生以下错误:`Could not connect to development server.`
+Failed to load bundle(http://localhost:8081/index.bundle?platform=ios&dev=true) with error: (Could not connect tp development server)
+
+![](https://ws1.sinaimg.cn/large/006tNc79gy1fs2ecea0e7j30k30zqwmy.jpg)
+
+解决:
+
+把代码中的localhost改为IP地址（127.0.0.1）
+
+
+
 **转载请标注原文地址**
 
