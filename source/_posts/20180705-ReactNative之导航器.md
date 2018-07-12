@@ -3,8 +3,8 @@ title: ReactNative之导航器
 toc: true
 comments: true
 date: 2018-07-05 17:54:52
-categories:
-tags:
+categories: ReactNative
+tags: ReactNative
 photos:
 ---
 

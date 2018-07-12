@@ -3,8 +3,8 @@ title: ReactNative之环境搭建
 toc: true
 comments: true
 date: 2018-05-31 11:51:08
-categories:
-tags:
+categories: ReactNative
+tags: ReactNative
 photos:
 ---
 

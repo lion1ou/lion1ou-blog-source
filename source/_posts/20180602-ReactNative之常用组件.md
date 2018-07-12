@@ -3,8 +3,8 @@ title: ReactNative之常用组件
 toc: true
 comments: true
 date: 2018-06-02 17:16:01
-categories:
-tags:
+categories: ReactNative
+tags: ReactNative
 photos:
 ---
 

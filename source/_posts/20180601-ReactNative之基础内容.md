@@ -3,8 +3,8 @@ title: ReactNative之基础内容
 toc: true
 comments: true
 date: 2018-06-01 16:33:39
-categories:
-tags:
+categories: ReactNative
+tags: ReactNative
 photos:
 ---
 
