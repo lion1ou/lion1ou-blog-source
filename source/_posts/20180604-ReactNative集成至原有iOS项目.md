@@ -119,20 +119,12 @@ $ npm install
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "prop-types": "^15.6.1",
     "react": "16.0.0",
     "react-native": "0.50.3",
-    "react-native-code-push": "^5.2.2",
-    "react-native-root-toast": "^1.3.0",
     "react-native-router-flux": "^4.0.0-beta.24",
     "react-native-simple-store": "^1.3.0",
     "react-native-storage": "^0.2.2",
-    "react-native-vector-icons": "^4.3.0",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
-    "redux-actions": "^2.2.1",
-    "redux-promise-middleware": "^4.4.1",
-    "redux-thunk": "^2.2.0"
+    "react-native-vector-icons": "^4.3.0"
   },
   "devDependencies": {
     "babel-jest": "22.4.1",
@@ -218,8 +210,6 @@ $ pod install
 >实现由原生页面跳转到RN页面
 
 在项目中新建一个RN页面，
-
-
 
 用于承接react-native, 代码如下：
 

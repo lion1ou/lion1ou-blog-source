@@ -10,9 +10,9 @@ photos:
 
 <!--more-->
 
-### [<Image />](https://reactnative.cn/docs/0.31/images.html#content)
+### [`<Image />`](https://reactnative.cn/docs/0.31/images.html#content)
 
-[<Image /> API](https://reactnative.cn/docs/0.31/image.html#content)
+[`<Image />` API](https://reactnative.cn/docs/0.31/image.html#content)
 
 从0.14版本开始，React Native提供了一个统一的方式来管理iOS和Android应用中的图片。图片会自动匹配ios和android图片，根据手机分辨率也会自动匹配需要的图片，只要图片上加@2x/@3x。
 
