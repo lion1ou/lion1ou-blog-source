@@ -28,7 +28,7 @@ Native 向 JS 发送消息 : 回溯调用结果、消息推送、通知 JS 当�
 
 ## 实现原理
 
-主要分为两个部分，一个是 `JavaScript 调用 Native` 和 `Native 调用 JavaScript`
+主要分为两个部分，分别是 `JavaScript 调用 Native` 和 `Native 调用 JavaScript`
 
 #### JavaScript 调用 Native
 
