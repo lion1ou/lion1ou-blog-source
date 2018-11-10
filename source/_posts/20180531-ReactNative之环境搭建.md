@@ -36,6 +36,93 @@ photos:
 
     解决办法： 在打开 android Studio时，先关闭 shadowsocks，等待进入sdk 下载页面时，再开启shadowsocks
 
+3. ios报错
+
+```
+Found Xcode project testProject.xcodeproj
+xcrun: error: unable to find utility "instruments", not a developer tool or in PATH
+
+解决办法：
+
+Xcode > Preferences > Locations
+And assigning the Command Line Tools
+```
+
+4. ios报错
+```
+error: Build input file cannot be found: '/Users/rod/dev/react/testing/awesome/node_modules/react-native/third-party/double-conversion-1.1.6/src/strtod.cc'
+
+▸ Compiling fast-dtoa.cc
+error: Build input file cannot be found: '/Users/rod/dev/react/testing/awesome/node_modules/react-native/third-party/double-conversion-1.1.6/src/fast-dtoa.cc'
+
+▸ Compiling fixed-dtoa.cc
+error: Build input file cannot be found: '/Users/rod/dev/react/testing/awesome/node_modules/react-native/third-party/double-conversion-1.1.6/src/fixed-dtoa.cc'
+
+▸ Compiling double-conversion.cc
+error: Build input file cannot be found: '/Users/rod/dev/react/testing/awesome/node_modules/react-native/third-party/double-conversion-1.1.6/src/double-conversion.cc'
+
+▸ Compiling diy-fp.cc
+error: Build input file cannot be found: '/Users/rod/dev/react/testing/awesome/node_modules/react-native/third-party/double-conversion-1.1.6/src/diy-fp.cc'
+
+▸ Compiling cached-powers.cc
+error: Build input file cannot be found: '/Users/rod/dev/react/testing/awesome/node_modules/react-native/third-party/double-conversion-1.1.6/src/cached-powers.cc'
+
+▸ Compiling bignum.cc
+error: Build input file cannot be found: '/Users/rod/dev/react/testing/awesome/node_modules/react-native/third-party/double-conversion-1.1.6/src/bignum.cc'
+```
+
+解决办法，在项目目录下执行下面命令：
+
+```shell
+cd node_modules/react-native/scripts && ./ios-install-third-party.sh && cd ../../../
+cd node_modules/react-native/third-party/glog-0.3.5/ && ../../scripts/ios-configure-glog.sh
+```
+
+### 安装pod
+
+```shell
+
+sudo gem update --system
+
+sudo gem install -n /usr/local/bin cocoapods
+
+pod setup
+
+然后进入项目所在的ios目录，pod install
+
+```
+
+
+### 安装fastlane
+
+1、首先要安装正确的 Ruby 版本。在终端窗口中用下列命令来确认:
+
+```shell
+ruby -v
+```
+
+2、然后检查 Xcode 命令行工具是否安装。在终端窗口中输入命令：
+
+```shell
+xcode-select --install
+```
+
+3、以上依赖配置好之后就可以通过 rubygem 进行安装了
+
+```shell
+sudo gem install fastlane # 提示没有权限
+
+sudo gem install -n /usr/local/bin fastlane
+```
+
+可能会出现权限问题的报错，需要开一下组件的gitlab项目权限。（ssh有时候会出现，访问不了的问题，断网再连，或者等等看）
+
+
+### 帐号登录
+
+ios开发者帐号需要添加，然后在xcode登录，再在项目目录项运行 `fastlane match`
+
+
 ### 安装测试
 
 ```bash
