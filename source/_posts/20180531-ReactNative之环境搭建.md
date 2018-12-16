@@ -37,6 +37,9 @@ photos:
     解决办法： 在打开 android Studio时，先关闭 shadowsocks，等待进入sdk 下载页面时，再开启shadowsocks
 
 3. ios报错
+![ios报错3.png](https://cdn.leoao.com/ios报错3.png)
+
+![ios报错2.png](https://cdn.leoao.com/ios报错2.png)
 
 ```
 Found Xcode project testProject.xcodeproj
@@ -70,7 +73,7 @@ error: Build input file cannot be found: '/Users/rod/dev/react/testing/awesome/n
 ▸ Compiling bignum.cc
 error: Build input file cannot be found: '/Users/rod/dev/react/testing/awesome/node_modules/react-native/third-party/double-conversion-1.1.6/src/bignum.cc'
 ```
-
+![ios报错1.png](https://cdn.leoao.com/ios报错1.png)
 解决办法，在项目目录下执行下面命令：
 
 ```shell

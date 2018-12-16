@@ -62,7 +62,7 @@ server{
 ```shell
 server {
      listen 80;
-     server_name www.fdshfccy.com;
+     server_name www.chuyunt.com;
      rewrite ^/(.*) https://$server_name$1 permanent;    #用于http重定向到Https
 }
 ```

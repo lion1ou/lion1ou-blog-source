@@ -8,6 +8,27 @@ tags: ReactNative
 photos:
 ---
 
+监听事件
+
+```js
+let _this = null;
+
+export default class WebViewPage extends Component {
+    static navigationOptions = ({ navigation }) => ({
+        // ......
+                    onPress={() => _this.reload() }>
+        // ......
+        )
+    });
+   componentDidMount() {
+       _this = this;
+   }
+    _reload() {
+        console.log("aaaaaaa");
+    }
+```
+
+
 <!--more-->
 
 ### StackNavigator

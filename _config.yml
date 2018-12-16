@@ -71,8 +71,9 @@ theme: next
 deploy:
   type: git
   repo: 
-    github: git@github.com:lion1ou/lion1ou.github.io.git,master
+    github: git@github.com:lion1ou/lion1ou.github.io.git
   # coding: git@git.coding.net:418120186/418120186.git,coding-pages
+  branch: master
   # 在github、coding上对应项目中复制，选择shh和http都行
 
 # hexo sitemap网站地图
