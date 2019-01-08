@@ -1,5 +1,5 @@
 ---
-title: ReactNative之导航器
+title: ReactNative之导航器配置
 toc: true
 comments: true
 date: 2018-07-05 17:54:52
