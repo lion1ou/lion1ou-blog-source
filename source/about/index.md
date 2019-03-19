@@ -2,6 +2,7 @@
 title: about
 date: 2016-07-12 14:51:39
 comments: true
+layout: page
 ---
 <style type="text/css">
 #bio {
@@ -24,7 +25,8 @@ comments: true
     width: 150px;
     border: 2px solid #777;
     border-radius: 150px;
-    box-shadow: 0 2px 8px #aaa
+    box-shadow: 0 2px 8px #aaa;
+    padding: 0;
 }
 
 #bio .avatar .name {
@@ -47,6 +49,7 @@ comments: true
     display: flex;
     display: -webkit-flex;
     flex-flow: row wrap;
+    align-items: center;
     justify-content: space-around;
     box-sizing: border-box;
 }
@@ -69,23 +72,16 @@ comments: true
 
 <section class="box-flex-row" id="bio">
     <div class="avatar">
-        <img src="http://ww2.sinaimg.cn/large/006tNc79gw1f9i90ot28fj30ma0mawjr.jpg" alt="头像" />
-        <p class="name">罗德忠/lion1ou</p>
-        <p class="motto">「做一个脚踏实地的前端学徒」</p>
+        <img src="http://ww2.sinaimg.cn/large/006tNc79gw1f9i90ot28fj30ma0mawjr.jpg" />
     </div>
     <div class="info">
-        <p>个人信息：羅dz/男/1992.7/杭州</p>
+        <p>个人信息：lion1ou/男/92.7/杭州</p>
         <p>联系邮箱：<a mailto="lion1ou@163.com">lion1ou@163.com</a></p>
-        <p>个人简历：<a href="http://lion1ou.win/resume/">http://lion1ou.win/resume/</a></p>
         <p>Github：<a href="https://github.com/lion1ou">https://github.com/lion1ou</a></p>
-        <p>wechat：dezhong007</p>
-        <p>weibo：<a href="http://weibo.com/u/1923271877?refer_flag=1001030102_&amp;is_hot=1">羅dz-</a></p>
     </div>
 </section>
 <section id="chuyun">
     <p class="chuyun_p">初韵茶苑</p>
     <p class="chuyun_p">自产自销的正宗福鼎白茶</p>
-    <p class="chuyun_p">购买时联系客服，发送"lion1ou.win"</p>
-    <p class="chuyun_p">享受<span>减免15元</span>优惠</p>
-    <img src="http://ww2.sinaimg.cn/large/006tKfTcgw1f6vubv75g7j305k05k74m.jpg" alt="二维码">
+    <img src="http://ww2.sinaimg.cn/large/006tKfTcgw1f6vubv75g7j305k05k74m.jpg" alt="鸿福公众号二维码">
 </section>

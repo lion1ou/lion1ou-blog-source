@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
  
 # Site
-title: lion1ou.win
-subtitle: 
+title: lion1ou
+subtitle: 「做一个脚踏实地的前端学徒」
 description: 「做一个脚踏实地的前端学徒」
 author: lion1ou
-language: zh-Hans
+language: zh-CN
 timezone:
 avatar: http://ww4.sinaimg.cn/large/72f96cbagw1f5r2v8ovbjj20ma0mawjr.jpg
 
@@ -40,8 +40,8 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: false
-  auto_detect: false
+  line_number: true
+  auto_detect: true
   tab_replace:
 
 # Category & Tag
@@ -64,7 +64,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: maupassant
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
