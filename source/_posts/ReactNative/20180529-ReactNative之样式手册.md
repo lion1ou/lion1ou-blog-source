@@ -188,27 +188,27 @@ const px2dp = (UiPx) => Math.floor((UiPx * screenWidth / UiBaseWidth) * 10) / 10
 
 想要如下图的效果：
 
-![lineHeight1](../../images/lineHeight1.png)
+![lineHeight1](http://cdn.chuyunt.com/lineHeight1.png)
 
 想法：使用`lineHeight`实现
 
 设置外部容器`height: 36`
 
-![lineHeight2](../../images/lineHeight2.png)
+![lineHeight2](http://cdn.chuyunt.com/lineHeight2.png)
 
 想让中间字体垂直居中，扣去上下两个边框的宽度，应该设置`lineHeight: 34`
 
-![lineHeight3](../../images/lineHeight3.png)
+![lineHeight3](http://cdn.chuyunt.com/lineHeight3.png)
 
 发现底部的边框明显少了一部分，查看元素发现一个bug：
 
-![lineHeight4](../../images/lineHeight4.png)
+![lineHeight4](http://cdn.chuyunt.com/lineHeight4.png)
 
 #### 结论
 
 >   1. 如果不设置lineHeight，Text元素的高度也是`fontSize + 0.667`
 >   2. 最好的文字垂直居中方式：Text外再包一层View，在View上用`flex`布局。如下图所示：  
-> ![lineHeight5](../../images/lineHeight5.png)
+> ![lineHeight5](http://cdn.chuyunt.com/lineHeight5.png)
 
 ### 2. zIndex调整层级无效(绝对定位的同级元素)
 

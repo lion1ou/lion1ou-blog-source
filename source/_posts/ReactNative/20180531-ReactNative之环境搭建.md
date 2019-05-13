@@ -18,7 +18,7 @@ photos:
 
 1. 安装完SDK后，再安装android studio，出现如下错误
 
-    ![](https://ws1.sinaimg.cn/large/006tNc79gy1fruoitlzesj30ym0hiaco.jpg)
+    ![](https://ws1.sinaimg.in/large/006tNc79gy1fruoitlzesj30ym0hiaco.jpg)
 
     `Unable to access Android SDK add-on list`
 
@@ -30,7 +30,7 @@ photos:
 
 2. 进入android studio后，安装项无法选择，android SDK 无法下载。
 
-    ![](https://ws1.sinaimg.cn/large/006tNc79gy1fruoirrs0tj31a80lk41x.jpg)
+    ![](https://ws1.sinaimg.in/large/006tNc79gy1fruoirrs0tj31a80lk41x.jpg)
 
     原因：开启了 shadowsocks ，系统访问外部的SDK 资源，但还是未下载成功。
 
@@ -154,7 +154,7 @@ react-native run-ios
 
 在模拟器上按快捷键 Command-D ，会弹出下面图示
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fo33qaqknaj30km14edgx.jpg)
+![](https://ws3.sinaimg.in/large/006tKfTcgy1fo33qaqknaj30km14edgx.jpg)
 
 
 ### 问题记录
@@ -189,7 +189,7 @@ react-native run-ios
 
 解决方案： 修改RN项目中的ios文件夹下的项目文件内的`Info.plist`文件，如图添加下面代码
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1fo99gokjf9j30w40fa3z2.jpg)
+![](https://ws2.sinaimg.in/large/006tNc79gy1fo99gokjf9j30w40fa3z2.jpg)
 
 ```
 <key>NSAllowsArbitraryLoads</key>
@@ -198,7 +198,7 @@ react-native run-ios
 
 或者是在Xcode中，直接修改Info.plist文件
 
-![](https://ws2.sinaimg.cn/large/006tNc79gy1fo99jtjtixj31cg0o4gpm.jpg)
+![](https://ws2.sinaimg.in/large/006tNc79gy1fo99jtjtixj31cg0o4gpm.jpg)
 
 ##### 连接android真机无法成功安装
 
@@ -211,7 +211,7 @@ react-native run-ios
 
 若没有出现如下情况，说明设备还是没有成功连接，进入设备开发者模式，打开USB调试
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fruuv5wkh3j30rs048gm5.jpg)
+![](https://ws1.sinaimg.in/large/006tNc79gy1fruuv5wkh3j30rs048gm5.jpg)
 
 
 **转载请标注原文地址**

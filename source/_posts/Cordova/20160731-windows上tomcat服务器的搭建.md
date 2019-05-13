@@ -19,7 +19,7 @@ Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于
 
 1. 下载JDK，[link](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-	![屏幕快照 2016-07-30 17.27.11.png](http://ww1.sinaimg.cn/large/72f96cbagw1f6c2hkxorgj20f408n76s.jpg)
+	![屏幕快照 2016-07-30 17.27.11.png](http://ww1.sinaimg.in/large/72f96cbagw1f6c2hkxorgj20f408n76s.jpg)
 
 	根据自己的系统，下载对应的版本
 
@@ -31,23 +31,23 @@ Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于
 
 	右击计算机=》属性=》高级系统设置
 
-	![82EECB57-DFF7-4563-8CFF-40EF0BF85935.jpg](http://ww2.sinaimg.cn/large/72f96cbagw1f6c2nylc7sj20cv0eb0t7.jpg)
+	![82EECB57-DFF7-4563-8CFF-40EF0BF85935.jpg](http://ww2.sinaimg.in/large/72f96cbagw1f6c2nylc7sj20cv0eb0t7.jpg)
 
 	* **配置JAVA_HOME**（如图新建JAVA_HOME，变量值配置为jdkX.X.XX文件夹的位置）
 
-	![9CAC574C-8432-466E-AF8E-21C61C6F8C6D.jpg](http://ww3.sinaimg.cn/large/72f96cbagw1f6c2pxpxzxj20bx063mxd.jpg)
+	![9CAC574C-8432-466E-AF8E-21C61C6F8C6D.jpg](http://ww3.sinaimg.in/large/72f96cbagw1f6c2pxpxzxj20bx063mxd.jpg)
 
 	* **配置classPath**
 
 	在已有的classPath中添加或新建添加`.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;`，记得前面有个"."。
 
-	![屏幕快照 2016-07-31 00.00.26.png](http://ww4.sinaimg.cn/large/72f96cbagw1f6cdme9unqj20hm05u0tl.jpg)
+	![屏幕快照 2016-07-31 00.00.26.png](http://ww4.sinaimg.in/large/72f96cbagw1f6cdme9unqj20hm05u0tl.jpg)
 
 	* **配置Path**（在已有的path中添加”%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;”，多个目录用分号隔开）
 
-	![0C62FF95-28F8-4D23-ADF3-2A6137DE90B2.jpg](http://ww4.sinaimg.cn/large/72f96cbagw1f6c2rih4t6j20bx067dg2.jpg)
+	![0C62FF95-28F8-4D23-ADF3-2A6137DE90B2.jpg](http://ww4.sinaimg.in/large/72f96cbagw1f6c2rih4t6j20bx067dg2.jpg)
 
-	![屏幕快照 2016-07-31 00.03.30.png](http://ww1.sinaimg.cn/large/72f96cbagw1f6cdpplgylj20db068jsk.jpg)
+	![屏幕快照 2016-07-31 00.03.30.png](http://ww1.sinaimg.in/large/72f96cbagw1f6cdpplgylj20db068jsk.jpg)
 
 	>(配置完成后，执行命令行时，系统会在path指定的路径中寻找该命令对应的可执行文件)
 
@@ -55,7 +55,7 @@ Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于
 
 	组合键Windows+R后，输入cmd后，回车，打开cmd窗口，在窗口中输入`java -version`后回车，出现如下画面则表示成功！
 
-	![82D4068D-117F-497F-8E52-8C69943479AB.png](http://ww3.sinaimg.cn/large/72f96cbagw1f6c2tfy1vpj20em029t8x.jpg)
+	![82D4068D-117F-497F-8E52-8C69943479AB.png](http://ww3.sinaimg.in/large/72f96cbagw1f6c2tfy1vpj20em029t8x.jpg)
 
 ## Tomcat
 
@@ -65,7 +65,7 @@ Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于
 
 1. 下载Tomcat，[link](http://tomcat.apache.org/download-90.cgi)
 
-	![屏幕快照 2016-07-30 17.55.29.png](http://ww2.sinaimg.cn/large/72f96cbagw1f6c37n0nt9j20kn0d977i.jpg)
+	![屏幕快照 2016-07-30 17.55.29.png](http://ww2.sinaimg.in/large/72f96cbagw1f6c37n0nt9j20kn0d977i.jpg)
 
 	选择其中一种下载。
 
@@ -73,7 +73,7 @@ Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于
 
 	将Tomcat服务器的压缩包放在任意文件夹目录下(最好跟你的开发文件集中放置，便于管理),解压并且打开后可以看到Tomcat的目录结构如下：
 
-	![Voila_Capture 2016-07-30_18-06-24_.png](http://ww4.sinaimg.cn/large/72f96cbagw1f6c3git1etj203w0773yr.jpg)
+	![Voila_Capture 2016-07-30_18-06-24_.png](http://ww4.sinaimg.in/large/72f96cbagw1f6c3git1etj203w0773yr.jpg)
 
 	文件解释：
 
@@ -91,19 +91,19 @@ Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于
 
 	打开cmd命令行，进入Tomcat文件夹下的bin目录，输入`startup`命令`启动`Tomcat服务器
 
-	![屏幕快照 2016-07-30 22.25.00.png](http://ww2.sinaimg.cn/large/72f96cbagw1f6cav5ktkjj20l403tjs2.jpg)
+	![屏幕快照 2016-07-30 22.25.00.png](http://ww2.sinaimg.in/large/72f96cbagw1f6cav5ktkjj20l403tjs2.jpg)
 
 	当弹出下图中得Dos窗口，表示Tomcat服务器成功的启动了
 
-	![屏幕快照 2016-07-30 22.25.43.png](http://ww3.sinaimg.cn/large/72f96cbagw1f6cavu17waj20r70fwahn.jpg)
+	![屏幕快照 2016-07-30 22.25.43.png](http://ww3.sinaimg.in/large/72f96cbagw1f6cavu17waj20r70fwahn.jpg)
 
 	然后在浏览器中输入`http://localhost:8080/`当浏览器中出现下图所示的提示框表示Tomcat服务器成功的启动了
 
-	![屏幕快照 2016-07-30 22.28.10.png](http://ww2.sinaimg.cn/large/72f96cbagw1f6caygoa7oj20li0d9adi.jpg)
+	![屏幕快照 2016-07-30 22.28.10.png](http://ww2.sinaimg.in/large/72f96cbagw1f6caygoa7oj20li0d9adi.jpg)
 
 	打开cmd命令行，进入Tomcat文件夹下的bin目录，输入`shutdown`命令`关闭`Tomcat服务器
 
-	![屏幕快照 2016-07-30 23.31.20.png](http://ww1.sinaimg.cn/large/72f96cbagw1f6ccs56pt3j20lf03tt9e.jpg)
+	![屏幕快照 2016-07-30 23.31.20.png](http://ww1.sinaimg.in/large/72f96cbagw1f6ccs56pt3j20lf03tt9e.jpg)
 
 	直到之前自动打开的dos窗口关闭，表示服务已关闭
 
@@ -117,13 +117,13 @@ Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于
 
 * 打开webapps页面，将自己的项目放到该文件夹内，如下图：
 
-![屏幕快照 2016-07-30 23.07.50.png](http://ww2.sinaimg.cn/large/72f96cbagw1f6cc3mtqemj20d705raaz.jpg)
+![屏幕快照 2016-07-30 23.07.50.png](http://ww2.sinaimg.in/large/72f96cbagw1f6cc3mtqemj20d705raaz.jpg)
 
 >在前面我已经介绍过了webapps是web应用所在目录，即供外界访问的web资源的存放目录，所以就在webapps目录下部署我们自己的项目，前面介绍的输入`http://localhost:8080/`后访问的网页其实访问的就是webapps文件夹下的Tomcat自带的这些文件夹中的文件
 
 * 最后打开浏览器并且在浏览器中输入`http://localhost:8080/apps/index.html`可以访问到放在apps文件夹下的index.html页面。
 
-![屏幕快照 2016-07-30 23.09.11.png](http://ww1.sinaimg.cn/large/72f96cbagw1f6cc51vznvj20mo03ldg0.jpg)
+![屏幕快照 2016-07-30 23.09.11.png](http://ww1.sinaimg.in/large/72f96cbagw1f6cc51vznvj20mo03ldg0.jpg)
 
 ## 访问项目
 
@@ -131,15 +131,15 @@ Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于
 
 第二步：查看服务器的ip地址（因为Tomcat安装在电脑中，所以服务器的ip地址就是电脑的ip地址），打开命令行，使用ipconfig命令可以查看主机的ip地址)
 
-![屏幕快照 2016-07-30 23.14.17.png](http://ww2.sinaimg.cn/large/72f96cbagw1f6ccbdf0k7j20hh0bcdhd.jpg)
+![屏幕快照 2016-07-30 23.14.17.png](http://ww2.sinaimg.in/large/72f96cbagw1f6ccbdf0k7j20hh0bcdhd.jpg)
 
 第三步：确保防火墙已经关闭
 
-![屏幕快照 2016-07-30 23.16.12.png](http://ww4.sinaimg.cn/large/72f96cbagw1f6cccbkf1ej20jh0d0wha.jpg)
+![屏幕快照 2016-07-30 23.16.12.png](http://ww4.sinaimg.in/large/72f96cbagw1f6cccbkf1ej20jh0d0wha.jpg)
 
 第四步：在手机浏览器中打开`http://192.168.0.8:8080/apps/index.html`
 
-![1.jpg](http://ww2.sinaimg.cn/large/72f96cbagw1f6ccl57o5sj20bt045mxd.jpg)
+![1.jpg](http://ww2.sinaimg.in/large/72f96cbagw1f6ccl57o5sj20bt045mxd.jpg)
 
 ## 修改默认主页
 
@@ -149,7 +149,7 @@ Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于
 
 	在server.xml找到如下位置：
 
-	![屏幕快照 2016-08-08 13.43.31.png](http://ww1.sinaimg.cn/large/006tNbRwgw1f6madykbxuj30i20bitbk.jpg)
+	![屏幕快照 2016-08-08 13.43.31.png](http://ww1.sinaimg.in/large/006tNbRwgw1f6madykbxuj30i20bitbk.jpg)
 
 	然后在`<Host></Host>`标签之间添加
 
@@ -167,7 +167,7 @@ Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于
 
 	在web.xml文件中，找到如下位置：
 
-	![屏幕快照 2016-08-08 13.59.29.png](http://ww1.sinaimg.cn/large/006tNbRwgw1f6matxworoj30dn03mjs2.jpg)
+	![屏幕快照 2016-08-08 13.59.29.png](http://ww1.sinaimg.in/large/006tNbRwgw1f6matxworoj30dn03mjs2.jpg)
 
 	然后在`<welcome-file-list></welcome-file-list>`标签内，添加如自己的主页面
 

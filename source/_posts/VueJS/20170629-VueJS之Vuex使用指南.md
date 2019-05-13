@@ -18,7 +18,7 @@ Vuex 是 状态管理的编程模式 + 工具库，适用于 Vue.js 编写的应
 
 ### 核心概念
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fh21jpvhk6j30jh0fb0sp.jpg)
+![](https://ws1.sinaimg.in/large/006tNc79gy1fh21jpvhk6j30jh0fb0sp.jpg)
 
 #### state （ store 的 data）
 

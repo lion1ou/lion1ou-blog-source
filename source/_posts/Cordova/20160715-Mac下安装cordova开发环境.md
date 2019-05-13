@@ -84,7 +84,7 @@ adb -version
 
 出现以下内容，说明环境变量设置完成。
 
-![](http://ww1.sinaimg.cn/large/65e4f1e6gw1f8rincw520j209504bq3e.jpg)
+![](http://ww1.sinaimg.in/large/65e4f1e6gw1f8rincw520j209504bq3e.jpg)
 
  * 执行Cordova命令行，`cordova run android`
 

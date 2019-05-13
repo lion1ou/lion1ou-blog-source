@@ -5,7 +5,7 @@ comments: true
 categories: NodeJs
 date: 2016-10-19 09:44:04
 tags: NodeJs
-photos: http://ww4.sinaimg.cn/large/801b780agw1f9kzqrejecj20xc0dwdjt.jpg
+photos: http://ww4.sinaimg.in/large/801b780agw1f9kzqrejecj20xc0dwdjt.jpg
 ---
 
 Express 是一种保持最低程度规模的灵活 Node.js Web 应用程序框架，为 Web 和移动应用程序提供一组强大的功能。详见：[官网](http://expressjs.com/) 、[中文网站](http://www.expressjs.com.cn/)
@@ -28,7 +28,7 @@ Express 是一种保持最低程度规模的灵活 Node.js Web 应用程序框�
   express todo (-e) //项目名称（添加参数是使用ejs模板，默认使用jade），生成一个express脚手架项目
 ```
 
-![](http://ww2.sinaimg.cn/large/65e4f1e6gw1f8xdq5mbvfj20aw0bmmyy.jpg)
+![](http://ww2.sinaimg.in/large/65e4f1e6gw1f8xdq5mbvfj20aw0bmmyy.jpg)
 
 项目目录如下：
 ```
@@ -87,7 +87,7 @@ node_modules
 
 根据终端最后两行提示：
 
-![](http://ww2.sinaimg.cn/large/65e4f1e6gw1f8xcyoajv1j20au03a0ss.jpg)
+![](http://ww2.sinaimg.in/large/65e4f1e6gw1f8xcyoajv1j20au03a0ss.jpg)
 
 执行下面代码，初始化项目，安装所有依赖。
 
@@ -105,7 +105,7 @@ cd todo && npm install //进入todo项目目录，安装相关依赖
 npm start   //启动服务器
 ```
 
-![](http://ww1.sinaimg.cn/large/65e4f1e6gw1f8xdpfm82rj20a2021q34.jpg)
+![](http://ww1.sinaimg.in/large/65e4f1e6gw1f8xdpfm82rj20a2021q34.jpg)
 
 显示上面图片，表示服务器已启动。
 
@@ -113,7 +113,7 @@ npm start   //启动服务器
 
 打开浏览器，在浏览器中访问 http://localhost:3000/或http://127.0.0.1:3000/ 浏览器输出：
 
-![](http://ww3.sinaimg.cn/large/65e4f1e6gw1f8xdtfr6xyj216o0d675f.jpg)
+![](http://ww3.sinaimg.in/large/65e4f1e6gw1f8xdtfr6xyj216o0d675f.jpg)
 
 ## 三、基本使用
 
@@ -285,12 +285,12 @@ router.get('/getUserInfo', function(req, res, next) {
 
 [http://localhost:3000/users/getUserInfo?id=1](http://localhost:3000/users/getUserInfo?id=1)
 
-![](http://ww2.sinaimg.cn/large/006y8lVagw1f8yiyry8yqj30pe09uq3w.jpg)
+![](http://ww2.sinaimg.in/large/006y8lVagw1f8yiyry8yqj30pe09uq3w.jpg)
 
 或
 
 [http://localhost:3000/users/getUserInfo?id=2](http://localhost:3000/users/getUserInfo?id=2)
 
-![](http://ww3.sinaimg.cn/large/006y8lVagw1f8yiy0gwfrj30o609yjsd.jpg)
+![](http://ww3.sinaimg.in/large/006y8lVagw1f8yiy0gwfrj30o609yjsd.jpg)
 
 **转载请标注原文地址**                           

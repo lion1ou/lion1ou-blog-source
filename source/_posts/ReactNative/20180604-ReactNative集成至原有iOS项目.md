@@ -58,7 +58,7 @@ sudo gem install cocoapods
 
 >使用Xcode创建一个空的项目
 
-![](https://ws4.sinaimg.cn/large/006tKfTcgy1fs87not03vj31900wg0xd.jpg)
+![](https://ws4.sinaimg.in/large/006tKfTcgy1fs87not03vj31900wg0xd.jpg)
 
 ##### 项目支持Pod
 
@@ -74,7 +74,7 @@ pod init
 pod install
 ```
 
-![](https://ws2.sinaimg.cn/large/006tKfTcgy1fs891z9rclj30gd0aoabi.jpg)
+![](https://ws2.sinaimg.in/large/006tKfTcgy1fs891z9rclj30gd0aoabi.jpg)
 
 执行下面命令打开文件夹，打开.xcworkspace 文件
 
@@ -84,13 +84,13 @@ open .
 
 注：当我们使用pod来作为库管理工具，后面我们打开项目运行，就需要打开上图所示的.xcworkspace文件
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fs89c9je3rj30go0c3gmi.jpg)
+![](https://ws3.sinaimg.in/large/006tKfTcgy1fs89c9je3rj30go0c3gmi.jpg)
 
 ##### 整理文件夹结构
 
 >这里对文件夹做结构调整是为了后期更好的将Android原始项目也使用RN Hybrid，使iOS和Android共享一份React Native框架，共享同一份JS文件，调整的后的文件夹结构如下
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fs8di2bg05j30ba05mt90.jpg)
+![](https://ws3.sinaimg.in/large/006tKfTcgy1fs8di2bg05j30ba05mt90.jpg)
 
 ##### 添加RN依赖文件
 
@@ -203,7 +203,7 @@ end
 $ pod install
 ```
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1fs8ecskqgpj30g30bvjt4.jpg)
+![](https://ws1.sinaimg.in/large/006tKfTcgy1fs8ecskqgpj30g30bvjt4.jpg)
 
 ###### 在iOS原生页面添加RN页面和入口
 
@@ -401,9 +401,9 @@ AppRegistry.registerComponent('testRN', () => App)
 
 1. 运行时发生以下错误:`library not found for -lDoubleConversion`
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1fs3jx9sortj31ae0iygve.jpg)
+![](https://ws1.sinaimg.in/large/006tKfTcgy1fs3jx9sortj31ae0iygve.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1fs3jx9sortj31ae0iygve.jpg)
+![](https://ws1.sinaimg.in/large/006tKfTcgy1fs3jx9sortj31ae0iygve.jpg)
 
 现在会报这个错误，但是我这边文件已经引入了，而且文件是存在的
 
@@ -419,7 +419,7 @@ AppRegistry.registerComponent('testRN', () => App)
 2. 运行时产生以下错误:`Could not connect to development server.`
 Failed to load bundle(http://localhost:8081/index.bundle?platform=ios&dev=true) with error: (Could not connect tp development server)
 
-![](https://ws1.sinaimg.cn/large/006tNc79gy1fs2ecea0e7j30k30zqwmy.jpg)
+![](https://ws1.sinaimg.in/large/006tNc79gy1fs2ecea0e7j30k30zqwmy.jpg)
 
 解决:
 
@@ -427,7 +427,7 @@ Failed to load bundle(http://localhost:8081/index.bundle?platform=ios&dev=true) 
 
 3. 新建RN页面时，出现错误 'React/RCTRootView.h' file not found
 
-![](https://ws3.sinaimg.cn/large/006tKfTcgy1fs8ey0vq3sj30mv0afdhh.jpg)
+![](https://ws3.sinaimg.in/large/006tKfTcgy1fs8ey0vq3sj30mv0afdhh.jpg)
 
 解决方法： 
 

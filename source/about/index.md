@@ -72,7 +72,7 @@ layout: page
 
 <section class="box-flex-row" id="bio">
     <div class="avatar">
-        <img src="http://ww2.sinaimg.cn/large/006tNc79gw1f9i90ot28fj30ma0mawjr.jpg" />
+        <img src="http://ww2.sinaimg.in/large/006tNc79gw1f9i90ot28fj30ma0mawjr.jpg" />
     </div>
     <div class="info">
         <p>个人信息：lion1ou/男/92.7/杭州</p>
@@ -83,5 +83,5 @@ layout: page
 <section id="chuyun">
     <p class="chuyun_p">初韵茶苑</p>
     <p class="chuyun_p">自产自销的正宗福鼎白茶</p>
-    <img src="http://ww2.sinaimg.cn/large/006tKfTcgw1f6vubv75g7j305k05k74m.jpg" alt="鸿福公众号二维码">
+    <img src="http://ww2.sinaimg.in/large/006tKfTcgw1f6vubv75g7j305k05k74m.jpg" alt="鸿福公众号二维码">
 </section>

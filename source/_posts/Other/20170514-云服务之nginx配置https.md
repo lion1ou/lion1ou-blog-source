@@ -25,10 +25,10 @@ HTTPS 是以安全为目标的 HTTP 通道，即 HTTP 下加入 SSL 加密层。
 
 * 进入阿里云控制台，“安全（云盾）”下的“证书服务”，点击购买证书，选择免费型 DV SSL，按提示走就可以，反正不用花钱的。
 * 接下来到我的订单页面，看到证书状态是“待完成”，点击“补全”链接，根据提示完成操作，在上传相关信息时，一般选择`系统生成`。
-![](https://ws3.sinaimg.cn/large/006tNbRwgy1fgdmbplogfj30u5077mx8.jpg)
+![](https://ws3.sinaimg.in/large/006tNbRwgy1fgdmbplogfj30u5077mx8.jpg)
 * 然后等验证通过，一般十几二十分钟就OK
 * 然后下载证书，选择nginx
-![](https://ws4.sinaimg.cn/large/006tNbRwgy1fgdm7pqa91j30tm0amweh.jpg)
+![](https://ws4.sinaimg.in/large/006tNbRwgy1fgdm7pqa91j30tm0amweh.jpg)
 
 * 将下载下来的证书解压，里面有两个文件一个是.key，另一个是.pem，把这两个文件传到服务器的一个目录中。
 * 配置nginx配置文件，重启nginx即可
