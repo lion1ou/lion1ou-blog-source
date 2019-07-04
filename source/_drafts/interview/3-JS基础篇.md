@@ -138,8 +138,7 @@ w(parseInt('ff',16).toString(2));
 * 因为对象是引用类型，存放在堆中，是通过指针指向另一个位置，并不像基本类型，直接存储在栈内存中。在复制对象时，只是将指针指向同一个地方。
 * [深入JavaScript基础之深浅拷贝](https://juejin.im/post/5b5affaef265da0f86543bc9)
 
-> 1. 数组深复制：
-> concat/slice/es6 解构赋值
+> 1. 数组深复制：concat/slice/es6 解构赋值
 > 2. 递归赋值
 > 3. JSON字符串转换，stringify/parse(含有函数、undefined、symbol会被忽略)
 
@@ -214,6 +213,39 @@ console.log(f1()()); // 0
 // 原因就在于f1是f2的父函数，而f2被赋给了一个全局变量，这导致f2始终在内存中，而f2的存在依赖于f1，因此f1也始终在内存中，不会在调用结束后，被垃圾回收机制（garbage collection）回收。
 ```
 
+## 内存泄漏
+
+哪些常见操作会造成内存泄漏？
+
+[内存泄漏](http://jinlong.github.io/2016/05/01/4-Types-of-Memory-Leaks-in-JavaScript-and-How-to-Get-Rid-Of-Them/)
+
+内存泄漏指任何对象在您不再拥有或需要它之后仍然存在。垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为0（没有其他对象引用过该对象），或对该对象的惟一引用是循环的，那么该对象的内存即可回收。
+
+* 意外的全局变量，如在函数内没有声明变量，直接使用。为了防止这些错误发生，添加'use strict'; 在您的JavaScript文件的开头。 这使得能够更严格地解析JavaScript以防止意外的全局变量
+* 被遗忘的计时器或回调函数，如：`element.addEventListener('click', onClick);`没有在不需要的时候使用`element.removeEventListener('click', onClick);`去除
+* 闭包使用不当，闭包会常驻内存
+* 脱离DOM的引用，在某个对象中，声明引用DOM节点，后来又将DOM删除。此时之前的引用还会存在与内存中
+
+```js
+var elements = {
+    button: document.getElementById('button'),
+    image: document.getElementById('image'),
+    text: document.getElementById('text')
+};
+function doStuff() {
+    image.src = 'http://some.url/image';
+    button.click();
+    console.log(text.innerHTML);
+    // 更多逻辑
+}
+function removeButton() {
+    // 按钮是 body 的后代元素
+    document.body.removeChild(document.getElementById('button'));
+    // 此时，仍旧存在一个全局的 #button 的引用
+    // elements 字典。button 元素仍旧在内存中，不能被 GC 回收。
+}
+```
+
 ## 事件
 
 ### 事件绑定和普通事件有什么区别
@@ -276,11 +308,11 @@ document.getElementById('parent-list').addEventListener('click', function (e) {
 
 ## JavaScript原型
 
-> JavaScript原型（prototype），原型链? 有什么特点？
+> JavaScript原型（prototype），原型链? 有什么特cn点？
 
-![](https://ws2.sinaimg.in/large/006tKfTcgy1fr1fo3pujdj30xy0ew0tt.jpg)
+![](https://ws2.sinaimg.cn/large/006tKfTcgy1fr1fo3pujdj30xy0ew0tt.jpg)
 
-![](https://ws4.sinaimg.in/large/006tKfTcgy1fr1g5l5jzaj30eg0gaaam.jpg)
+![](https://ws4.sinaimg.cn/large/006tKfTcgy1fr1g5l5jzaj30eg0gaaam.jpg)
 
 * 原型：在JavaScript中，原型也是一个对象，通过原型可以实现对象的属性继承，JavaScript的对象中都包含了一个`[[Prototype]]`内部属性，这个属性所对应的就是该对象的原型。"`[[Prototype]]`"作为对象的内部属性，是不能被直接访问的。Firefox和Chrome中提供了"`__proto__`"这个非标准（不是所有浏览器都支持）的访问器（ECMA引入了标准对象原型访问器"Object.getPrototype(object)"）
 
@@ -289,38 +321,7 @@ document.getElementById('parent-list').addEventListener('click', function (e) {
 * 特点：JavaScript对象是通过引用来传递的，我们创建的每个新对象实体中并没有一份属于自己的原型副本。当我们修改原型时，与之相关的对象也会继承这一改变
 
 
-## 内存泄漏
 
-哪些常见操作会造成内存泄漏？
-
-[内存泄漏](http://jinlong.github.io/2016/05/01/4-Types-of-Memory-Leaks-in-JavaScript-and-How-to-Get-Rid-Of-Them/)
-
-内存泄漏指任何对象在您不再拥有或需要它之后仍然存在。垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为0（没有其他对象引用过该对象），或对该对象的惟一引用是循环的，那么该对象的内存即可回收。
-
-* 意外的全局变量，如在函数内没有声明变量，直接使用。为了防止这些错误发生，添加'use strict'; 在您的JavaScript文件的开头。 这使得能够更严格地解析JavaScript以防止意外的全局变量
-* 被遗忘的计时器或回调函数，如：`element.addEventListener('click', onClick);`没有在不需要的时候使用`element.removeEventListener('click', onClick);`去除
-* 闭包使用不当，闭包会常驻内存
-* 脱离DOM的引用，在某个对象中，声明引用DOM节点，后来又将DOM删除。此时之前的引用还会存在与内存中
-
-```js
-var elements = {
-    button: document.getElementById('button'),
-    image: document.getElementById('image'),
-    text: document.getElementById('text')
-};
-function doStuff() {
-    image.src = 'http://some.url/image';
-    button.click();
-    console.log(text.innerHTML);
-    // 更多逻辑
-}
-function removeButton() {
-    // 按钮是 body 的后代元素
-    document.body.removeChild(document.getElementById('button'));
-    // 此时，仍旧存在一个全局的 #button 的引用
-    // elements 字典。button 元素仍旧在内存中，不能被 GC 回收。
-}
-```
 
 ## 函数作用域
 
@@ -497,47 +498,7 @@ var isSupportWebp = !![].map && document.createElement('canvas').toDataURL('imag
 
 ### js手写parseInt 
 
-```js
-
-function _parseInt(str, radix) {
-    if (typeof str !== "string" && typeof str !== "number") {
-        return NaN;
-    }
-    
-    var strTrim = str.trim();
-    var reg10 = /^[-+]?[0-9]+/
-    var reg16 = /^[-+]?[0][xX][A-Fa-f0-9]+/
-    if (!radix && reg10.test(strTrim)) {
-      radix = 10;
-    } else if (!radix && reg16.test(strTrim)) {
-      radix = 16     
-    } else if (reg10.test(strTrim) && reg16.test(strTrim)) {
-      return NaN
-    }
-    
-    if (typeof radix !== "number" || radix === 1 || radix > 36) {
-        return NaN;
-    }
-  
-    var numStr = radix === 10 ? strTrim.match(reg10)[0] : strTrim.match(reg16)[0];
-    
-    console.log(numStr)
-  
-    var isNegative = numStr.indexOf('-') !== -1
-    var numStrArr = String(numStr.match(/[0-9]+/)).split('')
-    var result = 0
-    for (var i = 0; i < numStrArr.length; i++) {
-        if (numStrArr[i] > radix) {
-            return NaN
-        }
-        result += numStrArr[i] * Math.pow(radix, i)
-    }
-    return isNegative ? -result : result
-}
-var str = "    1111wwwww111"
-console.log('__' + _parseInt(str, 32));
-console.log('_' + parseInt(str, 32));
-```
+见基础算法部分
 
 ### [“1”, “2”, “3”].map(parseInt) 答案是多少？
 
@@ -611,10 +572,3 @@ XML是一种扩展标记语言，可以用来标记数据、定义数据类型�
 * 传输速度方面，JSON的速度要远远快于XML
 
 
-## 待解决问题
-
-* 面向对象的理解,滴滴一面问的，大概说了下理解以及实现，从封装、继承和多态上说了下es5和es6的实现方式
-* this的四种绑定规则
-* 如何实现私有变量？说出一种方法即可。
-* 函数闭包使用得多吗？什么情况下需要使用函数闭包？
-* Javascript创建对象的几种方式？

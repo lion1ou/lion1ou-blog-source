@@ -6,7 +6,32 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <script>
-    
+    function mutiply(x) {
+      return function(y){
+        return function (z, temp) {
+          return function () {
+            return temp * z
+          }
+        }
+      }
+    }
+
+    function mutiply2(x) {
+      return function (y) {
+        if (y === undefined) {
+          return x
+        } else {
+          return function (z) {
+            return mutiply2(x*y)(z)
+          }
+        }
+      }
+    }
+
+    console.log(mutiply2(1)(2)(3)())
+    console.log(mutiply2(1)(2)(3)(4)())
+    console.log(mutiply2(1)(2)(3)(4)(5)())
+
   </script>
 </head>
 <body>
