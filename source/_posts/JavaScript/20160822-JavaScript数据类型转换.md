@@ -2,7 +2,7 @@
 title: JavaScript数据类型转换
 toc: true
 comments: true
-categories: JavaScript
+categories: 前端技术
 tags: JavaScript
 date: 2016-08-22 09:15:06
 photos:

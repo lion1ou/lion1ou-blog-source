@@ -2,7 +2,7 @@
 title: VueJS之Vuex使用指南
 toc: true
 comments: true
-categories: JavaScript
+categories: 前端技术
 tags: Vue
 date: 2017-06-29 11:50:16
 photos:

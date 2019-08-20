@@ -2,7 +2,7 @@
 title: apidoc一个自动生成API文档的工具
 toc: true
 comments: true
-categories: Other
+categories: 前端技术
 tags: Tools
 date: 2016-10-30 11:12:31
 photos:

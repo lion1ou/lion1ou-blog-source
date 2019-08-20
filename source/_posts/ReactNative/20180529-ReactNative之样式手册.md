@@ -3,7 +3,7 @@ title: ReactNative之样式手册
 toc: true
 comments: true
 date: 2018-05-29 18:33:52
-categories: ReactNative
+categories: 前端技术
 tags: ReactNative
 photos:
 ---

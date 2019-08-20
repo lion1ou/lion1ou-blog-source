@@ -3,7 +3,7 @@ title: ReactNative之iconfont使用
 toc: true
 comments: true
 date: 2018-11-17 00:10:16
-categories: ReactNative
+categories: 前端技术
 tags: ReactNative
 photos:
 ---

@@ -539,3 +539,27 @@ Css 精灵 把一堆小的图片整合到一张大的图片上，减轻服务器
 
 由于不同的浏览器，比如IE5,IE6,IE7,FF等，对css的解析认识不一样，因此会导致生成的页面效果不一样，得不到我们所需要的页面效果。这个时候我们就需要针对不同的浏览器去写不同的css，让它能够同时兼容不同的浏览器，能在不同的浏览器中也能得到我们想要的页面效果。这个针对不同的浏览器写不同的css code的过程，就叫css hack。
 
+## 纯css三角形
+
+> 实现等边三角形，直角三角形
+
+```css
+.demo{
+  width:0;
+  height:0;
+  border-width: 20px;
+  border-style: solid;
+  border-color: transparent transparent #000 transparent;
+}
+```
+
+```css
+.demo{
+  width:0;
+  height:0;
+  border-bottom: 20px solid #ff0;
+  /* border-top: 20px solid #0ff; */
+  border-left: 20px solid #f0f;
+  border-right: 20px solid #f8f;
+}
+```

@@ -3,7 +3,7 @@ title: call、apply和bind的区别
 toc: true
 comments: true
 date: 2018-01-26 10:40:55
-categories: JavaScript
+categories: 前端技术
 tags: JavaScript
 photos:
 ---

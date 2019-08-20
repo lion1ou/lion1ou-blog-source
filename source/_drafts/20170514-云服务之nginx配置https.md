@@ -2,7 +2,7 @@
 title: 云服务之nginx配置https
 toc: true
 comments: true
-categories: Other
+categories: 前端技术
 tags: Nginx
 date: 2017-05-14 11:29:08
 photos:

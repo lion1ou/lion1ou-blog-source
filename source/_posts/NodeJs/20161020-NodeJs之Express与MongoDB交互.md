@@ -2,7 +2,7 @@
 title: NodeJs之Express与MongoDB交互
 toc: true
 comments: true
-categories: NodeJs
+categories: 前端技术
 date: 2016-10-20 11:20:08
 tags: NodeJs
 photos: http://ww2.sinaimg.in/large/801b780agw1f9kzpr2as3j20xc0dw762.jpg

@@ -3,8 +3,8 @@ title: ReactNative之两端兼容问题
 toc: true
 comments: true
 date: 2018-12-26 16:56:44
-categories:
-tags:
+categories: 前端技术
+tags: ReactNative
 photos:
 ---
 

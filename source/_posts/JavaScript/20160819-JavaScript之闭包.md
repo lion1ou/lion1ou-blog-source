@@ -2,7 +2,7 @@
 title: JavaScript之闭包
 toc: true
 comments: true
-categories: JavaScript
+categories: 前端技术
 tags: JavaScript
 date: 2016-08-19 20:56:08
 ---

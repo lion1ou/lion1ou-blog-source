@@ -3,7 +3,7 @@ title: javaScript事件详解
 toc: true
 comments: true
 date: 2018-01-27 10:38:32
-categories: JavaScript
+categories: 前端技术
 tags: JavaScript
 photos:
 ---

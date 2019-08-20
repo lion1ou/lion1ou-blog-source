@@ -3,7 +3,7 @@ title: ReactNative之学习入门指南
 toc: true
 comments: true
 date: 2018-12-17 00:13:04
-categories: ReactNative
+categories: 前端技术
 tags: ReactNative
 photos:
 ---

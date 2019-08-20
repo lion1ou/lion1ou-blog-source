@@ -2,7 +2,7 @@
 title: JavaScript之立即执行函数(IIFE)
 toc: true
 comments: true
-categories: JavaScript
+categories: 前端技术
 tags: JavaScript
 date: 2016-08-21 22:29:34
 photos:

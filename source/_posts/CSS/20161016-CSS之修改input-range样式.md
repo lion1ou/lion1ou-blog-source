@@ -2,7 +2,7 @@
 title: CSS之修改input range样式
 toc: true
 comments: true
-categories: CSS
+categories: 前端技术
 tags: CSS
 date: 2016-10-16 20:33:59
 photos:
@@ -12,6 +12,7 @@ description:
 今天来探讨一下 HTML5 的 `range` 这个新的 input 类型，不过重点不是在 `range` 要如何使用，而是在如何去改变 `range` 的样式，做出一个漂漂亮亮的滑动杆。
 
 过去我们要制作美美的滑动杆 ( `range slider` )，不外乎就是用个 `span` 或 `div` ，搭配判断滑鼠座标 ( pageX、pageY ) 与点击事件来制作，就算是 HTML5 具有了 `range` 的 `input` 类型，预设的样式只能满足基本的需求，对于有一些要求视觉设计的网站来说，根本就毫无用武之地，只好自己手动干一个 `range slider` 来用了。
+
 <!--more-->
 
 虽然这篇会介绍两种修改 `range` 样式的方法，但由于 HTML5 与 CSS3 在各个浏览器之间仍然没有完全统一 ( 虽然之前好像就说标准制定完成了 )，所以要改变 `range` 的样式，仍然必须使用到各家浏览器自己的特有写法来调整，因此下列的范例，主要以 Chrome 为主，也会介绍 Firefox 的用法，至于 IE，能吃吗？哈哈哈~~

@@ -3,7 +3,7 @@ title: ReactNative之CocoaPods基础知识
 toc: true
 comments: true
 date: 2018-10-17 00:15:31
-categories: ReactNative
+categories: 前端技术
 tags: ReactNative
 photos:
 ---

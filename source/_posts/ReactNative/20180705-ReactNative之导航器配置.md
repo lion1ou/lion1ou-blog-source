@@ -3,10 +3,12 @@ title: ReactNative之导航器配置
 toc: true
 comments: true
 date: 2018-07-05 17:54:52
-categories: ReactNative
+categories: 前端技术
 tags: ReactNative
 photos:
 ---
+
+<!--more-->
 
 监听事件
 
@@ -27,9 +29,6 @@ export default class WebViewPage extends Component {
         console.log("aaaaaaa");
     }
 ```
-
-
-<!--more-->
 
 ### StackNavigator
 

@@ -2,13 +2,15 @@
 title: JavaScript之null、NaN和Undefined的区别
 toc: true
 comments: true
-categories: JavaScript
+categories: 前端技术
 date: 2016-08-16 11:11:55
 tags: JavaScript
 ---
 
 在JavaScript编程中，我们经常会出现undefined、null和NaN。但是要怎么区分呢？该怎么去判断呢？
+
 <!--more-->
+
 ## 一、区别
 
 主要是通过 `typeof` 这个方法去判断，`typeof` 返回的是字符串，有六种可能的结果：`"number"`、`"string"`、`"boolean"`、`"object"`、`"function"`、`"undefined"`。

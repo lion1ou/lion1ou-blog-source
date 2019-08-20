@@ -2,7 +2,7 @@
 title: NodeJs之Express入门
 toc: true
 comments: true
-categories: NodeJs
+categories: 前端技术
 date: 2016-10-19 09:44:04
 tags: NodeJs
 photos: http://ww4.sinaimg.in/large/801b780agw1f9kzqrejecj20xc0dwdjt.jpg

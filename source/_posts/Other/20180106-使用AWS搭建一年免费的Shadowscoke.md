@@ -3,10 +3,12 @@ title: 使用AWS搭建一年免费的Shadowscoke
 toc: true
 comments: true
 date: 2018-01-06 10:25:09
-categories: Other
-tags: AWS
+categories: 前端技术
+tags: ShadowScoke
 photos:
 ---
+
+作为一个前端开发，不能使用Google，那不就是相当于失去了左板右臂，这怎么可以？ 但是要钱的FQ服务又有点贵，不舍得花钱，那今天我们就来薅一把亚马逊爸爸的羊毛。
 
 <!--more-->
 

@@ -3,8 +3,8 @@ title: VueJs之Toast插件
 toc: true
 comments: true
 date: 2018-04-11 17:15:58
-categories:
-tags:
+categories: 前端技术
+tags: Vue
 photos:
 ---
 
