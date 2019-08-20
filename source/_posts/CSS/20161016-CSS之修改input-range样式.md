@@ -42,7 +42,7 @@ input[type="range"]{
 ```
  
 
-![](http://ww2.sinaimg.in/large/006tNbRwgw1fapes1ngc8g30bf01pq2v.gif)
+![](http://cdn.chuyunt.com/picGo/006tNbRwgw1fapes1ngc8g30bf01pq2v.gif?imageslim)
 
 上面的 CSS 只是针对 `range` 的本体，但还有一个拉把的按钮样式还没改，这时候我们要使用另外一个 webkit 的伪元素`::-webkit-slider-thumb`来修改。
 
@@ -60,7 +60,7 @@ input[type="range"]::-webkit-slider-thumb{
 
 写完上面这两段，应该就可以看到`range slider`变成下面这个样子只有一个红点，然后这个红点可以左右拉动。
 
-![](http://ww4.sinaimg.in/large/006tNbRwgw1fapeqn641pg30bf01pjre.gif)
+![](http://ww4.sinaimg.cn/large/006tNbRwgw1fapeqn641pg30bf01pjre.gif)
 
 接下来要进行的步骤就是加上一些颜色和效果，主要让圆点左边的区域是红色，右边的区域是浅红色，这样看起来才像是不同的 `range`，为了达到这个目的，我们要使用`伪元素裡面的伪元素`，也就是在 webkit 的`::-webkit-slider-thumb`伪元素的前后，各再安插`:before`和`:after`的伪元素，并让这两个伪元素颜色不同，就可以做出前后颜色差异的效果。
 
@@ -90,7 +90,7 @@ input[type="range"]::-webkit-slider-thumb:after {
 
 这样写完之后，应该就已经可以看到前后不同颜色的 `range slider` 效果。
 
-![](http://ww4.sinaimg.in/large/006tNbRwgw1fapfbrwsd6g305v01paa3.gif)
+![](http://ww4.sinaimg.cn/large/006tNbRwgw1fapfbrwsd6g305v01paa3.gif)
 
 不过光是这样还不够，接着我们要来让点击的时候圆圈会变大，本来想做滑鼠移上去就会变大，但两层伪元素虽然会变大，但位置却无法控制，所以就只好用 `active` 来代替。
 
@@ -114,7 +114,7 @@ input[type="range"]:active::-webkit-slider-thumb:after {
 
 完成之后的长相就会像下图这样。
 
-![](http://ww3.sinaimg.in/large/006tNbRwgw1fapfcqqz53g305v01pdfw.gif)
+![](http://ww3.sinaimg.cn/large/006tNbRwgw1fapfcqqz53g305v01pdfw.gif)
 
 不过如果是 `Firefox`，就必须要做一些修改，因为 `Firefox` 是认不得 `webkit` 的，要在 `Firefox` 跑的 CSS 就要写成下面这样，相较于 `webkit`，`Firefox` 就显得比较直觉，因为他裡面具有一个`::-moz-range-progress`的伪元素，利用这个伪元素，我们就不用在前后加个区块，他直接就可以呈现 range 的色彩囉！
 

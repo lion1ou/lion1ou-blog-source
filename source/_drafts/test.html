@@ -32,9 +32,34 @@
     console.log(mutiply2(1)(2)(3)(4)())
     console.log(mutiply2(1)(2)(3)(4)(5)())
 
+  // function throttle(fn, wait) {
+  //   let start = null
+  //   return function (params) {
+  //     let now = + new Date()
+  //     if (!start || now - start >= wait) {
+  //       fn()
+  //       start = now
+  //     }
+  //   }
+  // }
+  // var log = () => {
+  //   console.log('sssss')
+  // }
+  // let a = throttle(log, 3000)
+  // setInterval(() => {
+  //   a()
+  // }, 300);
+
+  var arr = [[1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14]]]], 10];
+  // console.log(Array.from(new Set(arr.flat(Infinity))).sort((a, b)=>a-b))
+  arr[0].reduce((a, b) => {
+    console.log(a, b)
+    return a-b
+  })
+
   </script>
 </head>
 <body>
-  
+  <input type="text" id="inpu1" oninput="debounce(log, 1000)">
 </body>
 </html>
