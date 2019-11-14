@@ -9,7 +9,7 @@ description: 「做一个脚踏实地的前端学徒」
 author: lion1ou
 language: zh-CN
 timezone:
-avatar: http://ww4.sinaimg.in/large/72f96cbagw1f5r2v8ovbjj20ma0mawjr.jpg
+avatar: https://i.loli.net/2019/11/15/FpoMI3UCqyKxnb8.jpg
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -31,6 +31,7 @@ skip_render:
 # Writing
 new_post_name: :year:month:day-:title.md # File name of new posts
 default_layout: post
+auto_spacing: true # 在中文和英文之间加入空格
 titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0 
@@ -38,11 +39,19 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: false
+
+# 默认代码高亮功能
 highlight:
-  enable: true
+  enable: false
   line_number: false
   auto_detect: false
   tab_replace:
+
+# 代码高亮插件
+prism_plugin:
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'okaidia'
+  line_number: false    # default false
 
 # Category & Tag
 default_category: uncategorized
@@ -64,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: maupassant
+theme: hexo-theme-xoxo
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

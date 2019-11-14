@@ -225,6 +225,6 @@ apidoc -i your-project-dir/ -o apidoc/
 ![](http://ww2.sinaimg.in/large/006y8lVagw1faboaw3539j31ce0oodit.jpg)
 
 
-**转载请标注原文地址**
+
 
 

@@ -66,6 +66,6 @@ obj1.equals(obj2) //true
   
 String类中重新定义了`equals`这个方法，而且比较的是值，而不是地址。所以是true。
 
-**转载请标注原文地址**
+
 
 

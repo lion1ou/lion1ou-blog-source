@@ -323,5 +323,5 @@ this.props.navigation.navigate('DrawerToggle'); // toggle drawer
 * paths - 提供routeName到路径配置的映射，它覆盖routeConfigs中设置的路径。
 * backBehavior - 后退按钮是否会切换到初始路由？ 如果是，设置为initialRoute，否则为none。 默认为initialRoute行为
 
-**转载请标注原文地址**
+
 

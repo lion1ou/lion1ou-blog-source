@@ -51,7 +51,7 @@ function Ctr($scope) {
 ```
 当isSelected = true 则增加selected class，当isCar=true,则增加car class，所以你结果可能是4种组合。
 
-**转载请标注原文地址**                           
+                          
 
 
 

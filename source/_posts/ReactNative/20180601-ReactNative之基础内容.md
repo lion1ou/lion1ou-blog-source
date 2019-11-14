@@ -18,7 +18,7 @@ photos:
 
 * 使用 StyleSheet.create 来集中定义组件的样式，如：
 
-```
+```jsx
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 
@@ -57,7 +57,7 @@ AppRegistry.registerComponent('LotsOfStyles', () => LotsOfStyles);
 
 在CSS中，我们可以在html上设置可继承样式（font-size），浏览器在渲染每个节点，会在渲染树上，一路向上查询，直到根节点。但在RN中，第一，你必须把你的文本节点放在<Text>组件内，不能直接在<View>下放置文本。第二，不能设置全局的可继承样式，可使用组件和全局样式来实现。第三，只有在文本标签的子节点，才可以继承样式。
 
-```
+```jsx
 <Text style={{fontWeight: 'bold'}}>
   I am bold
   <Text style={{color: 'red'}}>
@@ -115,7 +115,8 @@ fetch('https://mywebsite.com/endpoint/', {
 在React Native上处理点击等常见的触摸手势，不像在web 上直接在标签上绑定相应的手势事件就好了。需要在对应的标签外包裹手势组件，再使用相应的事件进行触发。
 
 * 点击、长按事件，可以使用"Touchable"开头的一系列组件。这些组件通过onPress属性接受一个点击事件的处理函数，使用onLongPress属性来实现长按事件。
-```
+
+```jsx
 class MyButton extends Component {
   _onPressButton() {
     console.log("You tapped the button!");
@@ -131,11 +132,11 @@ class MyButton extends Component {
 }
 ```
 
-```
-* TouchableHighlight: 背景会在用户手指按下时变暗
-* TouchableNativeFeedback: 在用户手指按下时形成类似墨水涟漪的视觉效果(在Android)
-* TouchableOpacity: 在用户手指按下时降低按钮的透明度，而不会改变背景的颜色
-* TouchableWithoutFeedback: 在处理点击事件的同时不显示任何视觉反馈
+```js
+// TouchableHighlight: 背景会在用户手指按下时变暗
+// TouchableNativeFeedback: 在用户手指按下时形成类似墨水涟漪的视觉效果(在Android)
+// TouchableOpacity: 在用户手指按下时降低按钮的透明度，而不会改变背景的颜色
+// TouchableWithoutFeedback: 在处理点击事件的同时不显示任何视觉反馈
 ```
 
 * 其他事件
@@ -180,5 +181,5 @@ Platform.OS在iOS上会返回ios，而在Android设备或模拟器上则会返�
 
 
 
-**转载请标注原文地址**
+
 

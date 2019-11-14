@@ -219,6 +219,6 @@ $(function(){
 
 以上就是用 CSS 和 jQuery 去修改 `range slider` 样式的基本方法，分享给大家，活用这个方法，就可以做出许多非常有特色的 `range slider` 囉。
 
-**转载请标注原文地址**
+
 
 

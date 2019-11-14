@@ -52,6 +52,6 @@ console.log(unique3(arr));
 
 参考链接:[https://github.com/lifesinger/blog/issues/113](https://github.com/lifesinger/blog/issues/113)
 
-**转载请标注原文地址**
+
 
 

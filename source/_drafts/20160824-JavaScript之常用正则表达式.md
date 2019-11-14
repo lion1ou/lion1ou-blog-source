@@ -173,6 +173,6 @@ var cnPattern = /[\u4E00-\u9FA5]/;
 console.log(cnPattern.test("蔡宝坚"));
 ```
 
-**转载请标注原文地址**
+
 
 (end)

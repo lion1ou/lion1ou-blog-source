@@ -124,6 +124,6 @@ eventTester("volumechange"); //音量改变
 
 [参考链接](http://www.w3school.com.cn/tags/html_ref_audio_video_dom.asp)
 
-**转载请标注原文地址**
+
 
 

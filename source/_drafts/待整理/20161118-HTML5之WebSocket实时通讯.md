@@ -176,6 +176,6 @@ $ sudo python standalone.py -p 9998 -w ../example/
 现在我们可以在 Chrome 浏览器打开前面创建的 runoob_websocket.html 文件。如果你的浏览器支持 WebSocket(), 点击"运行 WebSocket"。
 
 
-**转载请标注原文地址**
+
 
 

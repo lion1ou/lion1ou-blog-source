@@ -131,6 +131,6 @@ if ('abc') {
 ## 参考链接
 [数据类型转换](http://javascript.ruanyifeng.com/grammar/conversion.html)
 
-**转载请标注原文地址**
+
 
 

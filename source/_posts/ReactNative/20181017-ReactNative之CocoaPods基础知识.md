@@ -84,5 +84,5 @@ pod install: 如果Podfile.lock文件存在, 直接从此文件中读取框架�
 pod update 不管Podfile.lock是否存在, 都会读取Pod file文件的的框架信息去下载。主要区别在于, Podfile文件内的框架信息, 版本描述没有指定具体版本
 
 
-**转载请标注原文地址**
+
 

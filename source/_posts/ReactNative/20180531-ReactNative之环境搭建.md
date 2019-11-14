@@ -214,5 +214,5 @@ react-native run-ios
 ![](https://ws1.sinaimg.in/large/006tNc79gy1fruuv5wkh3j30rs048gm5.jpg)
 
 
-**转载请标注原文地址**
+
 

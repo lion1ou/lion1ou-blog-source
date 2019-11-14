@@ -127,5 +127,5 @@ console.log(foo.getX.apply(obj));   //81
 
 [详细参考链接：http://web.jobbole.com/83642/](http://web.jobbole.com/83642/)
 
-**转载请标注原文地址**
+
 

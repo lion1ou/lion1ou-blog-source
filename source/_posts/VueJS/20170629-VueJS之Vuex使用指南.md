@@ -171,6 +171,6 @@ npm install vuex
 
 源码地址：[https://github.com/lion1ou/vuex-example.git](https://github.com/lion1ou/vuex-example.git)
 
-**转载请标注原文地址**
+
 
 

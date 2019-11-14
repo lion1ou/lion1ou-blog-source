@@ -188,6 +188,6 @@ Maven有两个配置文件。配置文件里的设置，对所有的pom文件都
 该命令执行`dependency`构建阶段中的`copy-dependencies`目标。
 
 
-**转载请标注原文地址**
+
 
 

@@ -56,6 +56,6 @@ Eclipse配置并启动Tomcat成功，但有时会访问localhost:8080出现404�
 
 PS：如果不能修改配置，在Server中删除Tomcat，重新添加一次，即可配置。
 
-**转载请标注原文地址**
+
 
 
