@@ -85,13 +85,18 @@ deploy:
   branch: master
   # 在github、coding上对应项目中复制，选择shh和http都行
 
+# 插件生成站点地图
+Plugins:
+- hexo-generator-baidu-sitemap
+- hexo-generator-sitemap
+
 # hexo sitemap网站地图
 sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
 
-# 本地搜索配置
+# 插件本地搜索配置
 search:
   path: search.xml
   field: post
