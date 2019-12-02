@@ -54,7 +54,7 @@ MyBatis是一款一流的支持自定义SQL、存储过程和高级映射的持�
 
 * 功能架构
 
-    ![](https://ww3.sinaimg.in/large/006tNbRwgw1fb5n7ymlyuj30jp0au41b.jpg)
+    ![](https://ww3.sinaimg.cn/large/006tNbRwgw1fb5n7ymlyuj30jp0au41b.jpg)
 
     Mybatis的功能架构分为三层：
     
@@ -64,7 +64,7 @@ MyBatis是一款一流的支持自定义SQL、存储过程和高级映射的持�
 
 * 大多需要添加的驱动包
 
-    ![](https://ww4.sinaimg.in/large/006tNbRwgw1fb5nbl1lb2j309508fgmt.jpg)
+    ![](https://ww4.sinaimg.cn/large/006tNbRwgw1fb5nbl1lb2j309508fgmt.jpg)
 
 
 

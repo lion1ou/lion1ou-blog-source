@@ -121,7 +121,7 @@ apidoc -i your-project-dir/ -o apidoc/
 
 * 对应生成的文档样式如下：
 
-![](http://ww4.sinaimg.in/large/006y8lVagw1fabo85xestj30r00hrjsr.jpg)
+![](http://ww4.sinaimg.cn/large/006y8lVagw1fabo85xestj30r00hrjsr.jpg)
 
 #### 参数
 
@@ -144,7 +144,7 @@ apidoc -i your-project-dir/ -o apidoc/
 
 * 对应生成的文档样式如下：
 
-![](http://ww3.sinaimg.in/large/006y8lVagw1fabo5ltbj0j31cs0nmwhr.jpg)
+![](http://ww3.sinaimg.cn/large/006y8lVagw1fabo5ltbj0j31cs0nmwhr.jpg)
 
 #### 参数结果
 
@@ -186,7 +186,7 @@ apidoc -i your-project-dir/ -o apidoc/
 
 * 对应生成的文档样式如下：
 
-![](http://ww4.sinaimg.in/large/006y8lVagw1fabo1cxcizj316w0hggn7.jpg)
+![](http://ww4.sinaimg.cn/large/006y8lVagw1fabo1cxcizj316w0hggn7.jpg)
 
 
 #### 定义
@@ -222,7 +222,7 @@ apidoc -i your-project-dir/ -o apidoc/
 
 * 对应生成的文档样式如下：
 
-![](http://ww2.sinaimg.in/large/006y8lVagw1faboaw3539j31ce0oodit.jpg)
+![](http://ww2.sinaimg.cn/large/006y8lVagw1faboaw3539j31ce0oodit.jpg)
 
 
 

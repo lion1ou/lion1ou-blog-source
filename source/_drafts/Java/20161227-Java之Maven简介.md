@@ -32,7 +32,7 @@ Apache Maven 是一种创新的软件项目管理工具，提供了一个项目�
 Maven的中心思想是POM文件（项目对象模型）。POM文件是以XML文件的形式表述项目的资源，如源码、测试代码、依赖（用到的外部Jar包）等。POM文件应该位于项目的根目录下。
 
 下图说明了Maven是如何使用POM文件的，以及POM文件的主要组成部分：
-![](https://ww1.sinaimg.in/large/006tNbRwgw1fb5ohmxo2ij30u00maael.jpg)
+![](https://ww1.sinaimg.cn/large/006tNbRwgw1fb5ohmxo2ij30u00maael.jpg)
 
 ##### POM文件
 
@@ -114,7 +114,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd”>
 
 所有的Maven pom文件都继承自一个父pom。如果没有指定父pom，则该pom文件继承自根pom。pom文件的继承关系如下图所示：
 
-![](https://ww1.sinaimg.in/large/006tNc79gw1fb6v7btmfij308v08cjrh.jpg)
+![](https://ww1.sinaimg.cn/large/006tNc79gw1fb6v7btmfij308v08cjrh.jpg)
 
 可以让一个pom文件显式地继承另一个pom文件。这样，可以通过修改公共父pom文件的设置来修改所有子pom文件的设置。在pom文件的起始处指定父pom，例如：
 

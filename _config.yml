@@ -96,6 +96,13 @@ sitemap:
 baidusitemap:
   path: baidusitemap.xml
 
+# 统计
+baidu_analytics: 670319318804add6c99a71df6601f645
+google_analytics: UA-153662927-1
+
+# disqus评论
+disqus_shortname: lion1ou
+
 # 插件本地搜索配置
 search:
   path: search.xml

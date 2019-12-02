@@ -19,7 +19,7 @@ JSBridge 简单来讲，主要是 给 JavaScript 提供调用 Native 功能的�
 
 但是 JSBridge 的用途肯定不只调用 Native 功能这么简单。实际上，JSBridge 就像其名称中的 `Bridge` 的意义一样，是 Native 和非 Native 之间的桥梁，它的核心是 构建 `Native` 和`非 Native` 间消息通信的通道，而且是 双向通信的通道。
 
-![](https://ws3.sinaimg.in/large/006tNc79gy1fq9wv29dbfj30j604n74i.jpg)
+![](https://ws3.sinaimg.cn/large/006tNc79gy1fq9wv29dbfj30j604n74i.jpg)
 
 所谓 双向通信的通道:
 

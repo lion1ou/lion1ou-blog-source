@@ -81,7 +81,7 @@ jarsigner -verbose -keystore /yourpath/demo.keystore -signedjar /yourpath/demo_s
 
 	输入命令行后，会出现类似下图信息
 
-	![13E87187-23B8-4A4B-9C1D-92BC260982B6.jpg](http://ww1.sinaimg.in/large/72f96cbagw1f6d81otra6j214203ymz4.jpg)
+	![13E87187-23B8-4A4B-9C1D-92BC260982B6.jpg](http://ww1.sinaimg.cn/large/72f96cbagw1f6d81otra6j214203ymz4.jpg)
 
 
 
@@ -89,19 +89,19 @@ jarsigner -verbose -keystore /yourpath/demo.keystore -signedjar /yourpath/demo_s
 
 1. 首先，选择Export...如下图：
 
-	![5F2BDF7A-EABD-4C88-B534-129F3BBFD10E.jpg](http://ww1.sinaimg.in/large/72f96cbagw1f6d83mf0ynj20el0bk3zt.jpg)
+	![5F2BDF7A-EABD-4C88-B534-129F3BBFD10E.jpg](http://ww1.sinaimg.cn/large/72f96cbagw1f6d83mf0ynj20el0bk3zt.jpg)
 
 2. 创建密钥库keystore,输入密钥库导出位置和密码，记住密码，下次Use existing keystore会用到。
 
-	![733A2366-A67B-4DAB-A71B-4CEE8F53AB63.jpg](http://ww1.sinaimg.in/large/72f96cbagw1f6d8407cj9j20eh0f7q44.jpg)
+	![733A2366-A67B-4DAB-A71B-4CEE8F53AB63.jpg](http://ww1.sinaimg.cn/large/72f96cbagw1f6d8407cj9j20eh0f7q44.jpg)
 
 3. 填写密钥库信息，填写一些apk文件的密码，使用期限和组织单位的信息。
 
-	![904EF7A1-CDFE-4157-BCAB-DF46401B914A.jpg](http://ww3.sinaimg.in/large/72f96cbagw1f6d84a3idij20ei0f90ug.jpg)
+	![904EF7A1-CDFE-4157-BCAB-DF46401B914A.jpg](http://ww3.sinaimg.cn/large/72f96cbagw1f6d84a3idij20ei0f90ug.jpg)
 
 4. 生成带签名的apk文件，到此就结束了。
 
-	![F096A79B-CA8D-412E-B1A8-C82CB3879D92.jpg](http://ww4.sinaimg.in/large/72f96cbagw1f6d855j9p2j20eh0f6dgx.jpg)
+	![F096A79B-CA8D-412E-B1A8-C82CB3879D92.jpg](http://ww4.sinaimg.cn/large/72f96cbagw1f6d855j9p2j20eh0f6dgx.jpg)
 
 若有不对之处，请批评指正，谢谢！
 
