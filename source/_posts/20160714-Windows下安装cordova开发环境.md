@@ -6,12 +6,14 @@ tags: Cordova
 categories: Cordova
 comments: true
 ---
+
+<!-- more -->
 ## 准备阶段：
 
 ### 必备：
 
 - [JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)（根据自己的开发平台下载相应的安装包，可能需要FQ）
-<!-- more -->
+
 ![46AC8FE5-B5F5-4F78-A655-4D055018F4E2.jpg](http://ww3.sinaimg.cn/large/72f96cbagw1f6d5lisumzj20f908i0ty.jpg)
 
 - [Nodejs](https://nodejs.org/en/download/)  （根据自己的开发平台下载相应的安装包，可能需要FQ）

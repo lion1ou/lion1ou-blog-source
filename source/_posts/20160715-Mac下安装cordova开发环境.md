@@ -7,6 +7,8 @@ categories: Cordova
 comments: true
 ---
 
+<!-- more -->
+
 ## 一、安装ios开发环境
 ### 1.安装xcode
 
@@ -16,7 +18,7 @@ comments: true
 >   * 输入 node -v , 回车;
 >   * 输入 npm -v , 回车;
 >   * 若无错，则显示版本号
-<!-- more -->
+
 ### 3.安装cordova
 
 ```shell
