@@ -2,7 +2,9 @@
 title: 签名打包Android版apk
 toc: true
 date: 2016-07-17 14:02:08
-tags: Cordova
+tags: 
+- Cordova
+- Android
 categories: Cordova
 comments: true
 ---

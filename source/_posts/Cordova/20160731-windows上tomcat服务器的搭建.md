@@ -2,7 +2,9 @@
 title: iOS开发(4) - windows上tomcat服务器的搭建
 toc: true
 date: 2016-07-31 16:56:16
-tags: iOS
+tags: 
+- iOS
+- Cordova
 categories: Cordova
 comments: true
 ---
