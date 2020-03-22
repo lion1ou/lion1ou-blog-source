@@ -46,3 +46,7 @@ this.listener = MinePageEmitter.addListener('resume', (component) => {
 });
 // ssscomponent {moduleName: "coachMine"}
 ```
+
+* RN 组件库开发  不支持 npm link 问题
+
+![https://cdn.leoao.com/blog/20200224135732.png?imageslim](https://cdn.leoao.com/blog/20200224135732.png?imageslim)
