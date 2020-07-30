@@ -1,6 +1,6 @@
 # CSS
 
-## css的引入方式
+## 引入方式
 
 * 内联：直接在html页面上使用style标签
 * 嵌入：直接在html元素上，添加style属性
@@ -16,35 +16,51 @@
 <link href="default.css" type="text/css" media="all" />
 ```
 
-### link和@import的区别：
+#### link和@import的区别
 
-1. 老祖宗的差别，link属于XHTML标签，所以它支持定义RSS,定义rel连接属性，而@import是css提供的一种方式，只支持css
+1. 归属不同，link属于XHTML标签，@import是css内部提供的一种引用方式
 2. 加载顺序的差别，link会在页面加载时同时加载，而@import会在页面加载完毕后才开始加载
 3. 兼容性的差别，link没有兼容性问题，@import是css2.1后提供的，所以在IE5以上的浏览器才能使用
 4. 使用dom控制样式时的差别，当使用js控制DOM去改变css样式的时候，只能使用link标签，因为import是不能被DOM控制的。
 
-## box盒子模型
+## 盒子模型
+
 所有HTML元素可以看作盒子，在css中，盒子模型是指由`margin(外边距)`，`padding(内边距)`，`border(边框)`和`content(内容)`组成的一个结构。通过这几个部分来确定一个元素的定位。
 
-盒子模型有两种，IE盒子模型（IE5.X和6在怪异模式）content部分把border和padding计算了进去；W3C盒子模型，可以通过设置box-sizing为border-box来变成IE模型；
+盒子模型有两种：
 
-### box-sizing常用的属性有哪些？分别有什么作用？
+* `IE盒子模型（IE5.X和6在怪异模式）`content部分把border和padding计算了进去；
 
->作用是：控制box以哪种”盒模型”（box model）渲染的
+* `W3C盒子模型`，content部分只包含content，不过可以通过设置box-sizing为border-box来变成IE模型；
+
+#### box-sizing
+
+**box-sizing常用的属性有哪些？分别有什么作用？**
+
+作用是：控制box以哪种”盒模型”（box model）渲染的
 
 ```css
 box-sizing: content-box(default)|border-box|padding-box;
 ```
 
-* content-box: 宽度和高度分别应用到元素的内容框（content），在内容框之外绘制内边距(padding)和边框(border)。
-* border-box: 设置的宽度和高度应用在边框(border)上，宽高包括内边距(padding)和边框(border)的宽高。
+* content-box: 设置的宽高作用于内容(content)上，不包含padding和border
+* border-box: 设置的宽高应用在边框(border)上，宽高包括padding和border
 * padding-box: 设置的宽高应用在内边距(padding)上，不包括边框(border)的宽高。
 
 ## BFC(块级格式化)
+
 BFC (Block Formatting Context ）对布局的影响主要体现在对 float 和 margin 两个属性的处理。BFC 让 float 和 margin 这两个属性的表现更加符合我们的直觉。
 
-### BFC的触发条件
-BFC 可以被理解为元素的一个属性，但是这个属性无法被显式的设置，那么如何触发一个元素的 BFC 属性呢？在代码中使用 `overflow:hidden` 就是触发 BFC 的一种方式，除了设置 `overflow:hidden`，下面的 css 属性设置都可以触发 BFC:
+#### BFC的表现
+
+* BFC会计算所包含的所有浮动元素的高度
+* BFC会阻止两个元素之间的margin折叠
+* BFC可以阻止当前元素，被其他float元素覆盖
+* BFC可以阻止文本在浮动原生周围自动换行
+
+#### BFC的触发条件
+
+BFC 可以被理解为元素的一个属性，但是这个属性无法被显式的设置，在代码中使用 `overflow:hidden` 就是触发 BFC 的一种方式，除了设置 `overflow:hidden`，下面的 css 属性设置都可以触发 BFC:
 
 * 父级元素，浮动元素：float 设置为除 none 之外的取值；
 * 父级元素的overflow 设置为除 visible 之外的取值；
@@ -53,7 +69,7 @@ BFC 可以被理解为元素的一个属性，但是这个属性无法被显式�
 
 详细内容：[css之BFC（块级格式化上下文）](http://lion1ou.win/2017/02/16/)
 
-### overflow的属性
+#### Overflow
 
 1. visible：默认值， 内容不会被修剪，会呈现在元素框外；
 2. hidden：内容被修剪，超出部分会被隐藏，不显示；
@@ -65,18 +81,19 @@ BFC 可以被理解为元素的一个属性，但是这个属性无法被显式�
 * scroll：不管内容有没有超出，都会生成上下和左右的滚动条
 * auto： 只有内容超出，才会生成滚动条，不超出不生成，上下超出则生成上下滚动条，左右超出则生成左右滚动条。
 
-### 清除浮动
+## 清除浮动
 
 浮动的框可以向左或向右移动，直到它的外边缘碰到`包含框`或`另一个浮动框`的边框为止。浮动元素`脱离文档流`，不占据空间。
 
-
 * 在父级元素上使用:after和zoom属性（如上，不兼容低版本浏览器IE8+，推荐）
+
 ```html
 <div class="father clearfloat">
     <div class="children1"></div>
     <div class="children2"></div>
 </div>
 ```
+
 ```css
 .father{
   border: 1px solid #f00;
@@ -97,7 +114,9 @@ BFC 可以被理解为元素的一个属性，但是这个属性无法被显式�
     zoom: 1 /* zoom(IE专有属性)可解决ie6,ie7浮动问题 */
 }
 ```
+
 * 在结尾添加带有`{clear: both}`属性的空标签，清除浮动（增加无意义标签，浏览器支持好）
+
 ```html
 <div class="father">
     <div class="children1"></div>
@@ -105,6 +124,7 @@ BFC 可以被理解为元素的一个属性，但是这个属性无法被显式�
     <div class="clear"></div>
 </div>
 ```
+
 ```css
 .father{
   border: 1px solid #f00;
@@ -119,6 +139,7 @@ BFC 可以被理解为元素的一个属性，但是这个属性无法被显式�
   clear: both;
 }
 ```
+
 * 在父级元素上添加`{overflow:hidden/auto}`样式，不能定义height，使用overflow:hidden时，浏览器会自动检查浮动区域的高度，触发BFC属性，使元素成为一个BFC容器（不能和position配合使用，因为超出的尺寸的会被隐藏或滚动）
 
 ```html
@@ -127,6 +148,7 @@ BFC 可以被理解为元素的一个属性，但是这个属性无法被显式�
     <div class="children2"></div>
 </div>
 ```
+
 ```css
 .children1,.children2{
   float: left;
@@ -144,8 +166,7 @@ BFC 可以被理解为元素的一个属性，但是这个属性无法被显式�
 * 在相邻元素中添加`{clear: both}`属性（页面结构变动时，需要修改多个元素，不推荐）
 * 在父级元素添加`{display: table}`,将div属性变成表格(不推荐)
 
-
-## position的属性
+## Position
 
 * absolute：生成绝对定位的元素，相对于position属性为static`以外`的第一个父元素进行定位
 * fixed：生成绝对定位的元素，相对于`浏览器窗口`进行定位（老IE不支持）
@@ -153,14 +174,20 @@ BFC 可以被理解为元素的一个属性，但是这个属性无法被显式�
 * static 默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right z-index 声明）。
 * inherit 规定从父元素继承 position 属性的值
 
+* position:sticky https://www.zhangxinxu.com/wordpress/2018/12/css-position-sticky/
+
+
 ### 描述z-index和叠加上下文是如何形成的。
 首先来看在css中叠加上下文形成的原因：
 
 1. 负边距
+   
     >margin为负值时元素会依参考线向外偏移。一般可以利用负边距来进行布局，堆叠顺序由元素`在文档中的先后位置`决定，在`后面出现的`会在上面。
 2. position的relative/absolute/fixed定位
+   
     >当为元素设置position值为relative/absolute/fixed后，元素发生的偏移可能产生重叠，且z-index属性被激活。`z-index值`可以控制定位元素在垂直于显示屏方向（Z 轴）上的堆叠顺序（stack order），`值大的元素`会在值小的元素上面。
 3. 使用相对性：z-index值只决定`同一父元素`中的同级子元素的堆叠顺序。
+   
     >父元素的z-index值（如果有）为子元素定义了堆叠顺序（css版堆叠“拼爹”）。向上追溯找不到含有z-index值的父元素的情况下，则可以视为自由的z-index元素，它可以与父元素的同级兄弟定位元素或其他自由的定位元素来比较z-index的值，决定其堆叠顺序。同级元素的z-index值如果相同，则堆叠顺序由元素在文档中的先后位置决定，后出现的会在上面。所以如果当你发现一个z-index值较大的元素被值较小的元素遮挡了，请先检查它们之间的dom结点关系，多半是因为其父结点含有激活并设置了z-index值的position定位元素。
 
 ```html
@@ -563,3 +590,24 @@ Css 精灵 把一堆小的图片整合到一张大的图片上，减轻服务器
   border-right: 20px solid #f8f;
 }
 ```
+
+## CSS中的变量
+
+## 移动端1px解决方案
+
+https://juejin.im/post/5d19b729f265da1bb2774865
+
+## 页面布局
+
+1. 水平垂直居中  https://juejin.im/post/5b9a4477f265da0ad82bf921#heading-9
+2. css常见布局  https://juejin.im/post/599970f4518825243a78b9d5
+3. 各种常见布局实现+知名网站实例分析  https://juejin.im/post/5aa252ac518825558001d5de
+
+## h5适配各种设备
+
+1. 动态font-size https://blog.csdn.net/a460550542/article/details/79765164
+2. rem和vw  https://cloud.tencent.com/developer/article/1352187
+
+## css滑动
+
+https://zhuanlan.zhihu.com/p/89097187
