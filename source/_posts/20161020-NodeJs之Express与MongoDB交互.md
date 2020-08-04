@@ -5,7 +5,7 @@ comments: true
 categories: 前端技术
 date: 2016-10-20 11:20:08
 tags: NodeJs
-photos: http://ww2.sinaimg.cn/large/801b780agw1f9kzpr2as3j20xc0dw762.jpg
+photos: http://cdn.chuyunt.com/uPic/801b780agw1f9kzpr2as3j20xc0dw762.jpg
 ---
 
 mongoose是一款基于nodejs的优雅数据构建mongodb模型工具。mongodb是一款新型的json（键值对）数据类型的数据存储格式的数据库。在目前来说，使用nodejs和mongodb是为中小型企业以及个人web开发的绝配。
@@ -22,7 +22,7 @@ mongoose是一款基于nodejs的优雅数据构建mongodb模型工具。mongodb�
  brew install mongodb
 ```
 
-![](http://ww4.sinaimg.cn/large/006y8mN6gw1f8wemi1pm0j30fv06440f.jpg)
+![](http://cdn.chuyunt.com/uPic/006y8mN6gw1f8wemi1pm0j30fv06440f.jpg)
 
 出现上面情况说明安装成功，安装的目录就是 `/usr/local/Cellar/mongodb/3.2.10`。
 
@@ -54,7 +54,7 @@ source ~/.bash_profile
 
 * 修改mongodb配置文件,配置文件默认在 /usr/local/etc 下的 mongod.conf
 
->由于Mac默认不显示隐藏文件，所以直接找文件夹是找不到的。要使用下面命令显示隐藏文件
+>由于Mac默认不显示隐藏文件，所以直接找文件夹是找不到的。要使用下面命令显示隐藏文件，快捷键（commond + Shift + .）
 
 ```shell
 defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder//显示
@@ -89,7 +89,7 @@ sudo chown `id -u` /data/db
 mongod
 ```
 
-![](http://ww1.sinaimg.cn/large/006y8mN6gw1f8wffx2ia1j30g304iq4t.jpg)
+![](http://cdn.chuyunt.com/uPic/006y8mN6gw1f8wffx2ia1j30g304iq4t.jpg)
 
 ok,mongodb 服务端终于启动起来了。
 
@@ -105,7 +105,7 @@ mongodb和nodejs的模块包不一样，它是使用c++编写的跨平台数据�
 
 下载之后解压该安装包到你想要的目录，重命名为mongodb，如图：
 
-![](http://ww1.sinaimg.cn/large/006y8lVagw1f8ykl57x1ej30ar083q3z.jpg)
+![](http://cdn.chuyunt.com/uPic/006y8lVagw1f8ykl57x1ej30ar083q3z.jpg)
 
 #### 1.2.2 新建Data
 
@@ -125,7 +125,7 @@ mongod --dbpath "d:\program files\mongodb\data"//自定义地址，内容为数�
 
 命令行打开项目根目录，执行`npm install mongoose --save`安装Mongoose
 
-![](http://ww2.sinaimg.cn/large/006y8lVagw1f8ykyztwq9j30ib01umxz.jpg)
+![](http://cdn.chuyunt.com/uPic/006y8lVagw1f8ykyztwq9j30ib01umxz.jpg)
 
 ## 三、使用Mongoose
 
@@ -156,7 +156,7 @@ require('./db');
 ```
 然后就可以，`npm start`试试，是否连接成功，记住：这时候mongoDB的服务一定要打开！！连接成功如下图：
 
-![](http://ww1.sinaimg.cn/large/006y8lVagw1f8yop1fgxrj30d3032mxh.jpg)
+![](http://cdn.chuyunt.com/uPic/006y8lVagw1f8yop1fgxrj30d3032mxh.jpg)
 
 ### 3.2 定义属性、模型、实体
 
@@ -253,7 +253,7 @@ router.post('/create', function(req, res) {
 ```
 然后启动服务，`npm start`，在页面输入框输入任何内容，回车。
 
-![](http://ww1.sinaimg.cn/large/006y8lVagw1f8zqveebk8j30bq03oaao.jpg)
+![](http://cdn.chuyunt.com/uPic/006y8lVagw1f8zqveebk8j30bq03oaao.jpg)
 
 #### 3.4.3 问题解决
 若出现`req.body`为`undefined`，请检查`app.js`
