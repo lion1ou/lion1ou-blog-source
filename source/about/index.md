@@ -6,11 +6,6 @@ layout: page
 ---
 <style type="text/css">
 #bio {
-    /* background: #fbfbfb; */
-    /* border: 1px solid #f3f3f3; */
-    /* border-radius: 8px; */
-    /* border-width: 0 1px 1px; */
-    /* border-color: #fff #f3f3f3 #e8e8e8; */
     line-height: 16px;
     width: 100%;
     padding: 30px 20px;
@@ -65,14 +60,15 @@ layout: page
    color: #ff4081;
 }
 #chuyun img {
-    height: 200px;
+    margin-top: 20px;
+    height: auto;
     width: 200px;
 }
 </style>
 
 <section class="box-flex-row" id="bio">
     <div class="avatar">
-        <img src="http://cdn.chuyunt.com/FrdYBJYxtwFiHW-qWYp51XYzUgEX" />
+        <img src="http://cdn.chuyunt.com/uPic/avatar-lion1ou.jpg" />
     </div>
     <div class="info">
         <p>个人信息：lion1ou/男/92.7/杭州</p>
@@ -82,6 +78,6 @@ layout: page
 </section>
 <section id="chuyun">
     <p class="chuyun_p">初韵茶苑</p>
+    <img src="http://cdn.chuyunt.com/uPic/taobao-qrcode.png" alt="淘宝二维码">
     <p class="chuyun_p">自产自销的正宗福鼎白茶</p>
-    <img src="http://cdn.chuyunt.com/FnBwkH3frh0_6mNmSnOVDp8yMzdB" alt="鸿福公众号二维码">
 </section>
