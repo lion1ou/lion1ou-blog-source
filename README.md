@@ -14,7 +14,8 @@
 2. git clone https://git.coding.net/418120186/lion1ou.git
 3. 再通过 `npm install`安装所需要的插件
 4. 安装主题 git clone https://github.com/iissnan/hexo-theme-next themes/next
-或安装主题 git clone https://github.com/iissnan/hexo-theme-material themes/hexo-theme-material
+或安装主题 git clone https://github.com/bolnh/hexo-theme-material themes/hexo-theme-material
+或安装主题 git clone https://github.com/lion1ou/hexo-theme-xoxo themes/hexo-theme-xoxo
 5. 将source内的配置信息，复制粘贴到相应的配置文件中
 
 注意： github page就大概两种，一种user page必须master分支，另一种project page需要给对应的project设置一个gh-pages分支，user page 通过 xxx.github.io 访问，project pages 通过 xxx.github.io/项目名 访问
