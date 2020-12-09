@@ -94,6 +94,8 @@ Boolean(null) // false
 Boolean(0) // false
 Boolean(NaN) // false
 Boolean('') // false
+Boolean(0) // false
+Boolean('0') // true
 ```
 注意，所有对象（包括空对象）的转换结果都是true，甚至连false对应的布尔对象new Boolean(false)也是true。
 ```js
