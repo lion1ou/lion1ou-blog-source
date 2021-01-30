@@ -53,14 +53,15 @@ layout: page
     text-align: center;
 }
 
-#chuyun .chuyun_p {
-    margin: 5px 0 0 0;
+#chuyun .chuyun_p  {
+   font-size: 16px;
 }
-#chuyun .chuyun_p span {
-   color: #ff4081;
+
+#chuyun .chuyun_p_s {
+   font-size: 14px;
 }
 #chuyun img {
-    margin-top: 20px;
+    margin: 20px auto;
     height: auto;
     width: 200px;
 }
@@ -77,7 +78,5 @@ layout: page
     </div>
 </section>
 <section id="chuyun">
-    <p class="chuyun_p">初韵茶苑</p>
-    <img src="http://cdn.chuyunt.com/uPic/taobao-qrcode.png" alt="淘宝二维码">
-    <p class="chuyun_p">自产自销的正宗福鼎白茶</p>
+    <div class="chuyun_p">初韵茶苑</div><div class="chuyun_p_s">自产自销的正宗福鼎白茶</div> <img src="http://cdn.chuyunt.com/uPic/Snipaste_20210130_161132.png" alt="淘宝二维码"> <div class="chuyun_p_s">如果你也是一个爱喝茶的程序猿</div> <div class="chuyun_p_s">欢迎扫码购买哟~</div>
 </section>
