@@ -1,11 +1,12 @@
 # Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
- 
+
 # Site
 title: lion1ou
 subtitle: 「做一个脚踏实地的前端学徒」
 description: 「做一个脚踏实地的前端学徒」
+keywords: 前端 程序员
 author: lion1ou
 language: zh-CN
 timezone:
@@ -13,15 +14,18 @@ avatar: https://i.loli.net/2019/11/15/FpoMI3UCqyKxnb8.jpg
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://lion1ou.win
+url: https://lion1ou.tech
 root: /
-permalink: :year/:month/:day/
-permalink_defaults:
+permalink: :year-:month/:post_title/
+permalink_defaults: 
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
 public_dir: public
-tag_dir: tags
+tag_dir: tag
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
@@ -29,32 +33,28 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :year:month:day-:title.md # File name of new posts
+new_post_name: :year-:month/:title.md # File name of new posts
 default_layout: post
-auto_spacing: true # 在中文和英文之间加入空格
+auto_spacing: false
 titlecase: false # Transform title into titlecase
-external_link: true # Open external links in new tab
-filename_case: 0 
+external_link:
+  enable: true # Open external links in new tab
+  field: post # Apply to the whole site
+  exclude: ''
+filename_case: 0
 render_drafts: false
 post_asset_folder: false
 relative_link: false
-future: false
-
-# 默认代码高亮功能
+future: true
 highlight:
   enable: false
-  line_number: false
-  auto_detect: false
-  tab_replace:
+prismjs:
+  enable: false
 
-# 代码高亮插件
-prism_plugin:
-  mode: 'preprocess'    # realtime/preprocess
-  theme: 'okaidia'
-  line_number: false    # default false
+
 
 # Category & Tag
-default_category: uncategorized
+default_category: '杂记'
 category_map:
 tag_map:
 
@@ -64,6 +64,8 @@ tag_map:
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'mtime'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -73,28 +75,68 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-xoxo
+# theme: landscape
+theme: hexo-theme-sprite
 
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
+# 自动发布
+# hexo-deployer-git https://github.com/hexojs/hexo-deployer-git
 deploy:
   type: git
   repo: 
     github: git@github.com:lion1ou/lion1ou.github.io.git
-  # coding: git@git.coding.net:418120186/418120186.git,coding-pages
   branch: master
-  # 在github、coding上对应项目中复制，选择shh和http都行
+
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore:
+
+
+############### 以上是系统默认配置项 ##################
+
 
 # 插件生成站点地图
+# https://github.com/hexojs/hexo-generator-sitemap
+# https://github.com/coneycode/hexo-generator-baidu-sitemap
 Plugins:
-- hexo-generator-baidu-sitemap
-- hexo-generator-sitemap
+  - hexo-generator-baidu-sitemap
+  - hexo-generator-sitemap
 
 # hexo sitemap网站地图
 sitemap:
   path: sitemap.xml
+
 baidusitemap:
   path: baidusitemap.xml
+
+# 添加 RSS 订阅支持
+# https://github.com/hexojs/hexo-generator-feed
+feed:
+  enable: true
+  type: 
+    - atom
+    - rss2
+  path:
+    - atom.xml
+    - rss2.xml
+  limit: 10
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+  icon: icon.png
+  autodiscovery: true
+  template:
+
+############### 以上是插件配置项，不依赖主题 ##################
 
 # 统计
 baidu_analytics: 670319318804add6c99a71df6601f645
@@ -109,3 +151,5 @@ search:
   field: post
   format: html
   limit: 10000
+
+############### 以上是主题配置项，需要依赖主题，不同主题不同 ##################
