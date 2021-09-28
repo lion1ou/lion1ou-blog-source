@@ -14,7 +14,7 @@ avatar: https://i.loli.net/2019/11/15/FpoMI3UCqyKxnb8.jpg
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://lion1ou.tech
+url: https://blog.lion1ou.tech
 root: /
 permalink: :year-:month/:post_title/
 permalink_defaults: 
