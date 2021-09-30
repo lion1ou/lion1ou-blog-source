@@ -6,7 +6,7 @@
     "b": "hexo generate",
     "c": "hexo clean",
     "d": "hexo clean && hexo generate && hexo deploy",
-    "s": "hexo server"
+    "dev": "hexo server"
   },
   "hexo": {
     "version": "5.4.0"
