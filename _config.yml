@@ -69,7 +69,7 @@ updated_option: 'mtime'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 50
+per_page: 20
 pagination_dir: page
 
 # Extensions
@@ -149,7 +149,8 @@ disqus_shortname: lion1ou
 search:
   path: search.xml
   field: post
+  content: true
   format: html
-  limit: 10000
+  limit: 100
 
 ############### 以上是主题配置项，需要依赖主题，不同主题不同 ##################
