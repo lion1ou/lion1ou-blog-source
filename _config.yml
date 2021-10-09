@@ -108,13 +108,13 @@ ignore:
 Plugins:
   - hexo-generator-baidu-sitemap
   - hexo-generator-sitemap
-
 # hexo sitemap网站地图
 sitemap:
   path: sitemap.xml
 
 baidusitemap:
   path: baidusitemap.xml
+  
 
 # 添加 RSS 订阅支持
 # https://github.com/hexojs/hexo-generator-feed
@@ -136,22 +136,12 @@ feed:
   autodiscovery: true
   template:
 
-############### 以上是插件配置项，不依赖主题 ##################
-
-# 统计
-# baidu_analytics: 670319318804add6c99a71df6601f645  # lion1ou.win
-baidu_analytics: 100e073ce573bdf5f38d8235fb55f1d4  # blog.lion1ou.tech
-google_analytics: UA-153662927-1
-
-# disqus评论
-disqus_shortname: lion1ou
 
 # 插件本地搜索配置
+# https://github.com/wzpan/hexo-generator-search
 search:
   path: search.xml
   field: post
   content: true
   format: html
   limit: 100
-
-############### 以上是主题配置项，需要依赖主题，不同主题不同 ##################
