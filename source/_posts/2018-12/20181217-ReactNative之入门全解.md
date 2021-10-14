@@ -247,7 +247,7 @@ AppRegistry.registerComponent("LotsOfStyles", () => LotsOfStyles);
 
 ##### flexBox
 
-可参考之前写过的文章：[css 之 flex 布局](https://blog.lion1ou.tech/2016/10/15/)
+可参考之前写过的文章：[css 之 flex 布局](https://lion1ou.tech/2016/10/15/)
 
 #### react
 
@@ -799,7 +799,7 @@ const px2dp = (UIPx) =>
 
 - 常用的样式
 
-详见之前写过的内容：[样式手册](http://blog.lion1ou.tech/2018/05/29/)
+详见之前写过的内容：[样式手册](http://lion1ou.tech/2018/05/29/)
 
 #### 高度与宽度
 
@@ -1149,7 +1149,7 @@ shadow（阴影）开头样式可以在 iOS 上应用，但在安卓中是不生
 
 #### IconFont
 
-[具体使用详情](http://blog.lion1ou.tech/2018/11/17/)
+[具体使用详情](http://lion1ou.tech/2018/11/17/)
 
 ### 项目介绍
 

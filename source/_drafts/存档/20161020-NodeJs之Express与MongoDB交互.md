@@ -129,7 +129,7 @@ mongod --dbpath "d:\program files\mongodb\data"//自定义地址，内容为数�
 
 ## 三、使用Mongoose
 
-接下来我将会以一个todo list来作为实例，向大家讲解。有些内容我上篇文章已经说到过，就不多说了，请参见：[nodejs之Express入门](http://blog.lion1ou.tech/2016/10/19/)
+接下来我将会以一个todo list来作为实例，向大家讲解。有些内容我上篇文章已经说到过，就不多说了，请参见：[nodejs之Express入门](http://lion1ou.tech/2016/10/19/)
 
 ### 3.1 连接MongoDB
 在项目文件夹根目录上，新建db.js，内容：
