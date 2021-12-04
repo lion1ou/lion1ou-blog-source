@@ -11,7 +11,7 @@
 安装顺序：
 
 1. 在其他系统上使用，需要先安装hexo
-2. git clone https://git.coding.net/418120186/lion1ou.git
+2. git clone git@github.com:lion1ou/lion1ou-blog-source.git
 3. 再通过 `npm install`安装所需要的插件
 4. 安装主题 git clone https://github.com/iissnan/hexo-theme-next themes/next
 或安装主题 git clone https://github.com/bolnh/hexo-theme-material themes/hexo-theme-material
@@ -48,3 +48,8 @@ Global Options:
   --safe    Disable all plugins and scripts
   --silent  Hide output on console
 ```
+
+
+
+
+sh -c "$(curl -fsSL https://gitee.com/jklash1996/ohmyzsh/tools/install.sh)"
