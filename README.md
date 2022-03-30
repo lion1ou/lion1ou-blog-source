@@ -50,6 +50,4 @@ Global Options:
 ```
 
 
-
-
 sh -c "$(curl -fsSL https://gitee.com/jklash1996/ohmyzsh/tools/install.sh)"
