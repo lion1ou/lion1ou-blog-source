@@ -76,7 +76,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 # theme: landscape
-theme: hexo-theme-sprite
+theme: hexo-theme-xoxo
 
 # 自动发布
 # hexo-deployer-git https://github.com/hexojs/hexo-deployer-git
