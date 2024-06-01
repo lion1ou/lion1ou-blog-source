@@ -1,0 +1,59 @@
+<% if (page.posts.length> 0) { %>
+<div class="index-posts">
+  <% page.posts.sort('date', -1).each(function(post) { %>
+
+  <article class="index-post-item">
+    <!-- 文章标题 -->
+    <div class="post-info">
+      <div class="title-group">
+        <a class="title" href="<%=config.root + post.path%>">
+          <h2><%=post.title%></h2>
+        </a>
+        <!-- 文章标签 -->
+        <% if (theme.index_post.show_tags && post.tags) { %> 
+          <div class="tags">
+            <%- list_tags(post.tags, { show_count: false, class: 'index-tag' }) %>
+          </div>
+        <% } %>
+      </div>
+      
+      <div class="post-meta">
+        <% if (theme.index_post.show_date && post.date) { %>
+            <time class="time" datetime="<%=post.date.toJSON()%>">
+              <%=date(post.date)%>
+            </time>
+        <% } %>
+        
+        <% if(theme.index_post.word_count && theme.index_post.show_date) {%>
+          <span class="slash">/</span>
+        <% } %> 
+        
+        <% if (theme.index_post.word_count) { %>
+        <span class="read">
+          <span class="post-count"> <%= wordcount(post.content) %> 字</span>
+        </span>
+        <% } %>
+        
+        <% if(theme.index_post.min2read && theme.index_post.word_count) {%>
+          <span class="slash">/</span>
+        <% } %>
+        
+        <% if (theme.index_post.min2read) { %>
+        <span class="read">
+          <span class="post-count"> <%= min2read(post.content) %> ′ </span>
+        </span>
+        <% } %> 
+      </div>
+    </div>
+   
+    <!-- 文章摘要 -->
+    <% if (theme.index_post.show_excerpt && post.excerpt) { %>
+      <div class="post-excerpt"><%- post.excerpt %></div>
+    <% } %>
+
+    <a class="more" href="<%=config.root + post.path%>"> 阅读全文 ... </a>
+ 
+  </article>
+  <% }); %>
+</div>
+<% } %>

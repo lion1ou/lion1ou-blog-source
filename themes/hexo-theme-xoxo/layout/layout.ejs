@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="<%=config.language%>">
+<%-partial('partials/layout-head')%>
+
+<body>
+  <!-- 导航栏 -->
+  <div class="nav-container">
+    <%-partial('partials/layout-nav')%>
+  </div>
+
+  <div class="container" id="content-outer">
+    <div class="inner" id="content-inner">
+      <%- body %>
+    </div>
+    
+    <!-- 分页 -->
+    <% if (page.total > 1){ %>
+      <nav class="page-nav text-center">
+          <%- paginator({
+            prev_text: '<',
+            mid_size: 1,
+            next_text: '>'}) %>
+      </nav>
+    <% } %>
+  </div>
+  
+  <!-- 页脚 -->
+  <div class="footer-container">
+    <%-partial('partials/layout-footer')%>
+  </div>
+</body>
+
+<%-partial('partials/layout-scripts')%>
+  
+</html>

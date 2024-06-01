@@ -1,0 +1,17 @@
+<nav class="home-menu">
+  <a class="menu-heading" id="logo">
+    <img class="avatar" src="<%=config.avatar%>">
+    <span class="title"><%=config.title%></span>
+  </a>
+
+  <ul class="menu-list">
+      <% Object.keys(theme.menu).forEach(function(key) { %>
+          <% if ((is_home() && key==='home') || (is_archive() && key==='archives') || (is_tag() && key==='tags') || page.path.indexOf(key) > -1) { %>
+            <li class="menu-item actived"><a href="<%=theme.menu[key]%>" class="menu-link"><%= __(key)%></a></li>
+          <% } else { %>
+            <li class="menu-item"><a href="<%=theme.menu[key]%>" class="menu-link"><%= __(key)%></a></li>
+          <% } %>
+      <% }); %>
+  </ul>
+   
+</nav>

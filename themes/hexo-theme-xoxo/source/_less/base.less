@@ -1,0 +1,153 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  word-break: break-all;
+}
+
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+blockquote,
+body,
+fieldset,
+figure,
+menu,
+pre,
+ol,
+ul,
+dd,
+dl {
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+ol,
+ul,
+dd,
+dl {
+  padding-left: 2rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0.5rem 0;
+  line-height: 1.5rem;
+  font-weight: 500;
+}
+
+b,
+optgroup,
+strong {
+  font-weight: 600;
+}
+
+a {
+  color: inherit;
+}
+
+p {
+  margin: 0.75rem 0;
+  word-break: break-all;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  outline: none;
+  text-decoration: none;
+}
+
+a:hover {
+  color: @light-blue;
+}
+
+em {
+  color: @em-color;
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* 设置滚动条的样式 */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* 滚动槽 */
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+}
+
+/* 滚动条滑块 */
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+::selection {
+  background: @light-blue;
+  color: @white;
+}
+
+code {
+  background: #ddd;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin: 0 4px;
+  font-size: 14px;
+}
+
+html,
+body {
+  font-size: 14px;
+  font-weight: 300;
+  font-family: "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
+}
+body {
+  color: @m-black;
+  line-height: 1.8rem;
+  letter-spacing: 1.5px;
+  margin: 0;
+  background: @white;
+}

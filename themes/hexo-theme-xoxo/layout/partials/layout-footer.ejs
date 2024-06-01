@@ -1,0 +1,57 @@
+<footer class="footer text-center">
+  <% if(theme.juejin || theme.zhihu || theme.weibo || theme.github) {%> 
+    <div class="bottom-row" style="width: 100%;">
+
+      <a href="<%=theme.index%>">首页</a> | 
+
+      <% if(theme.juejin) { %>
+        <a href="<%=theme.juejin%>" target="_blank">掘金</a> | 
+      <% } %> 
+      
+      <% if(theme.zhihu) { %>
+        <a href="<%=theme.zhihu%>" target="_blank">知乎</a> |
+      <% } %>
+      
+      <% if (theme.weibo) { %>
+        <a href="<%=theme.weibo%>" target="_blank">微博</a> | 
+      <% } %>
+
+      <% if (theme.github) { %>
+        <a href="<%=theme.github%>" target="_blank">GitHub</a>
+      <% } %> 
+    </div>
+  <% } %> 
+
+  <div class="bottom-row">
+    <% if (theme.site_total_count) { %> 
+      <sapn class="bottom-item">全站总字数 <span class="total_count"><%= totalcount(site) %></span></sapn>
+    <% } %> 
+    <% if (theme.site_start_time) { %> 
+      <sapn class="bottom-item">已运行 <span><%= siteTime(theme.site_start_time) %> </span></sapn>
+    <% } %> 
+    <% if (theme.show_visitor) { %> 
+    <sapn class="bottom-item">本站总访问量 <span id="busuanzi_value_site_pv"></span> 次</sapn>
+    <sapn class="bottom-item">您是第 <span id="busuanzi_value_site_uv"></span> 个小伙伴</sapn>
+    <% } %> 
+  </div>
+
+  <div class="bottom-row">
+    <% if(config.author && config.url && theme.site_start_time) {%> 
+      <a style="display: block;" class="bottom-item" href="<%= config.url %> ">© <%=new Date(theme.site_start_time).getFullYear()  %>-<%= new Date().getFullYear() %>  <%= config.author %>  版权所有</a>
+    <% } %> 
+
+    <% if(theme.bei_an) {%> 
+      <a class="bottom-item" href="https://beian.miit.gov.cn" target="_blank"><%= theme.bei_an %> </a>
+    <% } %> 
+
+    <span class="bottom-item">
+      Powered By <a href="https://hexo.io" target="_blank">Hexo</a>
+    </span>
+
+    <span class="bottom-item">
+      Theme By <a href="https://github.com/lion1ou/hexo-theme-sprite" target="_blank">Sprite</a>
+    </span>
+
+  </div>
+</footer>
+

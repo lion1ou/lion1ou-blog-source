@@ -1,0 +1,29 @@
+<article class="post page" id="page">
+  <!-- <header class="post-header text-center"> </header> -->
+  <div class="post-content">
+      <% if (page.path === "tags/index.html"){ %>
+        <% if (site.tags.length){ %>
+          <div class="tag-list-page">
+            <%- tagcloud(site.tags, {
+              min_font: 20, 
+              max_font: 50, 
+              amount: 999, 
+              color: true, 
+              start_color: 'gray', 
+              end_color: 'black',
+              class: 'tag-cloud',
+              level: 15
+            }) %>
+          </div>
+        <% } %>
+      <% } else if (page.path === "categories/index.html") { %>
+        <div class="categories-list-page">
+          <%- list_categories() %>
+        </div>
+      <% } else if (page.path === "search/index.html") { %>
+        <%- partial('partials/page-search') %>
+      <% } else { %>
+        <%-page.content%>
+      <% } %>
+  </div>
+</article>
