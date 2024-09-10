@@ -19,7 +19,7 @@ stylesheets:
 
 scripts:
   # - /js/main.js     # js将在body之后加载
-  - https://cdn.lion1ou.tech/fanta-report-0.0.2-umd.js
+  - https://cdn.lion1ou.tech/fanta-report-0.0.3-umd.js
 
 ###### 文章相关 ######
 
