@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: lion1ou
+title: lion个人学习站
 subtitle: 「做一个脚踏实地的前端学徒」
 description: 「做一个脚踏实地的前端学徒」
 keywords: 前端 程序员
@@ -17,7 +17,7 @@ avatar: https://i.loli.net/2019/11/15/FpoMI3UCqyKxnb8.jpg
 url: https://lion1ou.tech
 root: /
 permalink: :year-:month/:post_title/
-permalink_defaults: 
+permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
@@ -51,8 +51,6 @@ highlight:
 prismjs:
   enable: false
 
-
-
 # Category & Tag
 default_category: '杂记'
 category_map:
@@ -82,15 +80,13 @@ theme: hexo-theme-xoxo
 # hexo-deployer-git https://github.com/hexojs/hexo-deployer-git
 deploy:
   type: git
-  repo: 
+  repo:
     github: git@github.com:lion1ou/lion1ou.github.io.git
   branch: master
-
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 meta_generator: true
-
 
 # Include / Exclude file(s)
 ## include:/exclude: options only apply to the 'source/' folder
@@ -98,9 +94,7 @@ include:
 exclude:
 ignore:
 
-
 ############### 以上是系统默认配置项 ##################
-
 
 # 插件生成站点地图
 # https://github.com/hexojs/hexo-generator-sitemap
@@ -114,13 +108,12 @@ sitemap:
 
 baidusitemap:
   path: baidusitemap.xml
-  
 
 # 添加 RSS 订阅支持
 # https://github.com/hexojs/hexo-generator-feed
 feed:
   enable: true
-  type: 
+  type:
     - atom
     - rss2
   path:
@@ -135,7 +128,6 @@ feed:
   icon: icon.png
   autodiscovery: true
   template:
-
 
 # 插件本地搜索配置
 # https://github.com/wzpan/hexo-generator-search
