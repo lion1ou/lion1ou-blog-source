@@ -10,7 +10,7 @@ tags:
 toc: true
 categories: 杂记
 comments: true
-photos: https://cdn.nlark.com/yuque/0/2023/jpeg/174505/1675997121199-da394a23-c969-46ab-a811-aa06c4227c03.jpeg
+photos: https://cdn.lion1ou.tech/picGo/XXT0663.JPG?imageslim
 ---
 
 很荣幸跟几位同事一起参加了 GMTC 全球大前端技术大会。本文按主题梳理我的现场笔记与思考，涵盖工程化、性能与监控、团队管理等方向。
@@ -21,12 +21,12 @@ photos: https://cdn.nlark.com/yuque/0/2023/jpeg/174505/1675997121199-da394a23-c9
 会议第一天继会议主编发言之后，就开始了由快手俞天翔大佬带来的《从“全干”工程师的发展路径看前端的定位与价值》。在分享中俞天翔老师表达了对前端定位和价值的观点。前端技术具有先天的优势，可以在不同的平台上运行，为前端同学提供了更多可能性，从跨端到全栈再到“全干”。从整个产品的开发交付流程上看，前端几乎在所有流程节点中都能有应用场景。包括各类前台业务支持：大型活动页面、直播、电商等业务，各类管理中台系统，各类提效后台系统和各场景上的基础建设。俞老师认为前端的挑战和价值的重点在工程化。如何理解工程化呢？探索并应用合适的技术，通过合理的抽象与分层，完成平台建设、业务落地、完善基建，辅助业务落地持续拿战功的同时，体现自身价值。
 
 <!-- 这是一张图片，ocr 内容为：业务落地与支持 前端的定位和价值: WEB技术优势 流程整合 应用形态 工作支持 业务 WEB APP *开发成本低:声明式&多范式 INIT/UPDATE C端 追鸭 PC站 电喵 音乐人 小剧场 站外分享 大型活动 付费内容 游戏百播 WEB APP B端 小程序 小程序 CODE *能力覆盖广:从跨端到全栈 皮卡 态费 融合激励 音乐宣发 抖饭 赚钱页 本地应用 小柱序 年汤圆 支付宝 微信 00 小程序 小程序 COMPLLE 小程序 小程序 小程序 小程序 SDK COMMIT *标准化:保证了能力下限 移动端APP 中台 业务中台 IM SDK 活动平台 开放平台 支付SDK 鲜花后台 支付中台 YODA SDK BUILD 库/框架 后台 工程化解读 服务 开发检查/ 业务架构 TEST KTRACE 状态管理 NPM LIVEEDITOR WEBOPS 动效平台 SDK 设计 准出 探索并应用合适的技 基础建设 术,通过合理的抽象与分 PREVIEW 前端的挑战 层,完成平台建设,业务 场景编辑 业务架构 开发检查/ 结构化编 PET组建 &价值 动效平台 状态管理 PLAYGROUND 准出 市场 器转 设计 DEPLOY 落地,完善基建,辅助业 工程化 务落地持续拿战功的同时, 能力储备 体现自身价值. MEASURE 分布式 算法 GUI渲染 数据结构 编程语言 软件工程 计算机网络 编译 -->
-![](https://cdn.nlark.com/yuque/0/2023/png/174505/1676012365896-a8ae73ee-b5d0-4567-b7cc-9fafaec62e13.png)
+![[https://cdn.lion1ou.tech/picGo/530c509c862bdc4eae9994db59d53b09_MD5.png?imageslim]]
 
 那在工程化上我们该如何实践呢？俞老师从价值、路径和结果，三个方面分析了对工程化的思考。首先在实现路径上我们需要对方案做简化降维，将复杂的问题拆解成单一的问题，然后再进行逐个击破。这样对于系统的可维护性和实现成本都有明显的优势。平常我们在做工程化项目的时候，往往目的都是为了保证开发流程的稳定、高效运行，不受限于某个开发同学或某项特定技术栈的支持。那么就需要将零散、复杂的提效工具整合成完善的服务或平台形态，减少‘人’在系统中的依赖，降低用户使用和理解成本，并且可以保障各项关键节点的溯源和权限管理。像这样完成项目后，在价值体现上我们可以从降本维度，包括直接成本和间接成本，如服务器数量、cdn费用、人力投入上去考虑。还可以通过交付质量层面，对业务系统的表现力、性能情况、稳定性提升等方面去考量工程化系统的价值所在。
 
 <!-- 这是一张图片，ocr 内容为：前端的定位和价值: 工程化的思考 平衡 追求极致 工程化 创新 取舍 路径 价值 结果 单- 直接成本+间接成本 E-LEARN 单一 LOOO 复杂 CDN费用 服务器数量 单一 降维 工具形态 服务/产品形态 人力投入 交付质量 未解 已解 已解 性能 表现力 稳定性 逐个攻破 减少对"人"的依赖 -->
-![](https://cdn.nlark.com/yuque/0/2023/png/174505/1676012598724-f300aaa3-dda9-4860-9595-e23654132654.png)
+![[https://cdn.lion1ou.tech/picGo/c1ceab03ec60dd4a912ae3e5bbc1af52_MD5.png?imageslim]]
 
 ## 性能与监控
 下午场去参加了大前端监控话题的分享，现场异常火爆。可能是因为随着互联网业务稳步发展，整个前端体系也逐渐走向精细化运营和质量开发，用户体验问题也越来越受到开发者重视，前端监控变得尤为重要。在本专题会上各位老师都介绍了自家公司监控产品的实现方案和探索方向。
@@ -36,21 +36,21 @@ photos: https://cdn.nlark.com/yuque/0/2023/jpeg/174505/1675997121199-da394a23-c9
 阿里的墨辉老师，从问题发现率的角度出发，探索了在技术指标稳定的情况下如何快速发现线上业务问题，如何通过异常检测方案、业务监控和告警策略，提升线上业务问题的发现率。
 
 <!-- 这是一张图片，ocr 内容为：方案总结 安全生产 业务治理 报警策略 异常检测 治理工单 业务监控 规则报警 产品应用 解决方案 非预期检测 灰度报警 最佳实践 多维报警 统计分类 相似度聚类 数据分析 数据处理 JSERROR 接口 灰度信息 页面结构 资源 数据采集 采集规范/采集CORE -->
-![](https://cdn.nlark.com/yuque/0/2023/png/174505/1676017916262-7e6b8974-971a-4c3f-a8b0-60301b36559e.png)
+![[https://cdn.lion1ou.tech/picGo/0fdbd8a79a2cf8b65923d6ef82a44e87_MD5.png?imageslim]]
 
 + 大前端精细化治理——组件 ID 机制
 
 去哪儿网的江保贵老师，从精细化治理角度出发，通过建立全端层面的组件ID机制，解决线上快速定位问题能力。并通过建立用户体验评分模型，对各维度数据进行汇总计算，得出相对全面的用户体验评分系统。从而实现对平台应用质量的全面把控，及时发现各应用的薄弱环节规避风险。
 
 <!-- 这是一张图片，ocr 内容为：大前端精细化治理目标 建立组件ID机制 创建业务开发团队ID,组件/资源包ID,页面ID,VIEWID等信息 快速定位线上问题 通过服务配置不同ID开关,动态收集上传异常,运行日志等信息 搭建用户体验指标度量平台 用户体验多指标融合,数字量化用户体验,统一入口 -->
-![](https://cdn.nlark.com/yuque/0/2023/png/174505/1676019777495-98095573-2477-4f89-ada4-3876efa257bc.png)
+![[https://cdn.lion1ou.tech/picGo/d8d6d13750527e8b50b92a5264155713_MD5.png?imageslim]]
 
 + 北斗大前端监控系统建设与实践
 
 58同城的李祎老师，给我们详细介绍了北斗大前端监控系统的架构方案。包含SDK层：JSSDK、RNSDK、NativeSDK；数据收集层：数据采样、清洗、转换、转发；数据存储层：日志明细、指标数据；核心服务层：告警分析、采样率计算、日志整合、可视化平台业务；可视化平台：日志查询、可视化图表分析。
 
 <!-- 这是一张图片，ocr 内容为：基础监控架构 SDK LAYER 关注点 RN IOS MINI APP WEB ANDROID 监控数据实时性 LOGS LOGS ID MAPPING 整体架构可维护性 DATA COLLECT SERVICE LAYER 技术栈横向扩展 集团级的流量和日志存储 KAFKA KAFKA OTHER LOGS PLATFORM 架构 STORAGE LAYER WTRACE SDK层 JSSDK,RNSDK,NATIVESDK ELASTICSEARCH HDFS MYSQL DRUID 数据收集层数据采样,清洗,转换,转发 BIZLOGS TIMESTAMP.DIMENSION.METRICS QUERY STORGE 数据存储层日志明细,指标数据 CORE SERVICE LAYER 核心服务层告警分析,采样率计算,日志整 DASHBOARD SCHEDULE 合,可视化平台业务 LOGS LINK SERVLCE JOBS LIMIT LPGS SYNC 可视化平台日志查询,可视化图表分析 SEND ALERT -->
-![](https://cdn.nlark.com/yuque/0/2023/png/174505/1676020334932-f946550d-5454-4d0a-86d1-b4bf83f6fdff.png)
+![[https://cdn.lion1ou.tech/picGo/851e04cc3a425d100a35b4027232f318_MD5.png?imageslim]]
 
 另外在多端异常问题定位上，李祎老师也给我们提供了不少思路。在JS异常分析过程中为不同场景提供不同的定位工具。包括源码自动映射，智能维度分析，执行链路日志，场景模拟还原和自定义日志查询，尽可能为所有问题场景提供可用的数据支持和解决思路。在智能维度分析上，通过对维度占比排序和逐步减少条件的方式，找到占比最大的条件组合来实现智能分析。
 
@@ -59,32 +59,32 @@ photos: https://cdn.nlark.com/yuque/0/2023/jpeg/174505/1675997121199-da394a23-c9
 腾讯的李振老师，从多平台监控SDK、百万QPS上报的接入层和限流与网关这几个方面，给我们分享了他们的实践方案。目前腾讯的RUM(Real User Monitoring)支持的接入平台数量众多，通过单一平台单个sdk的方案，存在代码维护困难，协同成本高，发布版本不一致等问题。为了解决这些问题，他们采用了胖内核、异步插件、灵活配置插件组合的方案。中间经历过多次重构迭代，通过不断重构使设计模式和架构更趋于合理，提高SDK的拓展性和维护性。
 
 <!-- 这是一张图片，ocr 内容为：多平台监控SDK设计与实现 方案与效果 集成打包模式 抽取公共逻辑,通过内核定义全部功能 解决方案: CORE CORE管理平台无关的功能 平台 生命周 平台无 插件 配置 COCOS-SDK 期管理 无关 关功能 管理 管理 SDK内部管理上报逻辑 CORE HIPPY-SOLK >LITEAPP-SDK 插件化管理公共逻辑或者自有逻辑 >MP-SDK SDK NODE-SDK 数据上报管道化PIPELINE QUICKAPP-SDK MSSDK 平台 VIOLA-SDK MINI 优化效果: NODE WEB WEB-SDK RN 相关 PROGRAM _. TESTS_ >LIB 代码逻辑更加清晰自洽 NODE_MODULES VSRC 开发编译按需打包 PLUGINS 协议统一 页面 数据 数据 染色 TS INDEX.TS 离线 测速 PV 抽样 性能 NPMIGNORE 采集 处理 日志 存储 PACKAGE-LOCK.JSON 集成打包带来的问题 打包后文件非常大(440K) TS CREATOR.D.TS PIPELINE:限流,去重,合并请求,白名单等 开发过程中编译速度非常慢 GMITC INFOQ -->
-![](https://cdn.nlark.com/yuque/0/2023/png/174505/1676022932634-9a3ce8a3-92ac-4850-bdea-db89c564416c.png)
+![[https://cdn.lion1ou.tech/picGo/cffa98a597405960a73065749392bb89_MD5.png?imageslim]]
 
 <!-- 这是一张图片，ocr 内容为：多平台监控SDK设计与实现 14K是否已经是极限了? 订制专属SDK 优化后存在的问题 日志上报,白定义PV,自注义测速 SDK 盘功能, 连过锁定谷动物 PERFOMANTARASOUROETTERING 对关应达来的路查阅读进行主建. 不同用户有不同的诉求,大部分用户只会用到某些功能 如持:XHR 及 BESCT 进行接口测出. 随着功能增强代码包依然会不断扩大 海拔在上张约日志存请在用户本拍 IDENEDDB 中,供开发者商时携取 错误监控 有些用户把SDKINLINE到HTML 脂肪严重上约布有强逻:这块行罐复,PRORRISE铁行管误,AFSKH!我决定属,REL29DE异常,管理加整决激. 真面漂连 通过 PERIORNANCETENG 收解并二报DNS斯析,ICP语,55L后腰,SSL异糖,DDAN析,委源龙世哥解校,55L诗艘,DDNS斯析,整源龙世哥解校,55L后腰,SSL诗艘,DDON标,整 法计准首所时间. 厂用户同放 思考: 在不影响性能的落提下,监护违户的预行,并生成回放在开发着平台撞放. 单页应用 监督HASHCHANGA,HISTORY API ,在单页应用路由安北时上报页面PV. 能否通过定制化的方式让用户选择自己所需要的功能 天机阁全铁路日志 天组购全镜结日志,望老该销性.彩绘典面生成一个SPAN,并给问题的A以请来涉红一个棋蜂的温来失,关城页回 开始生成 十年+ 最终方案 定制专属SDK SOK组成:日志上报,自定义PV,自 自定义汉 读取的配置位数 15 // NAME:插件名,INDEX:读 不同插件排列组合 CONST PLUGINS INDEX:0 1 7, NAME:ASSET_SPEED { NAME:'CGI_SPEED', INDEX: 1 ], 可视化页面让用户动态选择自己所需要的功能 19 { NAME: 'OFFLINE_LOG', INDEX: 2 ], 20 { NAME: ON_ERROR',INDEX:3 ], 实现定制SDK 的基础是前面良好的插件化 21 { NAME:PAGE PERFORMANCE',INDEX:4 H, 22 { NAME:SHADOW_LOG',INDEX: 5 ], 23 { NAME:SPA ,INDEX:6>, 24 { NAME:TJG',INDEX:7), 25 { NAME:WEB_VITALS',INDEX:8 ], GITC 26 全球大前错技术大会 -->
-![](https://cdn.nlark.com/yuque/0/2023/png/174505/1676023105351-47fceb87-8d09-4aa7-82a4-36eb69607f68.png)
+![[https://cdn.lion1ou.tech/picGo/1a1646d85108bd296d7a4ff114e538d6_MD5.png?imageslim]]
 
 另外在监控系统中，还有一个比较常见的问题就是数据量太大，对服务和性能的要求太高，并且可能出现不可预期的数据高峰情况，导致系统崩溃。通过在上报前的数据限流，清洗数据时的数据丢弃，定时缩扩容等方案处理之后，还是无法解决流量突增的问题。在不断摸索和试错过程中，他们通过新增动态中间网关层的方式，解决了流量突增的问题。这样的场景可能在一般的企业中是不太会出现，但是不乏也是一个解决相关问题的思路。
 
 <!-- 这是一张图片，ocr 内容为：问题思考 真正的方案 冗余 网关直接返回204,再 异步 缩容问题>修改NODE 默认全连接队列长度 服务器 异步把数据发送到服 网关 客户端 问题本质>流量激增(瞬时)的问题 削峰限流 务器? 提前扩容 204 限流与动态网关 方案分析 动态网关 方案对比 技术组件 USER 1.原生支持负载均衡 LUA提前关闭连接. 2.可快速扩容 IAS,STGW REG RSP STATUS 204 3. 不支持UPSTREAM 自定义 父子请求间,非阻 1.负载均衡 塞的内部请求,也 子请求 2.快速扩容(K8S) DYNAMIC GATEWAY, LUA->/SUB OPENRESTRY 没有进程间通信. 父请求 3.支持UPSTREAM自定义配置 4.研发成本低 ASYNCHRONOUS 1.负载均衡相对繁琐 REG 自研GOLANG网关 2.高并发能力略逊于NGINX 3.研发成本较高 APP SERVER 具体实践 高并发优化 核心代码 1.HTTP 连接快速关闭 KEEP_ALIVETIME 1.最大连接数SOMAXCONN 2.子进程打开连接WORKER_CONNECTIONS 2.加快 TCP 连接回收 TCP_TW_RECYLE -关闭连接,把数据返回给终端.后面操作继续执行 NGX.EOF() 3.子进程允许打开文件 3.空 TCP 回收 TW.REUSE NGX.REQ. READ_BODY() LOCAL RES NGX.LOCATION.CAPTURE( SPEED/CUSTOM", WORKER_RLIMIT_NOFILE 4.系统最大打开文件ULIMIT-N ARGS NGX.REQ.GET_URI ARGS(), 系统层面 NGINX层面 INTOQ GING 全球大前端技术大会 -->
-![](https://cdn.nlark.com/yuque/0/2023/png/174505/1676023927708-baf41811-27dc-4172-8df1-38ad70a91fdb.png)
+![[https://cdn.lion1ou.tech/picGo/05deb32e8834f454538af9e6ab7eae7c_MD5.png?imageslim]]
 
 ## 团队管理
 在团队管理专题场上，汇集了各位业界大佬的经验总结，满满都是干货。第一个分享，来自京东零售的盖旭天老师 -- 《低碳背景下的技术管理》。在全球低碳背景下，业务追求创新愈加强烈，技术团队需要在无法大范围扩张的前提下，该如何考虑技术团队的管理呢？盖老师从技术战略的思考，低碳组织打造和成本减法与提升效能案例上，对其做了阐述。低碳组织打造，主要分为五点：组织飞轮，组织战略屋，定高起点，管好过程，拿量化结果。
 
 <!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2023/jpeg/174505/1676033836679-bef0f5de-f29a-44d9-be86-e4b3f35374fc.jpeg)
+![[https://cdn.lion1ou.tech/picGo/c6d700394feb5f5751a760b85aa1c953_MD5.jpg]]
 
 第二位则是58集团前段技术委员会主席井铎铎老师 -- 《二手电商前端团队价值之路》。从前端团队价值、决策力，个人突破阐述了对团队管理的理解，并根据他的经验做了详细介绍。前端团队价值在于高效保证业务交付，创造更好的用户体验。决策力是管理者为实现总体目标，解决局部重要问题的一种选择。决策的本质是基于收益、损失、时间纬度的取舍。个人突破关键在于向上管理、升维思考、非正式网络构建和自我意识，最后让自己的工作进入心流状态。
 
 <!-- 这是一张图片，ocr 内容为：前端技术团队的价值-小结 高效保证业务交付,创新更好用户体验 守正出奇,业务为正,能力为奇 POR用乔士率 效丰盘 协作水平 270食品作问鉴 足浴车 前端技术团队的价值 交付价值 交付指标体系 秒开平 体验盘 质量盘 增量价值 基本价值 交付-招标体系 一手拯救 效率盘 质量出 数据决策 可能性 前瞻性 增量价值 体验盘 协作水平 GMITC INFOQ -->
-![](https://cdn.nlark.com/yuque/0/2023/png/174505/1676123590645-821ff413-9aec-42d5-bc47-afdc6c01748b.png)
+![[https://cdn.lion1ou.tech/picGo/f6815ff72c042013e94effef812d834d_MD5.png?imageslim]]
 
 <!-- 这是一张图片，ocr 内容为：团队管理中的决策力-小结 决策的本质是基于收益,损失,时间纬度的舍弃 好的决策一般不是来源于直觉,而是需要好的工具方法,花在它身上的时间都是值得的 未来的不确定性,当你遇到危机,糟糕的处境,不情愿去做决策时,能做出合理决策才是关键 管理中的决策力 中层管理者为实现总 体目标,解决局部重 要问题的一种选择 GMTC INFOQ 全球大前幅技术大会 -->
-![](https://cdn.nlark.com/yuque/0/2023/png/174505/1676124371846-b1c6dd8a-5dd0-4937-a88b-ce523b1463eb.png)
+![[https://cdn.lion1ou.tech/picGo/c0165b7619125229294fbbb1271cc8b8_MD5.png?imageslim]]
 
 <!-- 这是一张图片，ocr 内容为：自我成长突破路径-小结 个人成长/突破 个人成长/突破 GROWING UP 焦虑 心流 菜道 自我管理 向上管理 SELF MANAGEMENT MANAGE UPWARDS 眼烦 增加按妮水平 0 0(低) (高)(G 技能 GITC INFOQ -->
-![](https://cdn.nlark.com/yuque/0/2023/png/174505/1676124353807-94e979ff-c429-496c-9b47-63ae12c02365.png)
+![[https://cdn.lion1ou.tech/picGo/1d2574085f9440fe30f5e3d3ba218668_MD5.png?imageslim]]
 
 ## 总结
 由于篇幅有限，无法把所有分享都列出来，这里只是列举了让我印象深刻的几位老师的分享，最后谈谈我对这次大会的一些感受。
