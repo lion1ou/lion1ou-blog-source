@@ -1,5 +1,5 @@
 ---
-title: JavaScript之前端资源预加载进度条(转)
+title: JavaScript之前端资源预加载进度条
 toc: true
 comments: true
 categories: JavaScript

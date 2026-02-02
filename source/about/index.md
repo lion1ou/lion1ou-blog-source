@@ -4,6 +4,7 @@ date: 2016-07-12 14:51:39
 comments: true
 layout: page
 ---
+
 <style type="text/css">
 #bio {
     line-height: 16px;
@@ -97,11 +98,11 @@ layout: page
     <div class="timestamp"> -- 2021.10.7</div>
     </div>
 </section>
-<!-- <section style="width: 100%; display: flex; justify-content: center;">
-    <iframe src="http://calendar.lion1ou.tech" style="width: 850px; height: 602px"></iframe>
+<!-- <section style="width: 50%; display: flex; justify-content: center;">
+    <iframe src="http://calendar.lion1ou.tech" style="width: 850px; height: 602px; border: 1px solid #777; outline: none;"></iframe>
 </section> -->
-<!-- <section id="chuyun">
+<section id="chuyun">
     <div class="chuyun_p">初韵茶苑</div><div class="chuyun_p_s">自产自销的正宗福鼎白茶</div>
     <img src="http://cdn.chuyunt.com/uPic/Snipaste_20210130_161132.png" alt="淘宝二维码">
-    <div class="chuyun_p_s">如果你也是一个爱喝茶的程序猿</div> <div class="chuyun_p_s">欢迎扫码购买哟~</div>
-</section> -->
+    <div class="chuyun_p_s">如果你也是一个爱喝茶的牛马</div> <div class="chuyun_p_s">欢迎扫码购买哟~</div>
+</section>
