@@ -3,14 +3,15 @@ categories: Categories
 search: Search
 tags: Tags
 tweets: Tweets
-prev: Pre
+prev: Prev
 next: Next
 comment: Comments
 archives: Archives
-page: The %d Page
-recent_posts: Revent Posts
+page: Page %d
+recent_posts: Recent Posts
 close: Close
 posts_list: Posts
 about: About
+projects: Projects
 rss: RSS
 main_site: Main Site
