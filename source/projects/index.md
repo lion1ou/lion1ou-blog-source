@@ -24,5 +24,35 @@ projects:
     url: https://github.com/lion1ou/hexo-theme-sprite
     status: Public
 
+  - title: 初韵基金
+    description: 一个基于 React + 天天基金接口 + Node.js 的基金管理工具，支持基金查询、持仓管理、天天基金持仓同步、历史交易趋势、购买建议等功能。
+    image: https://cdn.lion1ou.tech/picGo/20260204095623442.png?imageslim
+    tags: 
+      - React
+      - TypeScript
+      - Node.js
+    url: #
+    status: Private
+  
+  - title: 个人记账
+    description: 一个基于 Next.js + AI 模型 + RAG 的个人记账工具，支持支付宝、微信、招行账单上传、AI 解析自动分类、账单查询、统计分析等功能。
+    image: https://cdn.lion1ou.tech/picGo/20260204100109873.png?imageslim
+    tags: 
+      - Next.js
+      - TypeScript
+      - Node.js
+    url: #
+    status: Private
+
+  - title: 初韵茶苑
+    description: 一个基于 Nuxt.js + TypeScript + Node.js 的博客系统，支持文章发布、评论、分类、标签、搜索等功能，作为自家茶叶品牌官网。
+    image: https://cdn.lion1ou.tech/picGo/20260204100521848.png?imageslim
+    tags: 
+      - Nuxt.js
+      - TypeScript
+      - Node.js
+    url: https://www.chuyunt.com/
+    status: Public
+
 ---
-这里展示了我参与或主导的一些开源项目，涵盖了前端基建、AI 工程化以及一些有趣的实验性工具。
+这里展示了我个人做的一些小项目以及一些有趣的实验性工具。
