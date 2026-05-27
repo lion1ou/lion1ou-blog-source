@@ -7,8 +7,10 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 CONFIG_FILE="$SCRIPT_DIR/init-config.json"
-SEARCH_ENV_FILE="$SCRIPT_DIR/lion1ou-search-tools/.env"
+SKILLS_ENV_FILE="$SCRIPT_DIR/.env"
+SKILLS_ENV_EXAMPLE_FILE="$SCRIPT_DIR/.env.example"
 BAOYU_ENV_FILE="$PROJECT_DIR/.baoyu-skills/.env"
+BAOYU_ENV_EXAMPLE_FILE="$PROJECT_DIR/.baoyu-skills/.env.example"
 BAOYU_IMAGE_EXTEND_FILE="$PROJECT_DIR/.baoyu-skills/baoyu-image-gen/EXTEND.md"
 
 # 颜色定义
@@ -221,15 +223,15 @@ check_dependencies() {
   # API Keys
   print_header "检查 API Keys 配置"
 
-  if [ -f "$SEARCH_ENV_FILE" ]; then
-    print_success "lion1ou-search-tools/.env 文件存在"
-    if grep -Eq '^TAVILY_API_KEY=.+' "$SEARCH_ENV_FILE" 2>/dev/null; then
+  if [ -f "$SKILLS_ENV_FILE" ]; then
+    print_success ".cursor/skills/.env 文件存在"
+    if grep -Eq '^TAVILY_API_KEY=.+' "$SKILLS_ENV_FILE" 2>/dev/null; then
       print_success "TAVILY_API_KEY 已配置"
     else
       print_warning "TAVILY_API_KEY 未配置，Tavily 搜索源不可用"
     fi
   else
-    print_warning "lion1ou-search-tools/.env 不存在；已有单 skill 配置不会被初始化脚本覆盖"
+    print_warning ".cursor/skills/.env 不存在；运行 'bash .claude/skills/init.sh --setup-env' 创建"
   fi
 
   if [ -f "$BAOYU_ENV_FILE" ]; then
@@ -317,48 +319,98 @@ setup_env() {
 
   mkdir -p "$(dirname "$BAOYU_ENV_FILE")" "$(dirname "$BAOYU_IMAGE_EXTEND_FILE")"
 
+  if [ -f "$SKILLS_ENV_FILE" ]; then
+    print_success ".cursor/skills/.env 已存在，保留原有配置"
+  elif [ -f "$SKILLS_ENV_EXAMPLE_FILE" ]; then
+    cp "$SKILLS_ENV_EXAMPLE_FILE" "$SKILLS_ENV_FILE"
+    print_success ".cursor/skills/.env 文件已从 .env.example 创建"
+  else
+    cat > "$SKILLS_ENV_FILE" << 'EOF'
+# lion1ou skills 通用环境变量配置
+TAVILY_API_KEY=
+TAVILY_KEY=
+GITHUB_TOKEN=
+XIAOHONGSHU_MCP_URL=https://xhs.n.lion1ou.tech:16666/mcp
+XHS_MCP_URL=
+DDG_GOOGLE_KEY=
+GROQ_API_KEY=
+OPENAI_API_KEY=
+CDP_PROXY_PORT=3456
+EOF
+    print_success ".cursor/skills/.env 文件已创建"
+  fi
+
   if [ -f "$BAOYU_ENV_FILE" ]; then
     print_success ".baoyu-skills/.env 已存在，保留原有配置"
+  elif [ -f "$BAOYU_ENV_EXAMPLE_FILE" ]; then
+    cp "$BAOYU_ENV_EXAMPLE_FILE" "$BAOYU_ENV_FILE"
+    print_success ".baoyu-skills/.env 文件已从 .env.example 创建"
   else
     cat > "$BAOYU_ENV_FILE" << 'EOF'
 # baoyu skills 环境变量配置
-# 本仓库为个人私有仓库，真实密钥可随 git 同步。
+# 复制为 .baoyu-skills/.env 后填写真实值；.env 不提交 Git。
 
 # 生图后端：任选一个或多个配置。baoyu-image-gen 会按配置和可用 key 自动选择。
 GOOGLE_API_KEY=
+GEMINI_API_KEY=
+GOOGLE_BASE_URL=
 OPENAI_API_KEY=
+OPENAI_BASE_URL=
 AZURE_OPENAI_API_KEY=
-AZURE_OPENAI_DEPLOYMENT=
+AZURE_OPENAI_BASE_URL=
 AZURE_API_VERSION=2025-04-01-preview
 OPENROUTER_API_KEY=
+OPENROUTER_BASE_URL=
 DASHSCOPE_API_KEY=
+DASHSCOPE_BASE_URL=
 ZAI_API_KEY=
 BIGMODEL_API_KEY=
+ZAI_BASE_URL=
+BIGMODEL_BASE_URL=
 MINIMAX_API_KEY=
+MINIMAX_BASE_URL=
 REPLICATE_API_TOKEN=
+REPLICATE_BASE_URL=
 JIMENG_ACCESS_KEY_ID=
 JIMENG_SECRET_ACCESS_KEY=
 JIMENG_REGION=cn-north-1
+JIMENG_BASE_URL=
 ARK_API_KEY=
-
-# 生图模型覆盖（可选）
-GOOGLE_IMAGE_MODEL=gemini-3-pro-image-preview
-OPENAI_IMAGE_MODEL=gpt-image-2
-OPENROUTER_IMAGE_MODEL=google/gemini-3.1-flash-image-preview
-DASHSCOPE_IMAGE_MODEL=qwen-image-2.0-pro
-ZAI_IMAGE_MODEL=glm-image
-MINIMAX_IMAGE_MODEL=image-01
-REPLICATE_IMAGE_MODEL=google/nano-banana-2
-JIMENG_IMAGE_MODEL=
-SEEDREAM_IMAGE_MODEL=
+SEEDREAM_BASE_URL=
 
 # OpenRouter 可选 attribution
 OPENROUTER_HTTP_REFERER=
 OPENROUTER_TITLE=
 
+# Codex CLI 生图后端
+BAOYU_CODEX_IMAGEGEN_BIN=
+BAOYU_CODEX_IMAGEGEN_CACHE_DIR=
+BAOYU_CODEX_IMAGEGEN_TIMEOUT_MS=
+BAOYU_CODEX_IMAGEGEN_RETRIES=
+BAOYU_CODEX_IMAGEGEN_LOG_FILE=
+
+# Gemini Web 反向 API
+GEMINI_WEB_DATA_DIR=
+GEMINI_WEB_COOKIE_PATH=
+GEMINI_WEB_CHROME_PROFILE_DIR=
+GEMINI_WEB_CHROME_PATH=
+BAOYU_CHROME_PROFILE_DIR=
+HTTP_PROXY=
+HTTPS_PROXY=
+
+# X / Twitter 反向 API
+X_AUTH_TOKEN=
+X_CT0=
+X_GUEST_TOKEN=
+X_TWID=
+
 # 微信公众号 API（baoyu-post-to-wechat API 模式）
 WECHAT_APP_ID=
 WECHAT_APP_SECRET=
+
+# 微信公众号多账号配置示例：WECHAT_<ALIAS>_APP_ID / WECHAT_<ALIAS>_APP_SECRET
+WECHAT_ALIAS_APP_ID=
+WECHAT_ALIAS_APP_SECRET=
 EOF
     print_success ".baoyu-skills/.env 文件已创建"
   fi
@@ -421,11 +473,8 @@ EOF
     print_success "baoyu-image-gen EXTEND.md 文件已创建"
   fi
 
-  if [ -f "$SEARCH_ENV_FILE" ]; then
-    print_success "保留已有 lion1ou-search-tools/.env"
-  else
-    print_warning "lion1ou-search-tools/.env 不存在，未自动创建；如需 Tavily / XHS 搜索源，请按该 skill 原配置方式创建"
-  fi
+  print_info "非 baoyu 配置文件位置: $SKILLS_ENV_FILE"
+  print_info "baoyu 配置文件位置: $BAOYU_ENV_FILE"
 }
 
 # 运行健康检查
@@ -450,7 +499,7 @@ show_help() {
   echo "  --check-only    只检查依赖，不安装"
   echo "  --skip-python   跳过 Python 包安装"
   echo "  --skip-node     跳过 Node.js 包安装"
-  echo "  --setup-env     创建 baoyu skills 配置文件"
+  echo "  --setup-env     创建 .env 配置文件"
   echo "  --health        运行健康检查"
   echo "  --help          显示此帮助信息"
   echo ""
@@ -501,13 +550,14 @@ main() {
         fi
       fi
 
-      # 创建 baoyu 配置文件（如果不存在）
-      if [ ! -f "$BAOYU_ENV_FILE" ] || [ ! -f "$BAOYU_IMAGE_EXTEND_FILE" ]; then
+      # 创建配置文件（如果不存在）
+      if [ ! -f "$SKILLS_ENV_FILE" ] || [ ! -f "$BAOYU_ENV_FILE" ] || [ ! -f "$BAOYU_IMAGE_EXTEND_FILE" ]; then
         setup_env
       fi
 
       print_header "初始化完成"
-      print_success "请按需编辑 baoyu 与各 skill 自己的 .env 文件配置 API Keys"
+      print_success "请按需编辑 .cursor/skills/.env 与 .baoyu-skills/.env 配置 API Keys"
+      print_info "非 baoyu 配置文件位置: $SKILLS_ENV_FILE"
       print_info "baoyu 配置文件位置: $BAOYU_ENV_FILE"
       ;;
   esac

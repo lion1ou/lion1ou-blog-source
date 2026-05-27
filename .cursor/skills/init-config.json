@@ -1,13 +1,13 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "lion1ou skills 初始化配置",
   "lastUpdated": "2026-05-27",
   "entrypoint": ".claude/skills/init.sh",
   "notes": [
     ".claude/skills 通过软链指向 .cursor/skills，对外入口保持 .claude/skills/init.sh",
-    "已有单个 skill 自己的 .env 不由初始化脚本修改，例如 lion1ou-search-tools/.env",
+    "除 baoyu-skills 外，所有 skill 环境变量统一放在 .cursor/skills/.env",
     "baoyu-skills 统一读取项目根目录 .baoyu-skills/.env",
-    "本仓库为个人私有仓库，真实密钥允许随 git 同步"
+    ".env 文件只保留本地，Git 同步 .env.example"
   ],
 
   "apiKeys": {
@@ -15,8 +15,21 @@
       "description": "Tavily 搜索 API Key",
       "envKey": "TAVILY_API_KEY",
       "required": false,
-      "configFile": ".cursor/skills/lion1ou-search-tools/.env",
+      "configFile": ".cursor/skills/.env",
       "获取方式": "https://tavily.com 注册获取"
+    },
+    "github": {
+      "description": "GitHub API Token，用于提高 GitHub 搜索限额",
+      "envKey": "GITHUB_TOKEN",
+      "required": false,
+      "configFile": ".cursor/skills/.env",
+      "获取方式": "https://github.com/settings/tokens"
+    },
+    "xhsMcp": {
+      "description": "小红书 MCP 端点",
+      "envKey": ["XIAOHONGSHU_MCP_URL", "XHS_MCP_URL"],
+      "required": false,
+      "configFile": ".cursor/skills/.env"
     },
     "wechat": {
       "description": "微信公众号 API",
@@ -29,67 +42,58 @@
 
   "imageGeneration": {
     "configFile": ".baoyu-skills/.env",
+    "exampleFile": ".baoyu-skills/.env.example",
     "preferencesFile": ".baoyu-skills/baoyu-image-gen/EXTEND.md",
     "defaultProvider": "google",
     "defaultQuality": "2k",
     "providers": {
       "google": {
         "envKeys": ["GOOGLE_API_KEY"],
-        "modelEnvKey": "GOOGLE_IMAGE_MODEL",
         "defaultModel": "gemini-3-pro-image-preview",
         "supportsReferenceImage": true
       },
       "openai": {
         "envKeys": ["OPENAI_API_KEY"],
-        "modelEnvKey": "OPENAI_IMAGE_MODEL",
         "defaultModel": "gpt-image-2",
         "supportsReferenceImage": true
       },
       "azure": {
-        "envKeys": ["AZURE_OPENAI_API_KEY", "AZURE_OPENAI_DEPLOYMENT"],
-        "modelEnvKey": "AZURE_OPENAI_IMAGE_MODEL",
+        "envKeys": ["AZURE_OPENAI_API_KEY"],
         "defaultModel": "gpt-image-2",
         "supportsReferenceImage": true
       },
       "openrouter": {
         "envKeys": ["OPENROUTER_API_KEY"],
-        "modelEnvKey": "OPENROUTER_IMAGE_MODEL",
         "defaultModel": "google/gemini-3.1-flash-image-preview",
         "supportsReferenceImage": true
       },
       "dashscope": {
         "envKeys": ["DASHSCOPE_API_KEY"],
-        "modelEnvKey": "DASHSCOPE_IMAGE_MODEL",
         "defaultModel": "qwen-image-2.0-pro",
         "supportsReferenceImage": "wan2.7-image-pro / wan2.7-image only"
       },
       "zai": {
         "envKeys": ["ZAI_API_KEY", "BIGMODEL_API_KEY"],
-        "modelEnvKey": "ZAI_IMAGE_MODEL",
         "defaultModel": "glm-image",
         "supportsReferenceImage": false
       },
       "minimax": {
         "envKeys": ["MINIMAX_API_KEY"],
-        "modelEnvKey": "MINIMAX_IMAGE_MODEL",
         "defaultModel": "image-01",
         "supportsReferenceImage": true
       },
       "replicate": {
         "envKeys": ["REPLICATE_API_TOKEN"],
-        "modelEnvKey": "REPLICATE_IMAGE_MODEL",
         "defaultModel": "google/nano-banana-2",
         "supportsReferenceImage": true
       },
       "jimeng": {
         "envKeys": ["JIMENG_ACCESS_KEY_ID", "JIMENG_SECRET_ACCESS_KEY"],
-        "modelEnvKey": "JIMENG_IMAGE_MODEL",
         "defaultModel": null,
         "supportsReferenceImage": false
       },
       "seedream": {
         "envKeys": ["ARK_API_KEY"],
-        "modelEnvKey": "SEEDREAM_IMAGE_MODEL",
         "defaultModel": null,
         "supportsReferenceImage": true
       },
@@ -173,5 +177,27 @@
     "baoyu-skills": ["bun", ".baoyu-skills/.env"],
     "baoyu-image-gen": ["bun", ".baoyu-skills/.env", ".baoyu-skills/baoyu-image-gen/EXTEND.md", "one-of-image-provider"],
     "baoyu-post-to-wechat": ["wechat-api-key"]
+  },
+
+  "envFiles": {
+    "nonBaoyu": {
+      "envFile": ".cursor/skills/.env",
+      "exampleFile": ".cursor/skills/.env.example",
+      "variables": [
+        "TAVILY_API_KEY",
+        "TAVILY_KEY",
+        "GITHUB_TOKEN",
+        "XIAOHONGSHU_MCP_URL",
+        "XHS_MCP_URL",
+        "DDG_GOOGLE_KEY",
+        "GROQ_API_KEY",
+        "OPENAI_API_KEY",
+        "CDP_PROXY_PORT"
+      ]
+    },
+    "baoyu": {
+      "envFile": ".baoyu-skills/.env",
+      "exampleFile": ".baoyu-skills/.env.example"
+    }
   }
 }

@@ -19,8 +19,10 @@ bash .claude/skills/init.sh --setup-env
 |------|------|
 | `init.sh` | 初始化脚本，检查和安装依赖 |
 | `init-config.json` | 配置文件，定义依赖和 API Keys |
-| `.baoyu-skills/.env` | baoyu-skills 统一环境变量文件，存储图片生成和发布相关 API Keys |
-| `*/.env` | 单个 skill 自己的环境变量文件；已有文件不由初始化脚本修改 |
+| `.cursor/skills/.env` | 非 baoyu skills 的统一本地环境变量文件 |
+| `.cursor/skills/.env.example` | 非 baoyu skills 的环境变量模板，随 Git 同步 |
+| `.baoyu-skills/.env` | baoyu-skills 统一本地环境变量文件 |
+| `.baoyu-skills/.env.example` | baoyu-skills 的环境变量模板，随 Git 同步 |
 
 ## 依赖清单
 
@@ -56,11 +58,31 @@ python3 -m playwright install chromium
 
 ## API Keys 配置
 
-本项目按 skill 读取习惯分流配置，不把所有 key 强行合并到一个位置：
+本项目按 skill 读取习惯分流配置：
 
-- 已经有自己 `.env` 的 skill 保持原配置，例如 `lion1ou-search-tools/.env`。
-- baoyu-skills 相关配置统一放在项目根目录 `.baoyu-skills/.env`。
-- 本仓库为个人私有仓库，真实密钥允许随 git 同步。
+- 除 baoyu-skills 外，统一使用 `.cursor/skills/.env`。
+- baoyu-skills 相关配置统一使用 `.baoyu-skills/.env`。
+- 所有 `.env` 只保留本地，不随 Git 同步；Git 同步对应的 `.env.example`。
+
+初始化脚本会在缺失时从 `.env.example` 创建本地 `.env`：
+
+```bash
+bash .claude/skills/init.sh --setup-env
+```
+
+非 baoyu 配置写入 `.cursor/skills/.env`：
+
+```env
+TAVILY_API_KEY=
+TAVILY_KEY=
+GITHUB_TOKEN=
+XIAOHONGSHU_MCP_URL=https://xhs.n.lion1ou.tech:16666/mcp
+XHS_MCP_URL=
+DDG_GOOGLE_KEY=
+GROQ_API_KEY=
+OPENAI_API_KEY=
+CDP_PROXY_PORT=3456
+```
 
 编辑 `.baoyu-skills/.env` 文件，填入 baoyu 相关 API Keys：
 
@@ -69,7 +91,6 @@ python3 -m playwright install chromium
 GOOGLE_API_KEY=xxxxxxxxxx
 OPENAI_API_KEY=sk-xxxxxxxxxx
 AZURE_OPENAI_API_KEY=xxxxxxxxxx
-AZURE_OPENAI_DEPLOYMENT=gpt-image-2
 OPENROUTER_API_KEY=xxxxxxxxxx
 DASHSCOPE_API_KEY=xxxxxxxxxx
 ZAI_API_KEY=xxxxxxxxxx
@@ -78,15 +99,6 @@ REPLICATE_API_TOKEN=xxxxxxxxxx
 JIMENG_ACCESS_KEY_ID=xxxxxxxxxx
 JIMENG_SECRET_ACCESS_KEY=xxxxxxxxxx
 ARK_API_KEY=xxxxxxxxxx
-
-# 生图模型覆盖（可选）
-GOOGLE_IMAGE_MODEL=gemini-3-pro-image-preview
-OPENAI_IMAGE_MODEL=gpt-image-2
-OPENROUTER_IMAGE_MODEL=google/gemini-3.1-flash-image-preview
-DASHSCOPE_IMAGE_MODEL=qwen-image-2.0-pro
-ZAI_IMAGE_MODEL=glm-image
-MINIMAX_IMAGE_MODEL=image-01
-REPLICATE_IMAGE_MODEL=google/nano-banana-2
 
 # 微信公众号 API (用于 baoyu-post-to-wechat)
 # 获取地址: 微信公众平台 -> 开发 -> 基本配置
@@ -100,7 +112,7 @@ WECHAT_APP_SECRET=xxxxxxxxxx
 deep-research-pro
   └── lion1ou-search-tools
         ├── TAVILY_API_KEY
-        ├── lion1ou-search-tools/.env
+        ├── .cursor/skills/.env
         ├── scrapling
         └── playwright-chromium
 
@@ -128,7 +140,7 @@ baoyu-image-gen
   └── 至少一个生图后端:
       ├── GOOGLE_API_KEY
       ├── OPENAI_API_KEY
-      ├── AZURE_OPENAI_API_KEY + AZURE_OPENAI_DEPLOYMENT
+      ├── AZURE_OPENAI_API_KEY
       ├── OPENROUTER_API_KEY
       ├── DASHSCOPE_API_KEY
       ├── ZAI_API_KEY / BIGMODEL_API_KEY
@@ -170,6 +182,7 @@ bash .claude/skills/init.sh --help
 
 2. **配置 API Keys**：
    ```bash
+   vim .cursor/skills/.env
    vim .baoyu-skills/.env
    ```
 
@@ -215,8 +228,9 @@ brew upgrade poppler qpdf tesseract
 
 ## 跨环境使用
 
-`.baoyu-skills/.env` 和各 skill 自己的 `.env` 可随私有仓库同步。新环境下：
+`.env` 文件不随 Git 同步。新环境下：
 
 1. 克隆项目
 2. 运行 `bash .claude/skills/init.sh`
-3. 运行 `bash .claude/skills/init.sh --check-only` 确认依赖、登录态和 key 状态
+3. 按 `.cursor/skills/.env.example` 和 `.baoyu-skills/.env.example` 填写本地密钥
+4. 运行 `bash .claude/skills/init.sh --check-only` 确认依赖、登录态和 key 状态

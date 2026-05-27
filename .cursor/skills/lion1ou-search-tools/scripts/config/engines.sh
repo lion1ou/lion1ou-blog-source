@@ -6,6 +6,7 @@
 
 CONFIG_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILL_ROOT_DIR="$(cd "${CONFIG_DIR}/../.." && pwd)"
+SKILLS_ROOT_DIR="$(cd "${SKILL_ROOT_DIR}/.." && pwd)"
 
 load_env_file() {
   local env_file="$1"
@@ -16,7 +17,7 @@ load_env_file() {
   set +a
 }
 
-load_env_file "${SKILL_ROOT_DIR}/.env"
+load_env_file "${SKILLS_ROOT_DIR}/.env"
 
 # --------------- 可用引擎列表 ---------------
 ENGINES=(
