@@ -1,3 +1,4 @@
+home: 首頁
 categories: 分類
 search: 搜尋
 tags: 標籤
@@ -5,7 +6,12 @@ tweets: 推文
 prev: 上一頁
 next: 下一頁
 comment: 留言
-archive_a: 彙整
-archive_b: 彙整：%s
+archives: 歸檔
 page: 第 %d 頁
 recent_posts: 最新文章
+close: 關閉
+posts_list: 目錄
+about: 關於
+projects: 專案
+rss: 訂閱
+main_site: 主站

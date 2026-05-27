@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="/css/projects.css">
+
+<article class="post page" id="projects">
+  <div class="post-content">
+    <%- page.content %>
+
+    <% if (page.projects && page.projects.length) { %>
+    <div class="project-grid">
+      <% page.projects.forEach(function(project){ %>
+        <div class="project-card">
+            <div class="project-image <%= project.image ? '' : 'no-image' %>">
+                <% if (project.image) { %>
+                    <img src="<%= project.image %>" alt="<%= project.title %>" loading="lazy">
+                <% } %>
+            </div>
+            
+            <div class="project-content">
+                <div class="project-header">
+                    <h3 class="project-title">
+                        <% if (project.url && project.url !== '#') { %>
+                            <a href="<%= project.url %>" target="_blank" rel="noopener"><%= project.title %></a>
+                        <% } else { %>
+                            <%= project.title %>
+                        <% } %>
+                    </h3>
+                    <% if (project.stars && project.stars !== '-') { %>
+                    <div class="project-stars" title="Stars">
+                        <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M14 5.445c0-.26-.185-.487-.442-.525l-4.47-.65L7.09.22C6.974.02 6.748-.063 6.54.053c-.085.048-.153.116-.2.2L4.34 4.27l-4.47.65c-.26.038-.444.265-.444.525 0 .105.035.207.1.29l3.233 3.15-7.63 4.45c-.064.254.088.513.342.576.106.026.216.004.31-.06l4.002-2.104 4.002 2.104c.23.12.513.032.633-.2.06-.115.08-.246.055-.375L10.237 8.89l3.233-3.15c.13-.128.182-.315.13-.495z"></path></svg>
+                        <%= project.stars %>
+                    </div>
+                    <% } %>
+                </div>
+                
+                <div class="project-desc">
+                    <%= project.description %>
+                </div>
+                
+                <div class="project-meta">
+                    <% if (project.tags && project.tags.length) { %>
+                    <div class="project-tags">
+                        <% project.tags.forEach(function(tag){ %>
+                            <span class="project-tag"><%= tag %></span>
+                        <% }) %>
+                    </div>
+                    <% } %>
+                    
+                    <div class="project-footer">
+                        <span class="project-status <%= (project.status || 'public').toLowerCase() %>">
+                            <%= project.status || 'Public' %>
+                        </span>
+                        
+                        <% if (project.url && project.url !== '#') { %>
+                        <div class="project-links">
+                            <a href="<%= project.url %>" target="_blank" rel="noopener">
+                                View Code &rarr;
+                            </a>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <% }) %>
+    </div>
+    <% } %>
+  </div>
+</article>

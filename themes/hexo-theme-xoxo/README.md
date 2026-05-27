@@ -78,9 +78,9 @@ post_info:
 
 ###### 统计 ######
 # 需要自己去各平台注册，获取相应的code
-baidu_analytics: 670319318804add6c99a71df6601f645
-google_analytics: UA-153662927-1
-cnzz_analytics: 1280415470
+baidu_analytics: xxxxx
+google_analytics: xxxxx
+cnzz_analytics: xxxxx
 
 ###### disqus评论  ######
 disqus_shortname: lion1ou
@@ -118,6 +118,39 @@ site_start_time: '2016-07-01 00:00:00'
 # 备案号
 bei_an: '浙ICP备2021029843号'
 
+```
+
+### 项目展示页 (Projects)
+
+1. 在 `themes/hexo-theme-xoxo/_config.yml` 的 `menu` 配置中添加项目页面链接：
+
+```yml
+menu:
+  # ...
+  projects: /projects
+```
+
+2. 在博客根目录 `source` 下创建 `projects/index.md`，并使用以下 Front Matter 格式配置项目：
+
+```yml
+---
+title: 开源项目
+date: 2024-05-20 10:00:00
+layout: projects
+comments: false
+projects:
+  - title: 项目名称
+    description: 项目简介...
+    image: https://example.com/image.jpg  # 可选，项目封面图
+    tags: 
+      - React
+      - TypeScript
+    url: https://github.com/username/repo
+    status: Public  # Public 或 Private
+    stars: 100+     # 可选，项目星标数
+    language: TypeScript # 可选，主要语言
+---
+这里可以写一些关于开源项目的总体介绍...
 ```
 
 ## TODO
