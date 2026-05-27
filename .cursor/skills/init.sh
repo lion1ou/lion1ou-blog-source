@@ -10,7 +10,9 @@ CONFIG_FILE="$SCRIPT_DIR/init-config.json"
 SKILLS_ENV_FILE="$SCRIPT_DIR/.env"
 SKILLS_ENV_EXAMPLE_FILE="$SCRIPT_DIR/.env.example"
 BAOYU_ENV_FILE="$PROJECT_DIR/.baoyu-skills/.env"
+BAOYU_ENV_LINK_TARGET="../.cursor/skills/.env"
 BAOYU_ENV_EXAMPLE_FILE="$PROJECT_DIR/.baoyu-skills/.env.example"
+BAOYU_ENV_EXAMPLE_LINK_TARGET="../.cursor/skills/.env.example"
 BAOYU_IMAGE_EXTEND_FILE="$PROJECT_DIR/.baoyu-skills/baoyu-image-gen/EXTEND.md"
 
 # 颜色定义
@@ -62,6 +64,92 @@ print_error() {
 
 print_info() {
   echo -e "  $1"
+}
+
+ensure_symlink() {
+  local link_path="$1"
+  local target="$2"
+
+  if [ -L "$link_path" ]; then
+    local current_target
+    current_target="$(readlink "$link_path")"
+    if [ "$current_target" = "$target" ]; then
+      return 0
+    fi
+    rm "$link_path"
+  elif [ -e "$link_path" ]; then
+    rm "$link_path"
+  fi
+
+  ln -s "$target" "$link_path"
+}
+
+merge_env_file() {
+  local source_file="$1"
+  local target_file="$2"
+
+  [ -f "$source_file" ] || return 0
+  [ ! -L "$source_file" ] || return 0
+
+  python3 - "$source_file" "$target_file" <<'PY'
+from pathlib import Path
+import sys
+
+source = Path(sys.argv[1])
+target = Path(sys.argv[2])
+
+def parse(path):
+    data = {}
+    order = []
+    if not path.exists():
+        return data, order
+    for line in path.read_text().splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        if key and key not in data:
+            data[key] = value
+            order.append(key)
+    return data, order
+
+source_data, source_order = parse(source)
+target_data, target_order = parse(target)
+changed = False
+for key in source_order:
+    value = source_data[key]
+    if key not in target_data or not target_data[key]:
+        target_data[key] = value
+        if key not in target_order:
+            target_order.append(key)
+        changed = True
+
+if not changed:
+    raise SystemExit(0)
+
+lines = []
+for line in target.read_text().splitlines() if target.exists() else []:
+    if line.strip() and not line.lstrip().startswith("#") and "=" in line:
+        key = line.split("=", 1)[0].strip()
+        if key in target_data:
+            line = f"{key}={target_data[key]}"
+    lines.append(line)
+
+existing_keys = {
+    line.split("=", 1)[0].strip()
+    for line in lines
+    if line.strip() and not line.lstrip().startswith("#") and "=" in line
+}
+missing = [key for key in target_order if key not in existing_keys]
+if missing:
+    if lines and lines[-1] != "":
+        lines.append("")
+    lines.append("# 从旧 baoyu .env 迁移的变量")
+    lines.extend(f"{key}={target_data[key]}" for key in missing)
+
+target.write_text("\n".join(lines).rstrip() + "\n")
+PY
 }
 
 # 检查命令是否存在
@@ -235,7 +323,11 @@ check_dependencies() {
   fi
 
   if [ -f "$BAOYU_ENV_FILE" ]; then
-    print_success ".baoyu-skills/.env 文件存在"
+    if [ -L "$BAOYU_ENV_FILE" ]; then
+      print_success ".baoyu-skills/.env 软链存在"
+    else
+      print_warning ".baoyu-skills/.env 不是软链；运行 'bash .claude/skills/init.sh --setup-env' 修正"
+    fi
     if grep -Eq '^(GOOGLE_API_KEY|OPENAI_API_KEY|AZURE_OPENAI_API_KEY|OPENROUTER_API_KEY|DASHSCOPE_API_KEY|ZAI_API_KEY|BIGMODEL_API_KEY|MINIMAX_API_KEY|REPLICATE_API_TOKEN|JIMENG_ACCESS_KEY_ID|ARK_API_KEY)=.+' "$BAOYU_ENV_FILE" 2>/dev/null; then
       print_success "至少一个 baoyu-image-gen 生图后端已配置"
     else
@@ -326,29 +418,14 @@ setup_env() {
     print_success ".cursor/skills/.env 文件已从 .env.example 创建"
   else
     cat > "$SKILLS_ENV_FILE" << 'EOF'
-# lion1ou skills 通用环境变量配置
+# lion1ou skills 统一环境变量配置
 TAVILY_API_KEY=
-TAVILY_KEY=
 GITHUB_TOKEN=
 XIAOHONGSHU_MCP_URL=https://xhs.n.lion1ou.tech:16666/mcp
 XHS_MCP_URL=
 DDG_GOOGLE_KEY=
 GROQ_API_KEY=
-OPENAI_API_KEY=
 CDP_PROXY_PORT=3456
-EOF
-    print_success ".cursor/skills/.env 文件已创建"
-  fi
-
-  if [ -f "$BAOYU_ENV_FILE" ]; then
-    print_success ".baoyu-skills/.env 已存在，保留原有配置"
-  elif [ -f "$BAOYU_ENV_EXAMPLE_FILE" ]; then
-    cp "$BAOYU_ENV_EXAMPLE_FILE" "$BAOYU_ENV_FILE"
-    print_success ".baoyu-skills/.env 文件已从 .env.example 创建"
-  else
-    cat > "$BAOYU_ENV_FILE" << 'EOF'
-# baoyu skills 环境变量配置
-# 复制为 .baoyu-skills/.env 后填写真实值；.env 不提交 Git。
 
 # 生图后端：任选一个或多个配置。baoyu-image-gen 会按配置和可用 key 自动选择。
 GOOGLE_API_KEY=
@@ -412,8 +489,15 @@ WECHAT_APP_SECRET=
 WECHAT_ALIAS_APP_ID=
 WECHAT_ALIAS_APP_SECRET=
 EOF
-    print_success ".baoyu-skills/.env 文件已创建"
+    print_success ".cursor/skills/.env 文件已创建"
   fi
+
+  merge_env_file "$BAOYU_ENV_FILE" "$SKILLS_ENV_FILE"
+  ensure_symlink "$BAOYU_ENV_FILE" "$BAOYU_ENV_LINK_TARGET"
+  print_success ".baoyu-skills/.env 已软链到 .cursor/skills/.env"
+
+  ensure_symlink "$BAOYU_ENV_EXAMPLE_FILE" "$BAOYU_ENV_EXAMPLE_LINK_TARGET"
+  print_success ".baoyu-skills/.env.example 已软链到 .cursor/skills/.env.example"
 
   if [ -f "$BAOYU_IMAGE_EXTEND_FILE" ]; then
     print_success "baoyu-image-gen EXTEND.md 已存在，保留原有配置"
@@ -473,8 +557,8 @@ EOF
     print_success "baoyu-image-gen EXTEND.md 文件已创建"
   fi
 
-  print_info "非 baoyu 配置文件位置: $SKILLS_ENV_FILE"
-  print_info "baoyu 配置文件位置: $BAOYU_ENV_FILE"
+  print_info "统一配置文件位置: $SKILLS_ENV_FILE"
+  print_info "baoyu 配置软链位置: $BAOYU_ENV_FILE"
 }
 
 # 运行健康检查
@@ -556,8 +640,8 @@ main() {
       fi
 
       print_header "初始化完成"
-      print_success "请按需编辑 .cursor/skills/.env 与 .baoyu-skills/.env 配置 API Keys"
-      print_info "非 baoyu 配置文件位置: $SKILLS_ENV_FILE"
+      print_success "请按需编辑 .cursor/skills/.env 配置 API Keys"
+      print_info "统一配置文件位置: $SKILLS_ENV_FILE"
       print_info "baoyu 配置文件位置: $BAOYU_ENV_FILE"
       ;;
   esac

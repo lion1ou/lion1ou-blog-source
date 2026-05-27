@@ -19,10 +19,10 @@ bash .claude/skills/init.sh --setup-env
 |------|------|
 | `init.sh` | 初始化脚本，检查和安装依赖 |
 | `init-config.json` | 配置文件，定义依赖和 API Keys |
-| `.cursor/skills/.env` | 非 baoyu skills 的统一本地环境变量文件 |
-| `.cursor/skills/.env.example` | 非 baoyu skills 的环境变量模板，随 Git 同步 |
-| `.baoyu-skills/.env` | baoyu-skills 统一本地环境变量文件 |
-| `.baoyu-skills/.env.example` | baoyu-skills 的环境变量模板，随 Git 同步 |
+| `.cursor/skills/.env` | 全部 skills 的唯一实际本地环境变量文件 |
+| `.cursor/skills/.env.example` | 全部 skills 的环境变量模板，随 Git 同步 |
+| `.baoyu-skills/.env` | 指向 `.cursor/skills/.env` 的软链，兼容 baoyu-skills 默认读取路径 |
+| `.baoyu-skills/.env.example` | 指向 `.cursor/skills/.env.example` 的软链 |
 
 ## 依赖清单
 
@@ -58,10 +58,10 @@ python3 -m playwright install chromium
 
 ## API Keys 配置
 
-本项目按 skill 读取习惯分流配置：
+本项目使用单一 `.env` 文件，并通过软链兼容 baoyu-skills 的默认读取路径：
 
-- 除 baoyu-skills 外，统一使用 `.cursor/skills/.env`。
-- baoyu-skills 相关配置统一使用 `.baoyu-skills/.env`。
+- 实际配置文件统一使用 `.cursor/skills/.env`。
+- `.baoyu-skills/.env` 是软链，指向 `.cursor/skills/.env`。
 - 所有 `.env` 只保留本地，不随 Git 同步；Git 同步对应的 `.env.example`。
 
 初始化脚本会在缺失时从 `.env.example` 创建本地 `.env`：
@@ -70,23 +70,17 @@ python3 -m playwright install chromium
 bash .claude/skills/init.sh --setup-env
 ```
 
-非 baoyu 配置写入 `.cursor/skills/.env`：
+配置统一写入 `.cursor/skills/.env`：
 
 ```env
 TAVILY_API_KEY=
-TAVILY_KEY=
 GITHUB_TOKEN=
 XIAOHONGSHU_MCP_URL=https://xhs.n.lion1ou.tech:16666/mcp
 XHS_MCP_URL=
 DDG_GOOGLE_KEY=
 GROQ_API_KEY=
-OPENAI_API_KEY=
 CDP_PROXY_PORT=3456
-```
 
-编辑 `.baoyu-skills/.env` 文件，填入 baoyu 相关 API Keys：
-
-```env
 # 生图后端任选一个或多个
 GOOGLE_API_KEY=xxxxxxxxxx
 OPENAI_API_KEY=sk-xxxxxxxxxx
@@ -132,10 +126,10 @@ smart-search / opencli-*
 
 baoyu-skills
   ├── bun
-  └── .baoyu-skills/.env
+  └── .baoyu-skills/.env -> ../.cursor/skills/.env
 
 baoyu-image-gen
-  ├── .baoyu-skills/.env
+  ├── .baoyu-skills/.env -> ../.cursor/skills/.env
   ├── .baoyu-skills/baoyu-image-gen/EXTEND.md
   └── 至少一个生图后端:
       ├── GOOGLE_API_KEY
@@ -183,7 +177,6 @@ bash .claude/skills/init.sh --help
 2. **配置 API Keys**：
    ```bash
    vim .cursor/skills/.env
-   vim .baoyu-skills/.env
    ```
 
 3. **验证配置**：
@@ -232,5 +225,5 @@ brew upgrade poppler qpdf tesseract
 
 1. 克隆项目
 2. 运行 `bash .claude/skills/init.sh`
-3. 按 `.cursor/skills/.env.example` 和 `.baoyu-skills/.env.example` 填写本地密钥
+3. 按 `.cursor/skills/.env.example` 填写本地密钥
 4. 运行 `bash .claude/skills/init.sh --check-only` 确认依赖、登录态和 key 状态

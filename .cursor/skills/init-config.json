@@ -5,8 +5,8 @@
   "entrypoint": ".claude/skills/init.sh",
   "notes": [
     ".claude/skills 通过软链指向 .cursor/skills，对外入口保持 .claude/skills/init.sh",
-    "除 baoyu-skills 外，所有 skill 环境变量统一放在 .cursor/skills/.env",
-    "baoyu-skills 统一读取项目根目录 .baoyu-skills/.env",
+    "所有 skill 环境变量统一放在 .cursor/skills/.env",
+    ".baoyu-skills/.env 通过软链指向 .cursor/skills/.env，以兼容 baoyu-skills 默认读取路径",
     ".env 文件只保留本地，Git 同步 .env.example"
   ],
 
@@ -35,14 +35,16 @@
       "description": "微信公众号 API",
       "envKey": ["WECHAT_APP_ID", "WECHAT_APP_SECRET"],
       "required": false,
-      "configFile": ".baoyu-skills/.env",
+      "configFile": ".cursor/skills/.env",
       "获取方式": "微信公众平台 -> 开发 -> 基本配置"
     }
   },
 
   "imageGeneration": {
-    "configFile": ".baoyu-skills/.env",
-    "exampleFile": ".baoyu-skills/.env.example",
+    "configFile": ".cursor/skills/.env",
+    "compatSymlink": ".baoyu-skills/.env",
+    "exampleFile": ".cursor/skills/.env.example",
+    "exampleCompatSymlink": ".baoyu-skills/.env.example",
     "preferencesFile": ".baoyu-skills/baoyu-image-gen/EXTEND.md",
     "defaultProvider": "google",
     "defaultQuality": "2k",
@@ -174,30 +176,41 @@
     "opencli-browser": ["opencli"],
     "opencli-autofix": ["opencli"],
     "opencli-adapter-author": ["opencli"],
-    "baoyu-skills": ["bun", ".baoyu-skills/.env"],
-    "baoyu-image-gen": ["bun", ".baoyu-skills/.env", ".baoyu-skills/baoyu-image-gen/EXTEND.md", "one-of-image-provider"],
+    "baoyu-skills": ["bun", ".cursor/skills/.env", ".baoyu-skills/.env symlink"],
+    "baoyu-image-gen": ["bun", ".cursor/skills/.env", ".baoyu-skills/.env symlink", ".baoyu-skills/baoyu-image-gen/EXTEND.md", "one-of-image-provider"],
     "baoyu-post-to-wechat": ["wechat-api-key"]
   },
 
   "envFiles": {
-    "nonBaoyu": {
+    "unified": {
       "envFile": ".cursor/skills/.env",
       "exampleFile": ".cursor/skills/.env.example",
+      "baoyuSymlink": ".baoyu-skills/.env",
+      "baoyuExampleSymlink": ".baoyu-skills/.env.example",
       "variables": [
         "TAVILY_API_KEY",
-        "TAVILY_KEY",
         "GITHUB_TOKEN",
         "XIAOHONGSHU_MCP_URL",
         "XHS_MCP_URL",
         "DDG_GOOGLE_KEY",
         "GROQ_API_KEY",
         "OPENAI_API_KEY",
-        "CDP_PROXY_PORT"
+        "CDP_PROXY_PORT",
+        "GOOGLE_API_KEY",
+        "GEMINI_API_KEY",
+        "AZURE_OPENAI_API_KEY",
+        "OPENROUTER_API_KEY",
+        "DASHSCOPE_API_KEY",
+        "ZAI_API_KEY",
+        "BIGMODEL_API_KEY",
+        "MINIMAX_API_KEY",
+        "REPLICATE_API_TOKEN",
+        "JIMENG_ACCESS_KEY_ID",
+        "JIMENG_SECRET_ACCESS_KEY",
+        "ARK_API_KEY",
+        "WECHAT_APP_ID",
+        "WECHAT_APP_SECRET"
       ]
-    },
-    "baoyu": {
-      "envFile": ".baoyu-skills/.env",
-      "exampleFile": ".baoyu-skills/.env.example"
     }
   }
 }
