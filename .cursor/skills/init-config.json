@@ -1,0 +1,177 @@
+{
+  "version": "1.1.0",
+  "description": "lion1ou skills 初始化配置",
+  "lastUpdated": "2026-05-27",
+  "entrypoint": ".claude/skills/init.sh",
+  "notes": [
+    ".claude/skills 通过软链指向 .cursor/skills，对外入口保持 .claude/skills/init.sh",
+    "已有单个 skill 自己的 .env 不由初始化脚本修改，例如 lion1ou-search-tools/.env",
+    "baoyu-skills 统一读取项目根目录 .baoyu-skills/.env",
+    "本仓库为个人私有仓库，真实密钥允许随 git 同步"
+  ],
+
+  "apiKeys": {
+    "tavily": {
+      "description": "Tavily 搜索 API Key",
+      "envKey": "TAVILY_API_KEY",
+      "required": false,
+      "configFile": ".cursor/skills/lion1ou-search-tools/.env",
+      "获取方式": "https://tavily.com 注册获取"
+    },
+    "wechat": {
+      "description": "微信公众号 API",
+      "envKey": ["WECHAT_APP_ID", "WECHAT_APP_SECRET"],
+      "required": false,
+      "configFile": ".baoyu-skills/.env",
+      "获取方式": "微信公众平台 -> 开发 -> 基本配置"
+    }
+  },
+
+  "imageGeneration": {
+    "configFile": ".baoyu-skills/.env",
+    "preferencesFile": ".baoyu-skills/baoyu-image-gen/EXTEND.md",
+    "defaultProvider": "google",
+    "defaultQuality": "2k",
+    "providers": {
+      "google": {
+        "envKeys": ["GOOGLE_API_KEY"],
+        "modelEnvKey": "GOOGLE_IMAGE_MODEL",
+        "defaultModel": "gemini-3-pro-image-preview",
+        "supportsReferenceImage": true
+      },
+      "openai": {
+        "envKeys": ["OPENAI_API_KEY"],
+        "modelEnvKey": "OPENAI_IMAGE_MODEL",
+        "defaultModel": "gpt-image-2",
+        "supportsReferenceImage": true
+      },
+      "azure": {
+        "envKeys": ["AZURE_OPENAI_API_KEY", "AZURE_OPENAI_DEPLOYMENT"],
+        "modelEnvKey": "AZURE_OPENAI_IMAGE_MODEL",
+        "defaultModel": "gpt-image-2",
+        "supportsReferenceImage": true
+      },
+      "openrouter": {
+        "envKeys": ["OPENROUTER_API_KEY"],
+        "modelEnvKey": "OPENROUTER_IMAGE_MODEL",
+        "defaultModel": "google/gemini-3.1-flash-image-preview",
+        "supportsReferenceImage": true
+      },
+      "dashscope": {
+        "envKeys": ["DASHSCOPE_API_KEY"],
+        "modelEnvKey": "DASHSCOPE_IMAGE_MODEL",
+        "defaultModel": "qwen-image-2.0-pro",
+        "supportsReferenceImage": "wan2.7-image-pro / wan2.7-image only"
+      },
+      "zai": {
+        "envKeys": ["ZAI_API_KEY", "BIGMODEL_API_KEY"],
+        "modelEnvKey": "ZAI_IMAGE_MODEL",
+        "defaultModel": "glm-image",
+        "supportsReferenceImage": false
+      },
+      "minimax": {
+        "envKeys": ["MINIMAX_API_KEY"],
+        "modelEnvKey": "MINIMAX_IMAGE_MODEL",
+        "defaultModel": "image-01",
+        "supportsReferenceImage": true
+      },
+      "replicate": {
+        "envKeys": ["REPLICATE_API_TOKEN"],
+        "modelEnvKey": "REPLICATE_IMAGE_MODEL",
+        "defaultModel": "google/nano-banana-2",
+        "supportsReferenceImage": true
+      },
+      "jimeng": {
+        "envKeys": ["JIMENG_ACCESS_KEY_ID", "JIMENG_SECRET_ACCESS_KEY"],
+        "modelEnvKey": "JIMENG_IMAGE_MODEL",
+        "defaultModel": null,
+        "supportsReferenceImage": false
+      },
+      "seedream": {
+        "envKeys": ["ARK_API_KEY"],
+        "modelEnvKey": "SEEDREAM_IMAGE_MODEL",
+        "defaultModel": null,
+        "supportsReferenceImage": true
+      },
+      "codex-cli": {
+        "envKeys": [],
+        "requiredBins": ["codex", "bun"],
+        "defaultModel": "codex-image-gen",
+        "supportsReferenceImage": true,
+        "auth": "codex login"
+      }
+    }
+  },
+
+  "dependencies": {
+    "node": {
+      "minVersion": "22.0.0",
+      "用途": "web-access、opencli、baoyu scripts"
+    },
+    "python": {
+      "minVersion": "3.9.0",
+      "用途": "PDF处理、网页抓取"
+    },
+    "bun": {
+      "required": true,
+      "用途": "baoyu skills 脚本运行",
+      "安装命令": "curl -fsSL https://bun.sh/install | bash"
+    },
+    "opencli": {
+      "required": true,
+      "用途": "智能搜索、浏览器自动化",
+      "安装命令": "npm install -g @jackwener/opencli"
+    },
+    "mcporter": {
+      "required": true,
+      "用途": "小红书 MCP 调用",
+      "安装命令": "npm install -g mcporter"
+    }
+  },
+
+  "pythonPackages": [
+    "pypdf",
+    "pdfplumber",
+    "reportlab",
+    "pytesseract",
+    "pdf2image",
+    "scrapling[all]",
+    "pandas"
+  ],
+
+  "systemTools": {
+    "poppler": {
+      "用途": "PDF 文本提取 (pdftotext)",
+      "macOS安装": "brew install poppler"
+    },
+    "qpdf": {
+      "用途": "PDF 合并、分割",
+      "macOS安装": "brew install qpdf"
+    },
+    "tesseract": {
+      "用途": "OCR 文字识别",
+      "macOS安装": "brew install tesseract"
+    }
+  },
+
+  "browserConfig": {
+    "chrome远程调试": {
+      "启用方式": "Chrome 地址栏打开 chrome://inspect/#remote-debugging，勾选 Allow remote debugging",
+      "用途": "web-access skill 浏览器自动化"
+    }
+  },
+
+  "skillDependencies": {
+    "deep-research-pro": ["lion1ou-search-tools"],
+    "lion1ou-search-tools": ["tavily-api-key", "scrapling", "playwright-chromium"],
+    "pdf": ["pypdf", "pdfplumber", "reportlab", "poppler", "qpdf"],
+    "web-access": ["node-22+", "chrome-remote-debugging"],
+    "smart-search": ["opencli"],
+    "opencli-browser": ["opencli"],
+    "opencli-autofix": ["opencli"],
+    "opencli-adapter-author": ["opencli"],
+    "baoyu-skills": ["bun", ".baoyu-skills/.env"],
+    "baoyu-image-gen": ["bun", ".baoyu-skills/.env", ".baoyu-skills/baoyu-image-gen/EXTEND.md", "one-of-image-provider"],
+    "baoyu-post-to-wechat": ["wechat-api-key"]
+  }
+}
