@@ -49,7 +49,7 @@
 
 ### `baoyu-cover-image`
 
-用于生成文章封面。它用 5 个维度控制设计：类型、色板、渲染风格、文字、情绪，并支持参考图和快速模式。
+用于生成文章封面。它用 6 个维度控制设计：类型、色板、渲染风格、文字、情绪、字体，并支持参考图和快速模式。
 
 可借鉴点：
 
@@ -61,7 +61,7 @@
 复杂度控制：
 
 - `references/` 拆分色板、渲染、类型和自动选型规则。
-- 输出目录固定为 `cover-image/{slug}/`，含源内容、参考图、Prompt 和最终图。
+- 输出目录可配置，默认 `independent` 模式落在 `cover-image/{topic-slug}/`，也支持 `same-dir` 和 `imgs-subdir`，含源内容、参考图、Prompt 和最终图。
 - 禁止用 SVG 或 ImageMagick 事后修字来冒充生成结果，错误只能回到 Prompt 重做。
 
 ### `baoyu-article-illustrator`
@@ -153,7 +153,7 @@
 
 - 解决多图一致性的核心方法是 image-1 anchor chain：第 1 张先生成，后续图片以第 1 张为参考锚点。
 - Smart Confirm 提供三条路径：快速确认、自定义、详细三纲。
-- Style × Layout 有兼容矩阵，直接把不适合的组合排除。
+- Style × Layout 有兼容矩阵，用来标记不推荐的组合（`✗` 为 avoid），在用户选了非默认组合时提示。
 - 社交内容拆成封面、内容、结尾三段式。
 
 复杂度控制：
@@ -204,7 +204,7 @@
 - 复杂度梯度非常清晰：快翻、标准翻译、精翻。
 - 长文翻译前先提取术语和共享 Prompt，再分块并行翻译。
 - subagent 只负责初稿，审校、修改、润色由主 Agent 串行处理，避免风格漂移。
-- 每一步都有文件：分析、Prompt、初稿、批评、修订、终稿。
+- 各步骤的中间文件按模式产生：quick 只有终稿，normal 有分析、Prompt、终稿，refined 才完整覆盖分析、Prompt、初稿、批评、修订、终稿。
 
 复杂度控制：
 
@@ -252,7 +252,7 @@
 可借鉴点：
 
 - consent 版本化，版本不匹配时必须重新确认。
-- 专用 X API 和通用 URL 抓取分工清晰：一个适合批量和结构化，一个适合登录态浏览器。
+- 我的判断：专用 X API（本 skill）和通用 URL 抓取（`baoyu-url-to-markdown`）形成互补分工，一个适合批量和结构化，一个适合登录态浏览器。这是跨 skill 的全局归纳，本 skill 源文件本身不描述这种对比。
 - 媒体下载复用 ask-then-rerun 模型。
 
 复杂度控制：
@@ -274,7 +274,7 @@
 
 复杂度控制：
 
-- 处理超过 200 条或超过 7 天时拆成多段 digest，再做 meta-summary。
+- 处理范围超过 7 天或超过 500 条时拆成多段 digest，再做 meta-summary（超过 200 条则先把原始 JSON 写入 `$TMPDIR`，避免占用上下文，这是另一个阈值）。
 - 图片内容不透明时不编造，只读取已经存在的 `imgs/*.txt`。
 - 完成 checklist 防止漏写 history、profiles 和 digest。
 - 明确禁止 Agent 自动 sudo 或安装外部依赖。
@@ -351,8 +351,8 @@
 
 可借鉴点：
 
-- 输出分成 `extracted/`、`extracted.unpacked/`、`restored/` 和 `extract-report.json`，语义清楚。
-- 默认建议 `--dry-run`，先验证解析路径再写盘。
+- 输出分成 `extracted/`、`extract-report.json`，以及条件性的 `extracted.unpacked/`（存在 `.unpacked` 且未 `--no-unpacked` 时）和 `restored/`（至少有一个可用 `.js.map` 时），语义清楚。
+- 不确定 discovery 是否命中正确 bundle 时建议先 `--dry-run`，验证解析路径再写盘。
 - 多匹配 fail-fast，避免解错应用。
 - `extract-report.json` 记录警告、路径和计数，便于后续审阅。
 
@@ -378,9 +378,9 @@
 
 视觉类 skill 最常见的方法是把一个模糊需求拆成多个有限维度：
 
-- 封面：类型、色板、渲染、文字、情绪。
+- 封面：类型、色板、渲染、文字、情绪、字体。
 - 插图：类型、风格、色板。
-- 漫画：画风、语气、布局、角色。
+- 漫画：画风、语气、布局（角色表是依赖资产，不是正交维度）。
 - 信息图：布局、风格。
 - 小红书图：风格、布局、色板。
 - 幻灯片：材质、情绪、字体、密度。
@@ -420,7 +420,7 @@
 这些场景都会有门禁：
 
 - 逆向 API：consent 文件和免责声明版本。
-- 首次使用：阻塞式 `EXTEND.md` 设置。
+- 首次使用：部分 skill 用阻塞式 `EXTEND.md` 设置（如 cover-image、translate、xhs-images、post-to-wechat），另一些则直接用默认值不阻塞（如 slide-deck、format-markdown、compress-image、post-to-x）。
 - 发布：默认草稿或填完停，公开发布必须用户确认。
 - 覆盖输出：backup、`--force`、safe path 断言。
 - 浏览器自动化：真实 Chrome、专用 profile、pre-flight。
@@ -442,7 +442,7 @@
 
 长流程通常会落盘：
 
-- 翻译：`01-analysis.md`、`02-prompt.md`、`03-draft.md`、`04-critique.md`、`05-revision.md`、`translation.md`。
+- 翻译（refined 模式最全）：`01-analysis.md`、`02-prompt.md`、`03-draft.md`、`04-critique.md`、`05-revision.md`、`translation.md`，其中后三个仅 refined 才有。
 - 格式化：`*-analysis.md`、`*-formatted.md`。
 - 漫画：`analysis.md`、`storyboard.md`、`characters.png`、`prompts/`、页面图、PDF。
 - 信息图：`analysis.md`、`structured-content.md`、`prompts/infographic.md`。
@@ -455,7 +455,7 @@
 这些 skill 对并行很克制：
 
 - 图像生成默认顺序，多 Prompt 文件才批量。
-- 插图和漫画先有全局 outline，再并行或批量生成。
+- 插图先有全局 `outline.md`、漫画先有 `storyboard.md` 和角色表，再并行或批量生成。
 - 翻译可以并行分块，但审改润必须主 Agent 串行。
 - subagent 用于创意探索或分块初稿，不用于不可控的发布动作。
 
@@ -496,7 +496,7 @@ Step 6：完成报告和下一步
 
 - 翻译：quick、normal、refined。
 - 格式化：仅 typography、保留结构、全面优化。
-- URL 抓取：headless、interaction、force。
+- URL 抓取：`--wait-for` 的 none、interaction、force 三档（`--headless` 是另一个独立 flag）。
 - 群聊总结：单日、小范围、多日拆分、meta-summary。
 - 小红书卡片：快速确认、自定义、三纲选择。
 
@@ -568,7 +568,7 @@ Step 6：完成报告和下一步
 - 微博和 X 默认只填编辑器，不点发布。
 - X 自动提交必须显式 `--submit`。
 - Remote API 不把 AppSecret 放到远程。
-- CDP 故障只 kill 专用 Chrome profile。
+- CDP 故障的清理策略因 skill 而异：微博只 kill baoyu 专用 Chrome profile，X 则用 `pkill -f "Chrome.*remote-debugging-port"` 清理所有 CDP 实例。
 
 这类规则让自动化工具不会因为一次误判造成不可逆公开动作。
 
