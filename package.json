@@ -28,7 +28,8 @@
     "hexo-renderer-marked": "^4.0.0",
     "hexo-renderer-stylus": "^2.0.0",
     "hexo-server": "^2.0.0",
-    "hexo-wordcount": "^6.0.1"
+    "hexo-wordcount": "^6.0.1",
+    "qiniu": "^7.15.2"
   },
   "devDependencies": {},
   "engines": {
