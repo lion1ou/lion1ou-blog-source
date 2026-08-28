@@ -1,9 +1,0 @@
-[
-{"engine":"tavily","status":"ok","latency_ms":1303,"sample":2},
-{"engine":"duckduckgo","status":"empty","latency_ms":1487,"sample":0},
-{"engine":"google","status":"empty","latency_ms":40,"sample":0},
-{"engine":"github","status":"ok","latency_ms":475,"sample":2},
-{"engine":"baidu","status":"empty","latency_ms":44,"sample":0},
-{"engine":"bing","status":"ok","latency_ms":645,"sample":2},
-{"engine":"web_search","status":"empty","latency_ms":1560,"sample":0},
-{"engine":"xhs","status":"ok","latency_ms":14101,"sample":2}]
