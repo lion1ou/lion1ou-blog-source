@@ -21,7 +21,7 @@
 
   <!-- 归档文章项  开始-->
   <div class="archive">
-    <a class="post-go" href="<%- config.root %><%- post.path %>">
+    <a class="post-go" href="<%- url_for(post.path) %>">
       <div class="item">
         <span class="date">
           <%- moment(post.date || '' ).format('MM-DD')%>
