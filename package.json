@@ -6,7 +6,7 @@
     "b": "hexo generate",
     "c": "hexo clean",
     "d": "hexo clean && hexo generate && hexo deploy",
-    "dev": "hexo clean && hexo generate && hexo server"
+    "dev": "hexo clean && hexo generate && hexo server --draft "
   },
   "hexo": {
     "version": "5.4.2"
@@ -15,6 +15,7 @@
     "hexo": "^5.0.0",
     "hexo-browsersync": "^0.3.0",
     "hexo-deployer-git": "^3.0.0",
+    "hexo-generator-alias": "^1.0.0",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-baidu-sitemap": "^0.1.9",
     "hexo-generator-category": "^1.0.0",
@@ -31,7 +32,6 @@
     "hexo-wordcount": "^6.0.1",
     "qiniu": "^7.15.2"
   },
-  "devDependencies": {},
   "engines": {
     "node": ">=16.0.0"
   }
