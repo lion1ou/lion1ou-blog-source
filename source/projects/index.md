@@ -4,6 +4,17 @@ date: 2024-05-20 10:00:00
 layout: projects
 comments: false
 projects:
+  - title: skill-ctl
+    description: 配置驱动的 Agent Skill 安装器。用注册表和分类表统一管理本地与外部 Skill，一条命令软链或复制到 Cursor、Claude、Codex 等 20 多种 Agent 目录，并提供本机 Web 管理页查看、启停和安装 Skill。基于 TypeScript + Node.js，已发布至 npm。
+    image: /images/projects/skill-ctl.png
+    tags:
+      - Agent Skill
+      - CLI
+      - TypeScript
+      - Node.js
+    url: https://github.com/lion1ou/skillctl
+    status: Public
+
   - title: 初韵日历
     description: 一款简洁、美观、易用的日历小工具，支持公历 / 农历、节假日、多主题与天气展示。基于 Vue 3 + TypeScript + Vite。
     image: https://cdn.lion1ou.tech/picGo/Snipaste_2026-02-03_21-02-22.png?imageslim
